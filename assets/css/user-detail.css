@@ -1,0 +1,47 @@
+.heading {
+    display: flex;
+    flex-direction: row;
+}
+
+.left-heading, .right-heading {
+    width: 50%;
+}
+
+.right-heading {
+    float: right;
+}
+
+.content {
+    width: 400px;
+    margin: 0 auto;
+}
+.avatar-image {
+    margin-top: 20px;
+}
+.avatar-image img {
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+}
+
+.detail {
+    border-top: 1px dotted #a1b3bc;
+    margin-top: 30px;
+    border-bottom: 1px dotted #a1b3bc;
+    padding: 20px 0;
+}
+
+.detail-payment {
+    margin-top: 20px;
+}
+
+.detail-payment a {
+    color: #000;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.detail-payment a:visited {
+    color: #000;
+    text-decoration: underline;
+}

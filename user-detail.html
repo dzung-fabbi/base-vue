@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chi tiết user</title>
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/common.css" rel="stylesheet">
+    <link href="assets/css/user-detail.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+</head>
+<body>
+<!-- ================header nav================ -->
+<div class="header-nav">
+    <ul class="nav justify-content-end">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-body fw-bold" data-bs-toggle="dropdown" href="#" role="button"
+               aria-expanded="false">Admin</a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a class="dropdown-item text-body" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                             class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                  d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+                            <path fill-rule="evenodd"
+                                  d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+                        </svg>
+                        <span>Đăng xuất</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<!-- ================end header nav================ -->
+<!--================sidebar nav================-->
+<nav id="sidebar" class="col sidebar">
+    <a href="#" class="navbar-brand">
+        <img src="assets/img/logo.png" alt="logo" class="logo">
+    </a>
+    <ul class="nav flex-column vertical-nav">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff"
+                     class="bi bi-columns background-a1b3bc" viewBox="0 0 16 16">
+                    <path d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V2zm8.5 0v8H15V2H8.5zm0 9v3H15v-3H8.5zm-1-9H1v3h6.5V2zM1 14h6.5V6H1v8z"/>
+                </svg>
+                <span>Dashboard</span>
+            </a>
+        </li>
+        <li class='nav-item sub-menu'>
+            <a href='#'>
+                <i class="fa fa-users" aria-hidden="true"></i>
+                <span>Quản lý user</span>
+                <i class="fa fa-chevron-up right" aria-hidden="true"></i>
+            </a>
+            <ul class="child-item">
+                <li><a href='#'>List user</a></li>
+                <li><a href='#'>List Block, Report</a></li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+                <i class="fa fa-line-chart" aria-hidden="true"></i>
+                <span>Quản lý doanh thu</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+                <i class="fa fa-usd" aria-hidden="true"></i>
+                <span>Quản lý thanh toán</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+<!--================end sidebar nav================-->
+<!--================content================-->
+<div class="main background-f6f9fa">
+    <div class="heading">
+        <div class="left-heading"><h2>Tổng số user: 2000</h2></div>
+        <div class="right-heading">
+            <button type="button" class="btn btn-dark background-black float-end">Xóa user</button>
+            <button type="button" class="btn btn-secondary float-end me-2">Block user</button>
+            <button type="button" class="btn btn-dark background-black float-end me-2">Edit user</button>
+        </div>
+    </div>
+    <div class="content">
+        <div class="cover-image d-flex flex-column">
+            <span class="color-a1b3bc">Ảnh bìa</span>
+            <img src="assets/img/cover-image.png" class="img-fluid mt-2" alt="">
+        </div>
+        <div class="avatar-image d-flex flex-column">
+            <span class="color-a1b3bc">Ảnh Avatar</span>
+            <img src="assets/img/avatar.png" class="" alt="">
+        </div>
+        <div class="detail color-a1b3bc">
+            <div class="row mb-4">
+                <div class="col-6">Tên</div>
+                <div class="col-6 text-end">Mark</div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-6">Email</div>
+                <div class="col-6 text-end">abc@gmail.com</div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-6">Số điện thoại</div>
+                <div class="col-6 text-end">0866666666</div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-6">Giới tính</div>
+                <div class="col-6 text-end">Nữ</div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-6">Ngày sinh</div>
+                <div class="col-6 text-end">12.08.1988</div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-6">Follower</div>
+                <div class="col-6 text-end">314</div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-6">Following</div>
+                <div class="col-6 text-end">520</div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-6">Lượt yêu thích</div>
+                <div class="col-6 text-end">50k</div>
+            </div>
+            <div class="row">
+                <div class="col-6">Số point</div>
+                <div class="col-6 text-end">1000</div>
+            </div>
+        </div>
+        <div class="detail-payment">
+            <a href="#">Chi tiết giao dịch</a>
+        </div>
+    </div>
+</div>
+<!--================end content================-->
+<script src="assets/js/jquery-3.6.0.min.js"></script>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/common.js"></script>
+</body>
+</html>

@@ -2,6 +2,14 @@
     background-color: #a1b3bc !important;;
 }
 
+.background-black {
+    background-color: #000000 !important;
+}
+
+.background-c4c4c4 {
+    background-color: #c4c4c4 !important;
+}
+
 .color-a1b3bc {
     color: #a1b3bc !important;
 }
@@ -109,6 +117,7 @@ a.navbar-brand {
 #sidebar .sub-menu.active a:first-child {
     color: #61727b;
 }
+
 #sidebar .right {
     float: right;
 }
@@ -147,9 +156,14 @@ a:focus {
     outline: none !important;
     box-shadow: none !important;
 }
+
 .table-header .date {
     border: 1px solid #dee2e6;
     border-radius: .50rem;
+}
+
+button {
+    border-radius: .5rem !important;
 }
 
 .table-header #datepicker > span:hover {
@@ -170,6 +184,11 @@ a:focus {
 .paginate {
     margin-top: 20px;
 }
+
+.paginate {
+    margin-top: 20px;
+}
+
 .paginate .pagination .page-item a {
     padding: 2px 11px;
     border-radius: .5rem;
@@ -181,12 +200,26 @@ a:focus {
     color: #8b9da5;
     padding: 2px 8px;
 }
+
+.paginate .pagination .page-item:not(:last-child) {
+    margin-right: 15px;
+}
+
+.paginate .pagination-detail {
+    color: #000;
+}
+
+.paginate .pagination .page-item:first-child a,.paginate .pagination .page-item:last-child a {
+    color: #8b9da5;
+    padding: 2px 8px;
+}
 .paginate .pagination .page-item:not(:last-child) {
     margin-right: 15px;
 }
 .paginate .pagination-detail {
     color: #000;
 }
+
 .paginate .pagination-total {
     color: #8b9da5;
 }
