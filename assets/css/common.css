@@ -1,7 +1,11 @@
 .background-a1b3bc {
     background-color: #a1b3bc !important;;
 }
-
+.background-C4C4C4 {
+    background-color: #c4c4c4;
+    border-color: #C4C4C4;
+    color: #fff;
+}
 .background-black {
     background-color: #000000 !important;
 }
@@ -129,6 +133,7 @@ a.navbar-brand {
     padding: 20px;
     min-height: 100vh;
 }
+
 .main .heading h2 {
     color: #333333;
 }
@@ -184,6 +189,7 @@ button {
     margin-top: 20px;
     border-top: 1px solid #dee2e6;
 }
+
 .paginate {
     margin-top: 20px;
 }
@@ -199,7 +205,8 @@ button {
     color: #333333;
     font-weight: 600;
 }
-.paginate .pagination .page-item:first-child a,.paginate .pagination .page-item:last-child a {
+
+.paginate .pagination .page-item:first-child a, .paginate .pagination .page-item:last-child a {
     color: #8b9da5;
     padding: 2px 8px;
 }
@@ -212,13 +219,15 @@ button {
     color: #000;
 }
 
-.paginate .pagination .page-item:first-child a,.paginate .pagination .page-item:last-child a {
+.paginate .pagination .page-item:first-child a, .paginate .pagination .page-item:last-child a {
     color: #8b9da5;
     padding: 2px 8px;
 }
+
 .paginate .pagination .page-item:not(:last-child) {
     margin-right: 15px;
 }
+
 .paginate .pagination-detail {
     color: #000;
 }
@@ -226,6 +235,7 @@ button {
 .paginate .pagination-total {
     color: #8b9da5;
 }
+
 .switch-black input[type="checkbox"] {
     position: relative;
     width: 40px;
@@ -234,9 +244,10 @@ button {
     background: #C4C4C4;
     border-radius: 100px;
     outline: none;
-    box-shadow: inset 0 0 5px rgba(0,0,0,.2);
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, .2);
     transition: .5s;
 }
+
 .switch-black input[type="checkbox"]::before {
     content: '';
     position: absolute;
@@ -246,10 +257,63 @@ button {
     left: 0;
     background: #000;
     border-radius: 50%;
-    box-shadow: 0 2px 5px rgba(0,0,0,.2);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
     transform: scale(1.1);
     transition: .5s;
 }
+
 .switch-black input:checked[type="checkbox"]::before {
     left: 50%;
+}
+
+.checkbox-rounded {
+    position: relative;
+    padding: 20px 0 20px 40px;
+    text-align: left;
+}
+
+.checkbox-rounded label {
+    cursor: pointer;
+}
+
+.checkbox-rounded label:before,
+.checkbox-rounded label:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    border-radius: 50%;
+}
+
+.checkbox-rounded label:before {
+    left: 0;
+    width: 30px;
+    height: 30px;
+    margin: -15px 0 0;
+    background: #f7f7f7;
+    box-shadow: 0 0 1px grey;
+}
+
+.checkbox-rounded label:after {
+    left: 5px;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0;
+    opacity: 0;
+    background: #000000;
+    transform: translate3d(-40px, 0, 0) scale(0.5);
+    transition: opacity 0.25s ease-in-out, transform 0.25s ease-in-out;
+}
+
+.checkbox-rounded input[type="checkbox"], .checkbox-rounded input[type="radio"] {
+    position: absolute;
+    top: 0;
+    left: -9999px;
+    visibility: hidden;
+}
+
+.checkbox-rounded input[type="checkbox"]:checked + label:after,
+.checkbox-rounded input[type="radio"]:checked + label:after
+{
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
 }

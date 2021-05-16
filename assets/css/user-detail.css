@@ -15,9 +15,11 @@
     width: 400px;
     margin: 0 auto;
 }
+
 .avatar-image {
     margin-top: 20px;
 }
+
 .avatar-image img {
     border-radius: 50%;
     height: 100px;
@@ -44,4 +46,39 @@
 .detail-payment a:visited {
     color: #000;
     text-decoration: underline;
+}
+
+#edit-user-modal {
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 10000;
+}
+
+#edit-user-modal .dialog-edit-user {
+    width: 400px;
+}
+
+#edit-user-modal .detail {
+    border: none;
+    margin-top: 0;
+}
+
+#edit-user-modal .gender-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+#edit-user-modal .button-group button {
+    width: 165px;
+}
+
+#edit-user-modal .input-group-text {
+    background-color: #fff;
+}
+#edit-user-modal .date input {
+    border-left: none;
+}
+#edit-user-modal input[type="text"]:not(:last-child) {
+    margin-top: 5px;
 }
