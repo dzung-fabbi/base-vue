@@ -1,0 +1,25 @@
+.content-group {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.content-group .left-content,
+.content-group .right-content {
+    background-color: #fff;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 15px;
+}
+.content-group .left-content {
+    width: 400px;
+    margin-right: 20px;
+}
+.content-group .left-content .detail {
+    border: none;
+}
+.content-group .left-content .avatar-image img {
+    align-self: center;
+}
+.content-group .right-content {
+    width: calc(100% - 420px);
+}
