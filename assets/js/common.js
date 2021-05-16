@@ -4,9 +4,7 @@ $(".sub-menu a").click(function () {
     $(this).find(".right").toggleClass("fa-chevron-up fa-chevron-down");
     $(this).parent(".sub-menu").addClass('active');
 });
-$(function () {
-    // $('#datepicker').datepicker({
-    //     format: 'mm/dd/yyyy',
-    //     startDate: '-3d'
-    // });
-});
+$(document).ready(function () {
+    $('.active').children("ul").slideToggle("100");
+    $('.active').find(".right").toggleClass("fa-chevron-up fa-chevron-down");
+})

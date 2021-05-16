@@ -56,7 +56,9 @@
 #edit-user-modal .dialog-edit-user {
     width: 400px;
 }
-
+#edit-user-modal input {
+    color: #8B9DA5;
+}
 #edit-user-modal .detail {
     border: none;
     margin-top: 0;
