@@ -1,0 +1,26 @@
+.heading {
+    display: flex;
+    flex-direction: row;
+}
+
+.left-heading, .right-heading {
+    width: 50%;
+}
+
+.right-heading {
+    float: right;
+}
+.right-heading .input-group {
+    width: 300px;
+    float: right;
+    border: 1px solid #ECF1F3;
+    border-radius: 5px;
+}
+.right-heading input, .right-heading .date .input-group-text {
+    background-color: #f6f9fa;
+    padding: 0.6rem 0.8rem;
+    border: none;
+}
+.right-heading input:focus {
+    background-color: #f6f9fa;
+}
