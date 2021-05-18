@@ -135,6 +135,17 @@ a.navbar-brand {
     float: right;
 }
 
+#sidebar .sub-menu.active .child-item li.current a {
+    color: rgba(99, 164, 255, 1);
+    font-weight: 500;
+    font-size: 16px;
+}
+
+#sidebar .nav-item.current {
+    background-color: #F6F9FA;
+    border-left: 3px solid #63A4FF;
+}
+
 .main {
     margin-left: 245px;
     margin-top: 50px;
@@ -165,6 +176,7 @@ a.navbar-brand {
     border: none;
     color: #8B9DA5;
 }
+
 .table-header .filter select {
     background-color: #f6f9fa;
     padding: 0.6rem 0.8rem;
@@ -206,9 +218,11 @@ button {
     padding: 20px;
     border-radius: 10px;
 }
+
 .table-content thead tr {
     border-bottom: 1px solid #dee2e6;
 }
+
 .table-content thead tr th {
     padding: 15px 5px;
     border-bottom: none;
@@ -344,4 +358,64 @@ button {
 .checkbox-rounded input[type="radio"]:checked + label:after {
     transform: translate3d(0, 0, 0);
     opacity: 1;
+}
+
+.tab-slider--nav {
+    width: calc(100% - 420px);
+    float: right;
+    margin-top: 20px;
+}
+
+.tab-slider--tabs {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: relative;
+}
+
+.tab-slider--tabs .tab-title .top-title {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 23px;
+    color: rgba(51, 51, 51, 1);
+}
+
+.tab-slider--trigger .tab-title .bottom-title {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 32px;
+}
+
+.tab-slider--trigger {
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: color 250ms ease-in-out;
+    background: #fff;
+    border-radius: 10px;
+    width: calc((100% - 20px) / 2);
+}
+.tab-slider--trigger.active .tab-title .top-title,
+.tab-slider--trigger.active .tab-title .bottom-title
+{
+    color: #fff;
+}
+.tab-slider--trigger.active {
+    background: #C5CCFD;
+    transition: all 250ms ease-in-out;
+    border-radius: 10px;
+}
+.tab-slider--trigger.slide.active {
+    left: 50%;
+    color: #fff;
+}
+
+.tab-slider--body {
+    margin-bottom: 20px;
+}
+.table-content tbody tr td a {
+    text-decoration: none;
+    color: #8B9DA5;
 }
