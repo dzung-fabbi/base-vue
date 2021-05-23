@@ -11,6 +11,7 @@
     <link href="assets/css/user-detail.css" rel="stylesheet">
     <link href="assets/css/user-block-detail.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap" rel="stylesheet">
 </head>
 <body>
 <!-- ================header nav================ -->
@@ -18,7 +19,7 @@
     <ul class="nav justify-content-end">
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-body fw-bold" data-bs-toggle="dropdown" href="#" role="button"
-               aria-expanded="false">Admin</a>
+               aria-expanded="false">管理者</a>
             <ul class="dropdown-menu">
                 <li>
                     <a class="dropdown-item text-body" href="#">
@@ -29,7 +30,7 @@
                             <path fill-rule="evenodd"
                                   d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
                         </svg>
-                        <span>Đăng xuất</span>
+                        <span>ログアウト</span>
                     </a>
                 </li>
             </ul>
@@ -55,7 +56,7 @@
                     <path d="M18.5417 0H12.2917C11.4874 0 10.8333 0.654144 10.8333 1.45828V10.2083C10.8333 11.0126 11.4874 11.6667 12.2917 11.6667H18.5417C19.3458 11.6667 20 11.0126 20 10.2083V1.45828C20 0.654144 19.3458 0 18.5417 0V0Z"
                           fill="#A1B3BC"/>
                 </svg>
-                <span>Dashboard</span>
+                <span>ダッシュボード</span>
             </a>
         </li>
         <li class='nav-item sub-menu active'>
@@ -74,12 +75,12 @@
                     <path d="M17.3478 8.3996C16.3646 8.3996 15.6029 8.30882 14.7583 9.00077C16.7882 11.0733 16.4454 13.1389 16.4454 16.3285C16.4454 16.497 16.1719 16.4465 18.8103 16.4465C19.4665 16.4465 20.0001 15.9148 20.0001 15.2613V11.0359C20.0001 9.58241 18.8103 8.3996 17.3478 8.3996Z"
                           fill="#61727B"/>
                 </svg>
-                <span>Quản lý user</span>
+                <span>ユーザー管理</span>
                 <i class="fa fa-chevron-up right" aria-hidden="true"></i>
             </a>
             <ul class="child-item">
-                <li><a href='user-list.html'>List user</a></li>
-                <li class="current"><a href='user-block-list.html'>List Block, Report</a></li>
+                <li><a href='user-list.html'>ユーザー一覧</a></li>
+                <li class="current"><a href='user-block-list.html'>ブロック一覧管理</a></li>
             </ul>
         </li>
         <li class="nav-item sub-menu">
@@ -90,16 +91,16 @@
                     <path d="M19.4141 18.8281H18.7891V6.44531C18.7891 6.12152 18.5269 5.85938 18.2031 5.85938H15.8594C15.5356 5.85938 15.2734 6.12152 15.2734 6.44531V18.8281H14.1016V9.96094C14.1016 9.63715 13.8394 9.375 13.5156 9.375H11.1719C10.8481 9.375 10.5859 9.63715 10.5859 9.96094V18.8281H9.41406V14.6484C9.41406 14.3246 9.15192 14.0625 8.82812 14.0625H6.48438C6.16058 14.0625 5.89844 14.3246 5.89844 14.6484V18.8281H4.72656V12.3047C4.72656 11.9809 4.46442 11.7188 4.14062 11.7188H1.79688C1.47308 11.7188 1.21094 11.9809 1.21094 12.3047V18.8281H0.585938C0.262146 18.8281 0 19.0903 0 19.4141C0 19.7379 0.262146 20 0.585938 20H19.4141C19.7379 20 20 19.7379 20 19.4141C20 19.0903 19.7379 18.8281 19.4141 18.8281Z"
                           fill="#A1B3BC"/>
                 </svg>
-                <span>Quản lý doanh thu</span>
+                <span>売上管理</span>
                 <i class="fa fa-chevron-up right" aria-hidden="true"></i>
             </a>
             <ul class="child-item">
-                <li><a href='system-revenue.html'>Doanh thu hệ thống</a></li>
-                <li><a href='user-revenue.html'>Doanh thu user</a></li>
+                <li><a href='system-revenue.html'>総売上</a></li>
+                <li><a href='user-revenue.html'>出金管理</a></li>
             </ul>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="payment-management.html">
+        <li class="nav-item sub-menu">
+            <a class="nav-link" href="#">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0)">
                         <path d="M14.9629 6.14955C14.3653 5.90998 14.1926 5.76511 14.1926 5.50349C14.1926 5.29413 14.3512 5.04954 14.7983 5.04954C15.1937 5.04954 15.497 5.20546 15.4997 5.20681C15.5316 5.22384 15.5674 5.23291 15.6028 5.23291C15.6894 5.23291 15.7659 5.18055 15.7977 5.09948L15.9063 4.8218C15.9441 4.72062 15.8867 4.63246 15.8136 4.60083C15.5701 4.49485 15.0943 4.41284 15.0894 4.41199C15.0818 4.41064 15.0551 4.40494 15.0551 4.37377L15.0536 3.97095C15.0536 3.84964 14.9523 3.75088 14.8279 3.75088H14.6331C14.5088 3.75088 14.4076 3.84958 14.4076 3.971L14.4081 4.39452C14.4081 4.42699 14.3729 4.44108 14.36 4.44407C13.7594 4.58713 13.384 5.02711 13.384 5.58207C13.384 6.27391 13.9559 6.58654 14.5734 6.82121C15.067 7.01501 15.2684 7.21152 15.2684 7.49974C15.2684 7.81339 14.9832 8.03244 14.5746 8.03244C14.2258 8.03244 13.7536 7.8113 13.7489 7.80905C13.7187 7.79473 13.6867 7.78751 13.6538 7.78751C13.5639 7.78751 13.4857 7.84185 13.4544 7.92601L13.3507 8.20685C13.3138 8.3117 13.3706 8.39682 13.4432 8.4347C13.7332 8.58572 14.2943 8.67422 14.3193 8.67811C14.326 8.67907 14.3602 8.69107 14.3602 8.7223V9.14396C14.3602 9.26526 14.4615 9.36403 14.5859 9.36403H14.7872C14.9117 9.36403 15.013 9.26532 15.013 9.14396V8.70021C15.013 8.65872 15.0436 8.65505 15.0499 8.65353C15.6898 8.50979 16.0839 8.04163 16.0839 7.4538C16.0837 6.85001 15.7485 6.45987 14.9629 6.14955Z"
@@ -117,8 +118,13 @@
                         </clipPath>
                     </defs>
                 </svg>
-                <span>Quản lý thanh toán</span>
+                <span>決済管理</span>
+                <i class="fa fa-chevron-up right" aria-hidden="true"></i>
             </a>
+            <ul class="child-item">
+                <li><a href='system-revenue.html'>決済履歴</a></li>
+                <li><a href='user-revenue.html'>設定</a></li>
+            </ul>
         </li>
     </ul>
 </nav>
@@ -126,9 +132,9 @@
 <!--================content================-->
 <div class="main background-f6f9fa">
     <div class="heading">
-        <div class="left-heading"><h2>Chi tiết block, report</h2></div>
+        <div class="left-heading"><h2>報告詳細</h2></div>
         <div class="right-heading">
-            <button type="button" class="btn btn-secondary float-end me-2">Block user</button>
+            <button type="button" class="btn btn-secondary float-end me-2">ブロック</button>
         </div>
     </div>
     <div class="content-group">
@@ -138,50 +144,47 @@
             </div>
             <div class="detail color-8B9DA5">
                 <div class="row mb-4">
-                    <div class="col-6">Tên</div>
+                    <div class="col-6">名前</div>
                     <div class="col-6 text-end">Mark</div>
                 </div>
                 <div class="row mb-4">
-                    <div class="col-6">Email</div>
+                    <div class="col-6">メールアドレス</div>
                     <div class="col-6 text-end">abc@gmail.com</div>
                 </div>
                 <div class="row mb-4">
-                    <div class="col-6">Số điện thoại</div>
+                    <div class="col-6">電話番号</div>
                     <div class="col-6 text-end">0866666666</div>
                 </div>
                 <div class="row mb-4">
-                    <div class="col-6">Giới tính</div>
+                    <div class="col-6">性別</div>
                     <div class="col-6 text-end">Nữ</div>
                 </div>
                 <div class="row mb-4">
-                    <div class="col-6">Ngày sinh</div>
+                    <div class="col-6">生年月日</div>
                     <div class="col-6 text-end">12.08.1988</div>
                 </div>
                 <div class="row mb-4">
-                    <div class="col-6">Follower</div>
+                    <div class="col-6">フォロワー</div>
                     <div class="col-6 text-end">314</div>
                 </div>
                 <div class="row mb-4">
-                    <div class="col-6">Following</div>
+                    <div class="col-6">フォロー中</div>
                     <div class="col-6 text-end">520</div>
                 </div>
                 <div class="row mb-4">
-                    <div class="col-6">Lượt yêu thích</div>
+                    <div class="col-6">イイコ</div>
                     <div class="col-6 text-end">50k</div>
                 </div>
             </div>
         </div>
         <div class="right-content">
             <div class="table-header row">
-                <div class="input-group search">
-                <span class="input-group-text">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                         xmlns="http://www.w3.org/2000/svg">
-                        <path d="M19.7556 18.5774L14.0682 12.89C15.1699 11.5292 15.8332 9.80003 15.8332 7.91672C15.8332 3.55177 12.2815 0.00012207 7.91656 0.00012207C3.55161 0.00012207 0 3.55173 0 7.91669C0 12.2816 3.55165 15.8333 7.9166 15.8333C9.7999 15.8333 11.5291 15.17 12.8899 14.0683L18.5773 19.7558C18.7398 19.9182 18.9531 19.9999 19.1665 19.9999C19.3798 19.9999 19.5932 19.9182 19.7557 19.7558C20.0815 19.4299 20.0815 18.9033 19.7556 18.5774ZM7.9166 14.1666C4.46996 14.1666 1.66666 11.3633 1.66666 7.91669C1.66666 4.47004 4.46996 1.66675 7.9166 1.66675C11.3632 1.66675 14.1665 4.47004 14.1665 7.91669C14.1665 11.3633 11.3632 14.1666 7.9166 14.1666Z"
-                              fill="#8B9DA5"/>
-                    </svg>
-                </span>
-                    <input type="text" class="form-control" placeholder="Tìm theo tên, ID">
+                <div class="input-group filter">
+                    <select class="form-select" id="status-filter">
+                        <option selected>ステータス</option>
+                        <option value="1">アクティブ</option>
+                        <option value="2">ブロック</option>
+                    </select>
                 </div>
                 <div class="input-group date" id="datepicker" data-date-format="dd-mm-yyyy">
                 <span class="input-group-text">
@@ -211,12 +214,11 @@
                 <table class="table color-8B9DA5">
                     <thead>
                     <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Ngày</th>
-                        <th scope="col">Trạng thái</th>
-                        <th scope="col">Lý do</th>
-                        <th scope="col"></th>
+                        <th scope="col">ワンコインID</th>
+                        <th scope="col">報告・ブロック者</th>
+                        <th scope="col">日付</th>
+                        <th scope="col">Tステー</th>
+                        <th scope="col">理由</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -226,11 +228,6 @@
                         <td>12.08.2020</td>
                         <td>Block</td>
                         <td></td>
-                        <td>
-                            <div class="switch-black">
-                                <input type="checkbox" name="" id="">
-                            </div>
-                        </td>
                     </tr>
                     <tr>
                         <td>2</td>
@@ -238,11 +235,6 @@
                         <td>12.08.2020</td>
                         <td>Report</td>
                         <td>スパム、不正利用、不審な内容</td>
-                        <td>
-                            <div class="switch-black">
-                                <input type="checkbox" name="" id="">
-                            </div>
-                        </td>
                     </tr>
                     <tr>
                         <td>2</td>
@@ -250,11 +242,6 @@
                         <td>12.08.2020</td>
                         <td>Report</td>
                         <td>スパム、不正利用、不審な内容</td>
-                        <td>
-                            <div class="switch-black">
-                                <input type="checkbox" name="" id="">
-                            </div>
-                        </td>
                     </tr>
                     <tr>
                         <td>2</td>
@@ -262,11 +249,6 @@
                         <td>12.08.2020</td>
                         <td>Report</td>
                         <td>スパム、不正利用、不審な内容</td>
-                        <td>
-                            <div class="switch-black">
-                                <input type="checkbox" name="" id="">
-                            </div>
-                        </td>
                     </tr>
                     <tr>
                         <td>2</td>
@@ -274,11 +256,6 @@
                         <td>12.08.2020</td>
                         <td>Report</td>
                         <td>スパム、不正利用、不審な内容</td>
-                        <td>
-                            <div class="switch-black">
-                                <input type="checkbox" name="" id="">
-                            </div>
-                        </td>
                     </tr>
                     </tbody>
                 </table>
@@ -286,7 +263,7 @@
         </div>
     </div>
     <div class="paginate d-flex justify-content-end align-items-center">
-        <span class="pagination-detail">Hiển thị 20 user</span>
+        <span class="pagination-detail">表示： 1-20 件</span>
         <div class='pagination-container align-items-center ms-2'>
             <nav aria-label="Page navigation example">
                 <ul class="pagination mb-0">
@@ -306,7 +283,7 @@
                 </ul>
             </nav>
         </div>
-        <span class="pagination-total ms-2">Tổng số 12 trang</span>
+        <span class="pagination-total ms-2">総計：12ページ</span>
     </div>
 </div>
 <!--================end content================-->
