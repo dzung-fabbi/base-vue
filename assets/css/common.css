@@ -1,3 +1,7 @@
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
 .background-a1b3bc {
     background-color: #a1b3bc !important;;
 }
@@ -156,6 +160,7 @@ a.navbar-brand {
 
 .main .heading h2 {
     color: #333333;
+    font-weight: 700;
 }
 
 .table-header .input-group {
@@ -397,16 +402,18 @@ button {
     border-radius: 10px;
     width: calc((100% - 20px) / 2);
 }
+
 .tab-slider--trigger.active .tab-title .top-title,
-.tab-slider--trigger.active .tab-title .bottom-title
-{
+.tab-slider--trigger.active .tab-title .bottom-title {
     color: #fff;
 }
+
 .tab-slider--trigger.active {
     background: #C5CCFD;
     transition: all 250ms ease-in-out;
     border-radius: 10px;
 }
+
 .tab-slider--trigger.slide.active {
     left: 50%;
     color: #fff;
@@ -415,6 +422,7 @@ button {
 .tab-slider--body {
     margin-bottom: 20px;
 }
+
 .table-content tbody tr td a {
     text-decoration: none;
     color: #8B9DA5;
