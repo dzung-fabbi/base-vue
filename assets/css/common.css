@@ -39,7 +39,7 @@ body {
     width: 100%;
     z-index: 9998;
     background-color: #fff;
-    height: 50px;
+    height: 60px;
 }
 
 .header-nav .nav {
@@ -58,7 +58,7 @@ body {
     top: 0;
     left: 0;
     z-index: 9999;
-    width: 245px;
+    width: 260px;
     border-right: 1px solid #f6f9fa;
     height: 100%;
     background-color: #fff;
@@ -67,11 +67,15 @@ body {
 #sidebar .nav-item {
     text-align: left;
     padding: 10px 15px;
+    border-left: 3px solid transparent;
 }
 
 #sidebar .nav-item a {
     color: #A1B3BC;
 }
+#sidebar .nav-item a svg {
+     width: 30px;
+ }
 
 #sidebar .nav-item a.active {
     color: #61727b;
@@ -79,7 +83,7 @@ body {
 
 .logo {
     max-height: 50px;
-    margin: 10px 0;
+    margin: 40px 0;
 }
 
 a.navbar-brand {
@@ -116,7 +120,9 @@ a.navbar-brand {
     text-align: center;
     margin-right: 5px;
 }
-
+#sidebar .vertical-nav li .child-item {
+    padding-left: 40px;
+}
 #sidebar .vertical-nav li .child-item li a {
     background: #f6f9fa;
     border-left: 4px solid transparent;
@@ -151,9 +157,9 @@ a.navbar-brand {
 }
 
 .main {
-    margin-left: 245px;
+    margin-left: 260px;
     margin-top: 50px;
-    max-width: calc(100% - 245px);
+    max-width: calc(100% - 260px);
     padding: 20px;
     min-height: 100vh;
 }
