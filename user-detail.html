@@ -77,8 +77,10 @@
                 <span>ユーザー管理</span>
                 <i class="fa fa-chevron-up right" aria-hidden="true"></i>
             </a>
+
             <ul class="child-item">
                 <li class="current"><a href='user-list.html'>ユーザー一覧</a></li>
+                <li><a href='user-report-list.html'>ブロック一覧管理</a></li>
                 <li><a href='user-block-list.html'>ブロック一覧管理</a></li>
             </ul>
         </li>
@@ -95,7 +97,7 @@
             </a>
             <ul class="child-item">
                 <li><a href='system-revenue.html'>総売上</a></li>
-                <li><a href='user-revenue.html'>出金管理</a></li>
+                <li><a href='user-revenue.html'>収入管理</a></li>
             </ul>
         </li>
         <li class="nav-item sub-menu">
@@ -200,36 +202,36 @@
         <div class="modal-content">
             <div class="modal-body">
                 <div class="cover-image d-flex flex-column">
-                    <span class="color-8B9DA5">Ảnh bìa</span>
+                    <span class="color-8B9DA5 mb-2">カーバ</span>
                     <img src="assets/img/cover-image.png" class="img-fluid mt-2" alt="">
                 </div>
                 <div class="avatar-image d-flex flex-column">
-                    <span class="color-8B9DA5">Ảnh Avatar</span>
+                    <span class="color-8B9DA5 mb-2">アバーテ</span>
                     <img src="assets/img/avatar.png" class="" alt="">
                 </div>
                 <div class="detail color-8B9DA5">
                     <div class="row mb-4">
-                        <div class="col-12">Tên</div>
+                        <div class="col-12 mb-2">名前</div>
                         <div class="col-12 input-group">
-                            <input class="form-control" type="text" value="7批クオツ命雑レム" placeholder="Tên">
+                            <input class="form-control" type="text" value="7批クオツ命雑レム" placeholder="名前">
                         </div>
                     </div>
                     <div class="row mb-4">
-                        <div class="col-6">Email</div>
+                        <div class="col-6 mb-2">メールアドレス</div>
                         <div class="col-12 input-group">
-                            <input class="form-control" type="text" value="abc@gmail.com" placeholder="Email"
+                            <input class="form-control" type="text" value="abc@gmail.com" placeholder="メールアドレス"
                                    disabled>
                         </div>
                     </div>
                     <div class="row mb-4">
-                        <div class="col-6">Số điện thoại</div>
+                        <div class="col-6 mb-2">電話番号</div>
                         <div class="col-12 input-group">
                             <input class="form-control" type="text" value="1234 567 789"
-                                   placeholder="Số điện thoại">
+                                   placeholder="電話番号">
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-12">Giới tính</div>
+                        <div class="col-12">性別</div>
                         <div class="col-12 gender-group">
                             <div class="checkbox-rounded">
                                 <input type="radio" name="gender" id="male" />
@@ -245,7 +247,7 @@
                         </div>
                     </div>
                     <div class="row mb-4">
-                        <div class="col-6 mb-2">Ngày sinh</div>
+                        <div class="col-6 mb-2">生年月日</div>
                         <div class="input-group date" id="datepicker" data-date-format="dd-mm-yyyy">
                                 <span class="input-group-text">
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -271,9 +273,9 @@
                         </div>
                     </div>
                     <div class="button-group">
-                        <button type="button" class="btn background-C4C4C4 me-2">Hủy bỏ</button>
+                        <button type="button" class="btn background-C4C4C4 me-2"  data-bs-toggle="modal" data-bs-target="#edit-user-modal">キャンセル</button>
                         <button type="button" class="btn btn-dark background-black float-end me-2" data-bs-toggle="modal"
-                                data-bs-target="#edit-user-modal">Lưu
+                                data-bs-target="#edit-user-modal">保存
                         </button>
                     </div>
                 </div>
