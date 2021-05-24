@@ -1,27 +1,20 @@
 var ctx = document.getElementById('myChart').getContext('2d');
-var gradient = ctx.createLinearGradient(0, 0, 0, 1500);
-gradient.addColorStop(0, 'rgba(99,164,255, 0.25)')
-gradient.addColorStop(0.5, 'rgba(189,217,255, 0.10)');
-gradient.addColorStop(1, 'rgba(255,255,255, 0)');
-ctx.fillStyle = gradient;
-ctx.fillRect(20, 20, 150, 100);
+let data = [7000, 12000, 18000, 14000, 25000, 25000, 32000];
 
 var tooltipsLabel = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+        labels: [1, 5, 10, 15, 20, 25, 30],
         datasets: [{
-            data: [2000, 4000, 5000, 11000, 12000, 35000, 22000, 22000, 35000, 12000, 11000, 5000],
-            backgroundColor: [gradient],
+            data: data,
             borderColor: [
-                '#63A4FF',
+                '#000000',
             ],
-            borderWidth: 4,
-            lineTension: .5,
-            fill: 'start',
-            pointBorderWidth: 0,
+            borderWidth: 1,
+            pointRadius: 4,
+            pointBackgroundColor: "#fff",
         }],
     },
     options: {
@@ -56,7 +49,7 @@ var myChart = new Chart(ctx, {
                             titleFont: {
                                 weight: 'bold',
                                 titleAlign: 'center',
-                                color: 'red'
+                                color: 'red',
                             },
                         };
                     },
@@ -80,7 +73,7 @@ var myChart = new Chart(ctx, {
                     title: function (tooltipItem, data) {
                         return "Tháng: " + tooltipsLabel[tooltipItem[0].dataIndex];
                     },
-                    custom: function(tooltip) {
+                    custom: function (tooltip) {
                         if (!tooltip) return;
                         tooltip.displayColors = false;
                     }
@@ -88,20 +81,33 @@ var myChart = new Chart(ctx, {
                 backgroundColor: '#FFF',
                 titleColor: '#3C3C43',
                 bodyColor: '#000',
-                displayColors: true
+                displayColors: true,
             }
         },
         scales: {
             x: {
                 grid: {
-                    display: false
+                    display: false,
+                },
+                ticks: {
+                    font: {
+                        size: 14,
+                        family: "Noto Sans JP",
+                    }
                 },
             },
             y: {
                 suggestedMin: 0,
                 suggestedMax: 40000,
                 ticks: {
-                    stepSize: 10000
+                    stepSize: 10000,
+                    font: {
+                        size: 14,
+                        family: "Noto Sans JP",
+                    },
+                    callback: function (value, index, values) {
+                        return Intl.NumberFormat().format(value).replace('.', ',')
+                    },
                 },
                 grid: {
                     drawBorder: false,
@@ -110,4 +116,15 @@ var myChart = new Chart(ctx, {
         },
         bezierCurve: true,
     }
+});
+$('.tab-slider--trigger').on('click', function () {
+    if ($(this).attr("rel") === "tab1") {
+        data = [7000, 12000, 18000, 14000, 25000, 25000, 32000];
+    } else if ($(this).attr("rel") === "tab2") {
+        data = [2000, 4000, 18000, 5000, 25000, 3000, 32000];
+    } else {
+        data = [6000, 12000, 35000, 20000, 25000, 17000, 21000];
+    }
+    myChart.data.datasets[0].data = data;
+    myChart.update();
 });

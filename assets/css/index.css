@@ -7,6 +7,7 @@
 .heading {
     display: flex;
     flex-direction: row;
+    margin-bottom: 14px;
 }
 
 .left-heading h2 {
@@ -57,6 +58,11 @@
 .group-info .info-item .top-info {
     color: #333333;
     font-size: 16px;
+    font-weight: 500;
+}
+.group-info .info-item.active .top-info,
+.group-info .info-item.active .bottom-info {
+    color: #fff;
 }
 .group-info .info-item .bottom-info {
     font-size: 22px;
@@ -70,3 +76,6 @@
     font-weight: 700;
 }
 
+.tab-slider--tabs {
+    height: 80px;
+}
