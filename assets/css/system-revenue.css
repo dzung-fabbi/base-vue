@@ -3,12 +3,17 @@
     flex-direction: row;
 }
 
+.left-heading h2 {
+    font-size: 22px;
+    font-weight: 500;
+}
 .left-heading, .right-heading {
     width: 50%;
 }
 
 .right-heading {
     float: right;
+    padding-right: 20px;
 }
 .right-heading .input-group {
     width: 300px;
@@ -32,6 +37,11 @@
 .content-info .top-info {
     color: #333333;
 }
+.content-info .top-info h3 {
+    font-size: 16px;
+    font-weight: 500;
+}
 .content-info .bottom-info {
     font-size: 22px;
+    font-weight: bold;
 }
