@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Danh sách user</title>
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/css/system-revenue.css" rel="stylesheet">
+    <link href="assets/css/setting.css" rel="stylesheet">
     <link href="assets/css/common.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
     <link rel="stylesheet prefetch" href="assets/css/datepicker.css">
@@ -84,7 +84,7 @@
                 <li><a href='user-block-list.html'>ブロック一覧管理</a></li>
             </ul>
         </li>
-        <li class="nav-item sub-menu active">
+        <li class="nav-item sub-menu">
             <a class="nav-link" href="#">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M2.96875 9.375C3.44147 9.375 3.86932 9.18533 4.18549 8.88077L5.91995 9.74792C5.91125 9.81857 5.89844 9.888 5.89844 9.96094C5.89844 10.9302 6.68701 11.7188 7.65625 11.7188C8.62549 11.7188 9.41406 10.9302 9.41406 9.96094C9.41406 9.6904 9.34753 9.4371 9.23782 9.20792L11.5907 6.85501C11.8199 6.96472 12.0732 7.03125 12.3438 7.03125C13.313 7.03125 14.1016 6.24268 14.1016 5.27344C14.1016 5.09094 14.0657 4.91837 14.0138 4.75281L16.0582 3.21991C16.3371 3.40622 16.6714 3.51562 17.0312 3.51562C18.0005 3.51562 18.7891 2.72705 18.7891 1.75781C18.7891 0.788574 18.0005 0 17.0312 0C16.062 0 15.2734 0.788574 15.2734 1.75781C15.2734 1.94031 15.3093 2.11288 15.3612 2.27844L13.3168 3.81134C13.0379 3.62503 12.7036 3.51562 12.3438 3.51562C11.3745 3.51562 10.5859 4.3042 10.5859 5.27344C10.5859 5.54398 10.6525 5.79727 10.7622 6.02646L8.40927 8.37936C8.18008 8.26965 7.92679 8.20312 7.65625 8.20312C7.18353 8.20312 6.75568 8.39279 6.43951 8.69736L4.70505 7.8302C4.71375 7.75955 4.72656 7.69012 4.72656 7.61719C4.72656 6.64795 3.93799 5.85938 2.96875 5.85938C1.99951 5.85938 1.21094 6.64795 1.21094 7.61719C1.21094 8.58643 1.99951 9.375 2.96875 9.375Z"
@@ -97,10 +97,10 @@
             </a>
             <ul class="child-item">
                 <li><a href='system-revenue.html'>総売上</a></li>
-                <li class="current"><a href='user-revenue.html'>収入管理</a></li>
+                <li><a href='user-revenue.html'>収入管理</a></li>
             </ul>
         </li>
-        <li class="nav-item sub-menu">
+        <li class="nav-item sub-menu active">
             <a class="nav-link" href="#">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0)">
@@ -124,7 +124,7 @@
             </a>
             <ul class="child-item">
                 <li><a href='payment-management.html'>決済履歴</a></li>
-                <li><a href='setting.html'>設定</a></li>
+                <li class="current"><a href='setting.html'>設定</a></li>
             </ul>
         </li>
     </ul>
@@ -133,148 +133,74 @@
 <!--================content================-->
 <div class="main background-f6f9fa">
     <div class="heading">
-        <div class="left-heading"><h2>収入管理</h2></div>
+        <div class="left-heading"><h2>設定</h2></div>
         <div class="right-heading">
-            <button type="button" class="btn btn-dark background-black float-end me-2" data-bs-toggle="modal"
-                    data-bs-target="#edit-user-modal">CSV 出力
-            </button>
+            <a href="setting-edit.html">
+                <button type="button" class="btn btn-dark background-black float-end">編集
+                </button>
+            </a>
         </div>
     </div>
     <div class="content">
-        <div class="table-header row">
-            <div class="input-group search">
-                <span class="input-group-text">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                         xmlns="http://www.w3.org/2000/svg">
-                        <path d="M19.7556 18.5774L14.0682 12.89C15.1699 11.5292 15.8332 9.80003 15.8332 7.91672C15.8332 3.55177 12.2815 0.00012207 7.91656 0.00012207C3.55161 0.00012207 0 3.55173 0 7.91669C0 12.2816 3.55165 15.8333 7.9166 15.8333C9.7999 15.8333 11.5291 15.17 12.8899 14.0683L18.5773 19.7558C18.7398 19.9182 18.9531 19.9999 19.1665 19.9999C19.3798 19.9999 19.5932 19.9182 19.7557 19.7558C20.0815 19.4299 20.0815 18.9033 19.7556 18.5774ZM7.9166 14.1666C4.46996 14.1666 1.66666 11.3633 1.66666 7.91669C1.66666 4.47004 4.46996 1.66675 7.9166 1.66675C11.3632 1.66675 14.1665 4.47004 14.1665 7.91669C14.1665 11.3633 11.3632 14.1666 7.9166 14.1666Z"
-                              fill="#8B9DA5"/>
-                    </svg>
-                </span>
-                <input type="text" class="form-control" placeholder="名前・ワンコインID検索">
+        <div class="form-content">
+            <div class="form-header">
+                <div class="left-header">総合ランキング順位</div>
+                <div class="right-header">還元率</div>
+            </div>
+            <div class="form-input">
+                <div class="form-row">
+                    <div class="input-column">
+                        <input type="text" class="form-control" placeholder="" value="1%" disabled>
+                    </div>
+                    <div class="sign-column">
+                        <span>~</span>
+                    </div>
+                    <div class="input-column">
+                        <input type="text" class="form-control" placeholder="" value="30%" disabled>
+                    </div>
+                    <div class="sign-column">
+                        <span>=</span>
+                    </div>
+                    <div class="input-column">
+                        <input type="text" class="form-control" placeholder="" value="30%" disabled>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="input-column">
+                        <input type="text" class="form-control" placeholder="" value="31%" disabled>
+                    </div>
+                    <div class="sign-column">
+                        <span>~</span>
+                    </div>
+                    <div class="input-column">
+                        <input type="text" class="form-control" placeholder="" value="50%" disabled>
+                    </div>
+                    <div class="sign-column">
+                        <span>=</span>
+                    </div>
+                    <div class="input-column">
+                        <input type="text" class="form-control" placeholder="" value="20%" disabled>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="input-column">
+                        <input type="text" class="form-control" placeholder="" value="51%" disabled>
+                    </div>
+                    <div class="sign-column">
+                        <span>~</span>
+                    </div>
+                    <div class="input-column">
+                        <input type="text" class="form-control" placeholder="" value="100%" disabled>
+                    </div>
+                    <div class="sign-column">
+                        <span>=</span>
+                    </div>
+                    <div class="input-column">
+                        <input type="text" class="form-control" placeholder="" value="25%" disabled>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="table-content">
-            <table class="table color-8B9DA5">
-                <thead>
-                <tr>
-                    <th scope="col">ワンコインID</th>
-                    <th scope="col">名前</th>
-                    <th scope="col">ユーザータイプ</th>
-                    <th scope="col">総合ランキング</th>
-                    <th scope="col">総付与ポイント</th>
-                    <th scope="col">総使用コイン</th>
-                    <th scope="col"></th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td class="pt-3"><a href="user-revenue-detail.html">000001</a></td></td>
-                    <td class="pt-3">7批クオツ命雑レム</td>
-                    <td class="pt-3">視聴者</td>
-                    <td class="pt-3">5/1000</td>
-                    <td class="pt-3">689 Pt</td>
-                    <td class="pt-3">689 コイン</td>
-                    <td>
-                        <a href="user-revenue-detail.html">
-                            <button class="btn">
-                                <svg width="20" height="12" viewBox="0 0 20 12" fill="none"
-                                     xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M19.9259 5.76331C19.7684 5.53413 15.9834 0.16655 9.99995 0.16655C4.86569 0.16655 0.29062 5.50331 0.0981168 5.73081C-0.0327056 5.88581 -0.0327056 6.11331 0.0981168 6.26914C0.29062 6.49664 4.86569 11.8334 9.99995 11.8334C15.1342 11.8334 19.7092 6.49664 19.9017 6.26914C20.0226 6.12581 20.0334 5.91831 19.9259 5.76331ZM9.99995 11.0001C5.88407 11.0001 1.97065 7.07501 0.97649 5.99999C1.96901 4.92416 5.87825 0.999921 9.99995 0.999921C14.8158 0.999921 18.2151 4.91916 19.0451 5.97749C18.0867 7.01833 14.1508 11.0001 9.99995 11.0001Z"
-                                          fill="black" stroke="black" stroke-width="0.2"/>
-                                    <path d="M10 2.66659C8.16165 2.66659 6.66663 4.16161 6.66663 5.99996C6.66663 7.83831 8.16165 9.33333 10 9.33333C11.8384 9.33333 13.3334 7.83831 13.3334 5.99996C13.3334 4.16161 11.8384 2.66659 10 2.66659ZM10 8.50004C8.62166 8.50004 7.49996 7.37834 7.49996 6C7.49996 4.62166 8.62166 3.49996 10 3.49996C11.3783 3.49996 12.5 4.62166 12.5 6C12.5 7.37834 11.3783 8.50004 10 8.50004Z"
-                                          fill="black" stroke="black" stroke-width="0.2"/>
-                                </svg>
-                            </button>
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="pt-3"><a href="user-revenue-detail.html">000001</a></td></td>
-                    <td class="pt-3">7批クオツ命雑レム</td>
-                    <td class="pt-3">視聴者</td>
-                    <td class="pt-3">5/1000</td>
-                    <td class="pt-3">689 Pt</td>
-                    <td class="pt-3">689 コイン</td>
-                    <td>
-                        <a href="user-revenue-detail.html">
-                            <button class="btn">
-                                <svg width="20" height="12" viewBox="0 0 20 12" fill="none"
-                                     xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M19.9259 5.76331C19.7684 5.53413 15.9834 0.16655 9.99995 0.16655C4.86569 0.16655 0.29062 5.50331 0.0981168 5.73081C-0.0327056 5.88581 -0.0327056 6.11331 0.0981168 6.26914C0.29062 6.49664 4.86569 11.8334 9.99995 11.8334C15.1342 11.8334 19.7092 6.49664 19.9017 6.26914C20.0226 6.12581 20.0334 5.91831 19.9259 5.76331ZM9.99995 11.0001C5.88407 11.0001 1.97065 7.07501 0.97649 5.99999C1.96901 4.92416 5.87825 0.999921 9.99995 0.999921C14.8158 0.999921 18.2151 4.91916 19.0451 5.97749C18.0867 7.01833 14.1508 11.0001 9.99995 11.0001Z"
-                                          fill="black" stroke="black" stroke-width="0.2"/>
-                                    <path d="M10 2.66659C8.16165 2.66659 6.66663 4.16161 6.66663 5.99996C6.66663 7.83831 8.16165 9.33333 10 9.33333C11.8384 9.33333 13.3334 7.83831 13.3334 5.99996C13.3334 4.16161 11.8384 2.66659 10 2.66659ZM10 8.50004C8.62166 8.50004 7.49996 7.37834 7.49996 6C7.49996 4.62166 8.62166 3.49996 10 3.49996C11.3783 3.49996 12.5 4.62166 12.5 6C12.5 7.37834 11.3783 8.50004 10 8.50004Z"
-                                          fill="black" stroke="black" stroke-width="0.2"/>
-                                </svg>
-                            </button>
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="pt-3"><a href="user-revenue-detail.html">000001</a></td></td>
-                    <td class="pt-3">7批クオツ命雑レム</td>
-                    <td class="pt-3">視聴者</td>
-                    <td class="pt-3">5/1000</td>
-                    <td class="pt-3">689 Pt</td>
-                    <td class="pt-3">689 コイン</td>
-                    <td>
-                        <a href="user-revenue-detail.html">
-                            <button class="btn">
-                                <svg width="20" height="12" viewBox="0 0 20 12" fill="none"
-                                     xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M19.9259 5.76331C19.7684 5.53413 15.9834 0.16655 9.99995 0.16655C4.86569 0.16655 0.29062 5.50331 0.0981168 5.73081C-0.0327056 5.88581 -0.0327056 6.11331 0.0981168 6.26914C0.29062 6.49664 4.86569 11.8334 9.99995 11.8334C15.1342 11.8334 19.7092 6.49664 19.9017 6.26914C20.0226 6.12581 20.0334 5.91831 19.9259 5.76331ZM9.99995 11.0001C5.88407 11.0001 1.97065 7.07501 0.97649 5.99999C1.96901 4.92416 5.87825 0.999921 9.99995 0.999921C14.8158 0.999921 18.2151 4.91916 19.0451 5.97749C18.0867 7.01833 14.1508 11.0001 9.99995 11.0001Z"
-                                          fill="black" stroke="black" stroke-width="0.2"/>
-                                    <path d="M10 2.66659C8.16165 2.66659 6.66663 4.16161 6.66663 5.99996C6.66663 7.83831 8.16165 9.33333 10 9.33333C11.8384 9.33333 13.3334 7.83831 13.3334 5.99996C13.3334 4.16161 11.8384 2.66659 10 2.66659ZM10 8.50004C8.62166 8.50004 7.49996 7.37834 7.49996 6C7.49996 4.62166 8.62166 3.49996 10 3.49996C11.3783 3.49996 12.5 4.62166 12.5 6C12.5 7.37834 11.3783 8.50004 10 8.50004Z"
-                                          fill="black" stroke="black" stroke-width="0.2"/>
-                                </svg>
-                            </button>
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="pt-3"><a href="user-revenue-detail.html">000001</a></td></td>
-                    <td class="pt-3">7批クオツ命雑レム</td>
-                    <td class="pt-3">視聴者</td>
-                    <td class="pt-3">5/1000</td>
-                    <td class="pt-3">689 Pt</td>
-                    <td class="pt-3">689 コイン</td>
-                    <td>
-                        <a href="user-revenue-detail.html">
-                            <button class="btn">
-                                <svg width="20" height="12" viewBox="0 0 20 12" fill="none"
-                                     xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M19.9259 5.76331C19.7684 5.53413 15.9834 0.16655 9.99995 0.16655C4.86569 0.16655 0.29062 5.50331 0.0981168 5.73081C-0.0327056 5.88581 -0.0327056 6.11331 0.0981168 6.26914C0.29062 6.49664 4.86569 11.8334 9.99995 11.8334C15.1342 11.8334 19.7092 6.49664 19.9017 6.26914C20.0226 6.12581 20.0334 5.91831 19.9259 5.76331ZM9.99995 11.0001C5.88407 11.0001 1.97065 7.07501 0.97649 5.99999C1.96901 4.92416 5.87825 0.999921 9.99995 0.999921C14.8158 0.999921 18.2151 4.91916 19.0451 5.97749C18.0867 7.01833 14.1508 11.0001 9.99995 11.0001Z"
-                                          fill="black" stroke="black" stroke-width="0.2"/>
-                                    <path d="M10 2.66659C8.16165 2.66659 6.66663 4.16161 6.66663 5.99996C6.66663 7.83831 8.16165 9.33333 10 9.33333C11.8384 9.33333 13.3334 7.83831 13.3334 5.99996C13.3334 4.16161 11.8384 2.66659 10 2.66659ZM10 8.50004C8.62166 8.50004 7.49996 7.37834 7.49996 6C7.49996 4.62166 8.62166 3.49996 10 3.49996C11.3783 3.49996 12.5 4.62166 12.5 6C12.5 7.37834 11.3783 8.50004 10 8.50004Z"
-                                          fill="black" stroke="black" stroke-width="0.2"/>
-                                </svg>
-                            </button>
-                        </a>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="paginate d-flex justify-content-end align-items-center">
-        <span class="pagination-detail">表示： 1-20 件</span>
-        <div class='pagination-container align-items-center ms-2'>
-            <nav aria-label="Page navigation example">
-                <ul class="pagination mb-0">
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#" aria-label="Previous">
-                            <span aria-hidden="true"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
-                        </a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                            <span aria-hidden="true"><i class="fa fa-chevron-right" aria-hidden="true"></i></span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-        <span class="pagination-total ms-2">総計：12ページ</span>
     </div>
 </div>
 <!--================end content================-->

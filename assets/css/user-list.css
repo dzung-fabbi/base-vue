@@ -8,11 +8,14 @@
     text-align: center;
 }
 .content-info .top-info {
-    font-weight: 500;
     color: #333333;
 }
+.content-info .top-info h3 {
+     font-size: 16px;
+     font-weight: 500;
+ }
 .content-info .bottom-info {
-    font-weight: 700;
+    font-weight: bold;
     color: #000000;
     font-size: 22px;
 }
