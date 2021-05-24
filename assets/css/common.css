@@ -67,12 +67,17 @@ body {
 
 #sidebar .nav-item {
     text-align: left;
-    padding: 10px 15px;
+    padding: 10px 15px 10px 0;
     border-left: 3px solid transparent;
 }
 
 #sidebar .nav-item a {
     color: #A1B3BC;
+    margin-left: 15px;
+}
+#sidebar .nav-item a:hover {
+    background-color: transparent;
+    color: rgba(99, 164, 255, 1) !important;
 }
 #sidebar .nav-item a svg {
      width: 30px;
@@ -101,7 +106,7 @@ a.navbar-brand {
 
 #sidebar ul li a {
     display: block;
-    padding: 10px 15px;
+    padding: 10px 15px 10px 0;
     color: #333;
     text-decoration: none;
     -webkit-transition: 0.2s linear;
@@ -122,7 +127,7 @@ a.navbar-brand {
     margin-right: 5px;
 }
 #sidebar .vertical-nav li .child-item {
-    padding-left: 40px;
+    padding-left: 0;
 }
 #sidebar .vertical-nav li .child-item li a {
     background: #f6f9fa;
@@ -145,11 +150,22 @@ a.navbar-brand {
 #sidebar .right {
     float: right;
 }
+#sidebar .sub-menu.active .child-item li {
+    padding-left: 25px;
+}
+
+#sidebar .sub-menu.active .child-item li a:hover {
+    background-color: transparent;
+    color: rgba(99, 164, 255, 1);
+}
 
 #sidebar .sub-menu.active .child-item li.current a {
     color: rgba(99, 164, 255, 1);
     font-weight: 500;
     font-size: 16px;
+}
+#sidebar .sub-menu.active .child-item li.current {
+    border-left: 3px solid #63A4FF;
 }
 
 #sidebar .nav-item.current {
