@@ -1,10 +1,5 @@
-body {
-    font-family: 'Noto Sans JP', sans-serif;
-    font-weight: 500;
-}
-
 .background-a1b3bc {
-    background-color: #a1b3bc !important;;
+    background-color: #a1b3bc !important;
 }
 
 .background-C4C4C4 {
@@ -168,10 +163,10 @@ a.navbar-brand {
     border-left: 3px solid #63A4FF;
 }
 
-#sidebar .nav-item.current {
+#sidebar .nav-item:has(.router-link-active) {
     background-color: #F6F9FA;
     border-left: 3px solid #63A4FF;
-}
+  }
 
 .main {
     margin-left: 260px;
@@ -465,4 +460,14 @@ button {
 .table-content tbody tr td a {
     text-decoration: none;
     color: #8B9DA5;
+}
+.error {
+    font-size: 14px;
+    color: red;
+}
+
+#dropdown-right button {
+  background: none !important;
+  border: none;
+  color: #000;
 }
