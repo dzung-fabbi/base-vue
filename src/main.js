@@ -6,7 +6,7 @@ import store from "./store";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 import plugins from "./plugins";
-import { extend } from "vee-validate";
+import { ValidationObserver, ValidationProvider, extend } from "vee-validate";
 import * as rules from "vee-validate/dist/rules";
 import Meta from "vue-meta";
 import { loadVeeValidateExtend } from "./plugins/vee-validate";
@@ -24,6 +24,8 @@ Vue.use(Meta);
 Vue.component('default-layout', DashboardLayout);
 Vue.component('empty-layout', EmptyLayout);
 loadVeeValidateExtend();
+Vue.component("ValidationObserver", ValidationObserver);
+Vue.component("ValidationProvider", ValidationProvider);
 
 new Vue({
   router,
