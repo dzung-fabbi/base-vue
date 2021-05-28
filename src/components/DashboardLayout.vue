@@ -3,8 +3,8 @@
     <div class="header-nav">
       <ul class="nav justify-content-end">
         <li class="nav-item dropdown">
-          <b-dropdown id="dropdown-right" right text="管理者" class="nav-link text-body fw-bold">
-            <b-dropdown-item>
+          <b-dropdown id="dropdown-right" right :text="user.userName" class="nav-link text-body fw-bold">
+            <b-dropdown-item @click="logOut">
               <LogoutIcon />
               <span>ログアウト</span>
             </b-dropdown-item>
@@ -78,6 +78,7 @@ import RevenueIcon from "@/components/Icon/RevenueIcon";
 import PaymentIcon from "@/components/Icon/PaymentIcon";
 import LiveIcon from "@/components/Icon/LiveIcon";
 import LogoutIcon from "@/components/Icon/LogoutIcon";
+import Cookies from "js-cookie";
 export default {
   components: {
     DashboardIcon,
@@ -89,11 +90,19 @@ export default {
   },
   data()  {
     return {
-
+      user: null,
     }
   },
+  created() {
+    this.user = this.$store.getters["auth/user"];
+  },
   methods: {
-    
+    logOut() {
+      this.$root.$refs.loading.start();
+      Cookies.remove("access_token");
+      this.$router.push({ name: "Login" });
+      this.$root.$refs.loading.finish();
+    },
   }
 };
 </script>

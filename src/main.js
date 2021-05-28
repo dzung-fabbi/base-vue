@@ -6,17 +6,20 @@ import store from "./store";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 import plugins from "./plugins";
-import { ValidationObserver, ValidationProvider, extend } from "vee-validate";
+import { ValidationObserver, ValidationProvider, extend, localize } from "vee-validate";
 import * as rules from "vee-validate/dist/rules";
 import Meta from "vue-meta";
 import { loadVeeValidateExtend } from "./plugins/vee-validate";
 import DashboardLayout from './components/DashboardLayout.vue';
 import EmptyLayout from './components/EmptyLayout.vue';
-
+import DatePicker from "vue2-datepicker";
+import "vue2-datepicker/index.css";
+import ja from "vee-validate/dist/locale/ja.json";
 Object.keys(rules).forEach(rule => {
   extend(rule, rules[rule]);
 });
 
+localize("ja", ja);
 Vue.use(BootstrapVue);
 Vue.use(BootstrapVueIcons);
 Vue.use(plugins);
@@ -26,6 +29,7 @@ Vue.component('empty-layout', EmptyLayout);
 loadVeeValidateExtend();
 Vue.component("ValidationObserver", ValidationObserver);
 Vue.component("ValidationProvider", ValidationProvider);
+Vue.component('DatePicker', DatePicker);
 
 new Vue({
   router,
