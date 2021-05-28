@@ -163,10 +163,10 @@ a.navbar-brand {
     border-left: 3px solid #63A4FF;
 }
 
-#sidebar .nav-item.current {
+#sidebar .nav-item:has(.router-link-active) {
     background-color: #F6F9FA;
     border-left: 3px solid #63A4FF;
-}
+  }
 
 .main {
     margin-left: 260px;
@@ -464,4 +464,10 @@ button {
 .error {
     font-size: 14px;
     color: red;
+}
+
+#dropdown-right button {
+  background: none !important;
+  border: none;
+  color: #000;
 }
