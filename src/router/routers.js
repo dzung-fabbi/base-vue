@@ -128,6 +128,14 @@ export default [
           requireLogin: false,
         },
       },
+      {
+        path: "user/:id",
+        name: "RevenueUserDetail",
+        component: () => import("../views/Revenue/UserRevenueDetail.vue"),
+        meta: {
+          requireLogin: false,
+        },
+      },
     ]
   },
   {

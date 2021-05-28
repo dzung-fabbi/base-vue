@@ -4,11 +4,13 @@ import service from "@/utils/axios";
 export const state = {
   listUsers: [],
   statistical: {},
+  userDetail: {}
 }
 
 export const getters = {
   listUsers: state => state.listUsers,
   statistical: state => state.statistical,
+  userDetail: state => state.userDetail,
 };
 
 export const mutations = {
@@ -17,6 +19,9 @@ export const mutations = {
   },
   setStatistical(state, statistical) {
     state.statistical = statistical;
+  },
+  setUserDetail(state, userDetail) {
+    state.userDetail = userDetail;
   },
 };
 
@@ -36,6 +41,23 @@ export const actions = {
       method: "GET",
     }).then(response => {
       commit("setStatistical", response.data);
+    });
+  },
+  async getUserDetail({ commit }, params) {
+    await service({
+      url: api.GET_USER_DETAIL(params.userId),
+      method: "GET",
+    }).then(response => {
+      commit("setUserDetail", response.data);
+    });
+  },
+  async updateUserInfo({ commit }, body) {
+    await service({
+      url: api.UPDATE_USER_INFO(body.userId),
+      method: "PUT",
+      body
+    }).then(response => {
+      commit("setUserDetail", response.data);
     });
   },
 };
