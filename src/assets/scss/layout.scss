@@ -203,18 +203,30 @@ a.navbar-brand {
 
 .table-header .input-group .btn-filter {
     width: 100px;
+    height: 45px;
     background-color: #000000;
     color: #FFFFFF;
+    border-radius: 5px!important;
 }
 
 .table-header .search .input-group-text, .table-header .search input {
     background-color: #f6f9fa;
     border: none;
     padding: 0.6rem 0.8rem;
-    border-radius: .50rem;
+    border-radius: 5px;
     color: #8B9DA5;
 }
-
+.table-header .search input {
+    border-top-right-radius: 5px!important;
+    border-bottom-right-radius: 5px!important;
+}
+.table-header .search input, .table-header .filter select {
+    height: 45px;
+    width: 155px;
+}
+.table-header .date .max-height input {
+    max-height: 45px;
+}
 .table-header .date .input-group-text, .table-header .date input {
     background-color: #fff;
     padding: 0.6rem 0.8rem;
@@ -246,8 +258,9 @@ a:focus {
 
 .table-header .date {
     border: 1px solid #dee2e6;
-    border-radius: .50rem;
+    border-radius: 5px;
     flex-wrap: nowrap;
+    max-height: 45px;
 }
 
 button {
@@ -500,4 +513,18 @@ button {
     margin-top: 2px;
     margin-left: 25px;
     width: 225px;
+}
+#edit-user-modal #datepicker {
+    position: relative;
+}
+#edit-user-modal #datepicker .mx-datepicker .mx-input-wrapper input {
+    margin-top: 2px;
+    margin-left: 0;
+    padding-left: 30px;
+    height: 38px;
+    width: 100%;
+    color: #8B9DA5;
+}
+.hidden {
+    display: none!important;
 }
