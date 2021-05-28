@@ -22,7 +22,7 @@ export default [
     name: "Home",
     component: () => import("../views/Home.vue"),
     meta: {
-      requireLogin: false,
+      requireLogin: true,
     }
   },
   {
@@ -45,7 +45,7 @@ export default [
         name: "UserList",
         component: () => import("../views/User/List.vue"),
         meta: {
-          requireLogin: false,
+          requireLogin: true,
         },
       },
       {

@@ -49,6 +49,14 @@
     outline: none;
 }
 
+.header-nav .nav .dropdown-item svg {
+    margin-bottom: 2px;
+}
+
+.header-nav .nav .dropdown-item:active {
+    color: #212529;
+}
+
 #sidebar {
     position: fixed;
     top: 0;
@@ -177,7 +185,6 @@ a.navbar-brand {
 }
 
 .main .heading h2 {
-    margin-top: 18px;
     color: #333333;
     font-weight: 700;
     font-size: 22px;
@@ -192,6 +199,12 @@ a.navbar-brand {
 
 .table-header .input-group {
     width: 300px;
+}
+
+.table-header .input-group .btn-filter {
+    width: 100px;
+    background-color: #000000;
+    color: #FFFFFF;
 }
 
 .table-header .search .input-group-text, .table-header .search input {
@@ -234,6 +247,7 @@ a:focus {
 .table-header .date {
     border: 1px solid #dee2e6;
     border-radius: .50rem;
+    flex-wrap: nowrap;
 }
 
 button {
@@ -264,6 +278,7 @@ button {
 .table-content {
     margin-top: 20px;
     border-top: 1px solid #dee2e6;
+    text-align: left;
 }
 
 .paginate {
@@ -279,26 +294,27 @@ button {
 .paginate .pagination .page-item.disabled {
     cursor: default;
 }
-.paginate .pagination .page-item.disabled a {
+.paginate .pagination .page-item.disabled button {
     background-color: #ECF1F3;
 }
-.paginate .pagination .page-item a {
-    padding: 2px 11px 3px 11px;
+.paginate .pagination .page-item button {
+    padding: 3px 9px 4px 11px;
     border-radius: .5rem;
     border: 1px solid #8b9da5;
     color: #333333;
     font-weight: 600;
     font-size: 14px;
+    cursor: pointer;
 }
-.paginate .pagination .page-item:first-child a span {
+.paginate .pagination .page-item:first-child button span {
     margin-right: 3px;
 }
-.paginate .pagination .page-item:last-child a span {
+.paginate .pagination .page-item:last-child button span {
     margin-left: 3px;
 }
-.paginate .pagination .page-item:first-child a, .paginate .pagination .page-item:last-child a {
+.paginate .pagination .page-item:first-child button, .paginate .pagination .page-item:last-child button {
     color: #8b9da5;
-    padding: 2px 8px 3px 8px;
+    padding: 2px 8px 4px 9px;
 }
 
 .paginate .pagination .page-item:not(:last-child) {
@@ -470,4 +486,18 @@ button {
   background: none !important;
   border: none;
   color: #000;
+}
+
+#datepicker .mx-input-wrapper {
+    position: static;
+}
+#datepicker .mx-input-wrapper .mx-icon-calendar, #datepicker .mx-input-wrapper  .mx-icon-clear {
+    left: 8px;
+    right: unset;
+}
+#datepicker .mx-input-wrapper input {
+    height: 100%;
+    margin-top: 2px;
+    margin-left: 25px;
+    width: 225px;
 }

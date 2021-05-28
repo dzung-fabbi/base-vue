@@ -1,0 +1,24 @@
+.content-info-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.content-info-group .content-info {
+    width: calc((100% - 40px) / 3);
+    text-align: center;
+}
+.content-info .top-info {
+    color: #333333;
+}
+.content-info .top-info h3 {
+     font-size: 16px;
+     font-weight: 500;
+ }
+.content-info .bottom-info {
+    font-weight: bold;
+    color: #000000;
+    font-size: 22px;
+}
+.content-info-group .content-info:not(:last-child) {
+    margin-right: 20px;
+}
