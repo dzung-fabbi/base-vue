@@ -17,7 +17,10 @@ const router = createRouter();
 function createRouter() {
   const router = new Router({
     mode: "history",
-    routes
+    routes,
+    scrollBehavior() {
+      return { x: 0, y: 0 };
+    },
   });
 
   return router;

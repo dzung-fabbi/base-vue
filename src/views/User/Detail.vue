@@ -4,7 +4,7 @@
       <div class="heading">
         <div class="left-heading text-start"><h2>ユーザー情報詳細</h2></div>
         <div class="right-heading">
-          <b-button class="btn btn-dark background-black float-end">ブロック</b-button>
+          <b-button @click="blockUser" class="btn btn-dark background-black float-end">ブロック</b-button>
           <b-button type="button" class="btn btn-dark background-black float-end me-2" v-on:click="showModal">情報編集
           </b-button>
         </div>
@@ -20,44 +20,44 @@
         </div>
         <div class="detail color-8B9DA5">
           <div class="row mb-5">
-            <div class="col-6">名前</div>
-            <div class="col-6 text-end">{{ userInfo.name }}</div>
+            <div class="col-5">名前</div>
+            <div class="col-7 text-end">{{ userInfo.name }}</div>
           </div>
           <div class="row mb-5">
-            <div class="col-6">メールアドレス</div>
-            <div class="col-6 text-end">{{ userInfo.email }}</div>
+            <div class="col-5">メールアドレス</div>
+            <div class="col-7 text-end">{{ userInfo.email }}</div>
           </div>
           <div class="row mb-5">
-            <div class="col-6">電話番号</div>
-            <div class="col-6 text-end">{{ userInfo.phone }}</div>
+            <div class="col-5">電話番号</div>
+            <div class="col-7 text-end">{{ userInfo.phone }}</div>
           </div>
           <div class="row mb-5">
-            <div class="col-6">性別</div>
-            <div class="col-6 text-end">{{ userInfo.gender }}</div>
+            <div class="col-5">性別</div>
+            <div class="col-7 text-end">{{ userInfo.gender }}</div>
           </div>
           <div class="row mb-5">
-            <div class="col-6">生年月日</div>
-            <div class="col-6 text-end">{{ userInfo.birthday }}</div>
+            <div class="col-5">生年月日</div>
+            <div class="col-7 text-end">{{ userInfo.birthday }}</div>
           </div>
           <div class="row mb-5">
-            <div class="col-6">フォロワー</div>
-            <div class="col-6 text-end">{{ userInfo.follower }}</div>
+            <div class="col-5">フォロワー</div>
+            <div class="col-7 text-end">{{ userInfo.follower }}</div>
           </div>
           <div class="row mb-5">
-            <div class="col-6">フォロー中</div>
-            <div class="col-6 text-end">{{ userInfo.following }}</div>
+            <div class="col-5">フォロー中</div>
+            <div class="col-7 text-end">{{ userInfo.following }}</div>
           </div>
           <div class="row mb-5">
-            <div class="col-6">イイコ</div>
-            <div class="col-6 text-end">{{ userInfo.good }}</div>
+            <div class="col-5">イイコ</div>
+            <div class="col-7 text-end">{{ userInfo.good }}</div>
           </div>
           <div class="row mb-5">
-            <div class="col-6">ポイント</div>
-            <div class="col-6 text-end">{{ userInfo.point }}</div>
+            <div class="col-5">ポイント</div>
+            <div class="col-7 text-end">{{ userInfo.point }}</div>
           </div>
           <div class="row">
-            <div class="col-6">ステータス</div>
-            <div class="col-6 text-end">{{ userInfo.status }}</div>
+            <div class="col-5">ステータス</div>
+            <div class="col-7 text-end">{{ userInfo.status }}</div>
           </div>
         </div>
         <div class="detail-payment">
@@ -149,20 +149,12 @@
                       </ValidationProvider>
                     </div>
                   </div>
-                  <div class="row">
+                  <div class="row mb-2">
                     <div class="col-12">性別</div>
                     <div class="col-12 gender-group">
-                      <div class="checkbox-rounded">
-                        <input type="radio" v-model="dataChange.gender" id="male" value="男性"/>
-                        <label for="male">男性</label>
-                      </div>
-                      <div class="checkbox-rounded">
-                        <input type="radio" v-model="dataChange.gender" id="female" value="女性"/>
-                        <label for="female">女性</label>
-                      </div>
-                      <div class="checkbox-rounded">
-                        <input type="radio" v-model="dataChange.gender" id="secret" value="内緒"/>
-                        <label for="secret">内緒</label>
+                      <div class="checkbox-rounded" v-for="(gender, index) in USER_GENDER_OPTIONS" :key="index">
+                        <input type="radio" v-model="dataChange.gender" id="male" :value="gender.value"/>
+                        <label for="male">{{ gender.text }}</label>
                       </div>
                     </div>
                   </div>
@@ -175,18 +167,19 @@
                           v-slot="{ errors }"
                           class="w-100"
                       >
-                        <DatePicker
-                            type="date"
-                            class="f-w3 w-100"
+                        <b-form-datepicker
+                            id="modal-edit-user-date-picker"
                             v-model="dataChange.birthday"
-                            format="DD.MM.YYYY"
-                            value-type="DD.MM.YYYY"
-                            :popup-style="{ top: '429px', 'z-index': '10001',}"
+                            class="mb-2 modal-edit-user-date-picker"
+                            :date-format-options="{ year: 'numeric', month: 'numeric', day: 'numeric' }"
+                            placeholder="YYYY-MM-DD"
+                            locale="ja"
+                            :hide-header="true"
                         >
-                        <span slot="icon-calendar">
-                          <CalenderIcon/>
-                        </span>
-                        </DatePicker>
+                          <span slot="button-content">
+                            <CalenderIcon/>
+                          </span>
+                        </b-form-datepicker>
                         <span class="error text-left f-w3">{{ errors[0] }}</span>
                       </ValidationProvider>
                     </div>
@@ -210,7 +203,7 @@
 
 <script>
 import CalenderIcon from "@/components/Icon/CalenderIcon";
-import moment from "moment";
+import {MESSAGES, USER_GENDER_OPTIONS, MODAL} from "@/utils/const";
 
 export default {
   name: 'UserDetail',
@@ -252,6 +245,7 @@ export default {
         coverFile: null,
       },
       isShowModal: false,
+      USER_GENDER_OPTIONS,
     }
   },
   created() {
@@ -266,10 +260,10 @@ export default {
       await this.$store.dispatch('user/getUserDetail', params);
       this.userInfo = this.$store.getters['user/userDetail'];
       if (this.userInfo.birthday) {
-        this.userInfo.birthday = moment(this.userInfo.birthday).format('DD.MM.YYYY');
+        this.userInfo.birthday = this.$dayjs(this.userInfo.birthday).format('YYYY-MM-DD');
       }
       if (this.userInfo.gender) {
-        this.userInfo.gender = '女性';
+        this.userInfo.gender = 2;
       }
       this.dataChange = {...this.userInfo};
       this.$root.$refs.loading.finish();
@@ -292,13 +286,22 @@ export default {
       await this.$store.dispatch('user/updateUserInfo', body)
           .then(async () => {
             this.showModal();
-            this.$toast("Update user success", "通知", "success");
+            this.$toast(
+                MESSAGES.UPDATE_USER_SUCCESS,
+                MODAL.MODAL_NOTICE,
+                MODAL.MODAL_TYPE_SUCCESS
+            );
             await this.getUserDetail();
             this.$root.$refs.loading.finish();
           })
           .catch(error => {
+            console.log(error)
             this.$root.$refs.loading.finish();
-            this.$toast(error, "通知", "success");
+            this.$toast(
+                MESSAGES.UPDATE_USER_FAIL,
+                MODAL.MODAL_NOTICE,
+                MODAL.MODAL_TYPE_DANGER
+            );
           });
     },
     onChangeAvatar(e) {
@@ -354,6 +357,53 @@ export default {
         body.birthday = this.dataChange.birthday
       }
       return body;
+    },
+    blockUser() {
+      let isBlock = false;
+      this.$bvModal.msgBoxConfirm(MESSAGES.CONFIRM_BLOCK_USER, {
+        title: MODAL.CONFIRM_BLOCK_USER_TITLE,
+        size: 'sm',
+        buttonSize: 'sm',
+        okVariant: 'danger',
+        okTitle: MODAL.LABEL_OK,
+        cancelTitle: MODAL.LABEL_CANCEL,
+        footerClass: 'p-2',
+        hideHeaderClose: false,
+        centered: true,
+        headerClass: 'confirm-modal',
+      })
+          .then(async value => {
+            isBlock = value;
+            if (isBlock) {
+              this.$root.$refs.loading.start();
+              const body = {
+                userId: this.userInfo.id
+              }
+              await this.$store.dispatch('user/blockUser', body)
+                  .then(async () => {
+                    this.$toast(
+                        MESSAGES.BLOCK_USER_SUCCESS,
+                        MODAL.MODAL_NOTICE,
+                        MODAL.MODAL_TYPE_SUCCESS,
+                    );
+                    await this.getUserDetail();
+                    this.$root.$refs.loading.finish();
+                  })
+                  .catch(error => {
+                    console.log(error)
+                    this.$root.$refs.loading.finish();
+                    this.$toast(
+                        MESSAGES.BLOCK_USER_FAIL,
+                        MODAL.MODAL_NOTICE,
+                        MODAL.MODAL_TYPE_DANGER,
+                    );
+                  });
+            }
+          })
+          .catch(err => {
+            // An error occurred
+            console.log(err)
+          })
     }
   }
 }

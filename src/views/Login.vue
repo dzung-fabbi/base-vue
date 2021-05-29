@@ -65,6 +65,7 @@
 <script>
 import HiddenPasswordIcon from "@/components/Icon/HiddenPasswordIcon";
 import EyeIcon from "@/components/Icon/EyeIcon";
+import {MESSAGES, MODAL} from "@/utils/const";
 export default {
   components: {
     EyeIcon,
@@ -110,18 +111,18 @@ export default {
           .then(async () => {
             this.$root.$refs.loading.finish();
             this.$toast(
-                "You have successfully logged in",
-                "Notice",
-                "success"
+                MESSAGES.LOGIN_SUCCESS,
+                MODAL.MODAL_NOTICE,
+                MODAL.MODAL_TYPE_SUCCESS,
             );
             this.$router.push({ name: "Home" });
           })
           .catch(() => {
             this.$root.$refs.loading.finish();
             this.$toast(
-                "Incorrect account or password",
-                "Notice",
-                "danger"
+                MESSAGES.LOGIN_FAIL,
+                MODAL.MODAL_NOTICE,
+                MODAL.MODAL_TYPE_DANGER
             );
           });
     }

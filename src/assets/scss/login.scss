@@ -46,9 +46,12 @@
 }
 .login-content .password-group .btn-toggle-password {
     position: absolute;
-    right: 15px;
+    right: 5px;
     top: 44%;
 }
 .login-content .password-group .hidden {
     display: none;
+}
+.login-content .password-group input {
+    padding-right: 55px;
 }

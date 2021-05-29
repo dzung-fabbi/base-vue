@@ -534,3 +534,29 @@ button {
 .hidden {
     display: none!important;
 }
+.form-control.focus {
+    box-shadow: none!important;
+}
+.filter-user-date-picker {
+    width: 100%;
+    height: 80%;
+    border: none;
+    margin-top: 4px;
+}
+.filter-user-date-picker button,
+.filter-user-date-picker label,
+.modal-edit-user-date-picker label,
+.modal-edit-user-date-picker button {
+    color: #8B9DA5;
+    text-align: left;
+}
+.filter-user-date-picker button {
+    margin-top: 2px;
+}
+.modal-edit-user-date-picker {
+    border: 1px solid #ced4da;
+}
+.confirm-modal button {
+    background-color: transparent;
+    border: 1px solid transparent;
+}

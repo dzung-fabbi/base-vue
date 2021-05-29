@@ -60,4 +60,13 @@ export const actions = {
       commit("setUserDetail", response.data);
     });
   },
+  async blockUser(_, body) {
+    await service({
+      url: api.BLOCK_USER(body.userId),
+      method: "PUT",
+      body
+    }).then(response => {
+      console.log(response);
+    });
+  },
 };
