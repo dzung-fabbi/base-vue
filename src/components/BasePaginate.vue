@@ -1,6 +1,6 @@
 <template>
   <div class="paginate d-flex justify-content-end align-items-center">
-    <span class="pagination-detail">表示： {{ from_user }}-{{ this.to_user }} 件</span>
+    <span class="pagination-detail">表示： {{ fromRecord }}-{{ toRecord }} 件</span>
     <div class='pagination-container align-items-center ms-2'>
       <nav aria-label="Page navigation example">
         <ul class="pagination mb-0">
@@ -47,11 +47,16 @@ export default {
       required: true,
       default: 12,
     },
+    totalRecord: {
+      type: Number,
+      required: true,
+      default: 12,
+    }
   },
   data() {
     return {
-      from_user: 1,
-      to_user: 12,
+      from_record: 1,
+      to_record: 12,
     }
   },
   computed: {
@@ -61,11 +66,21 @@ export default {
     isInLastPage() {
       return this.currentPage === this.totalPage;
     },
-  },
-  watch: {
-    currentPage() {
-      this.setFromUser();
-      this.setToUser();
+    fromRecord() {
+      const fromUser = (this.perPage * this.currentPage) - (this.perPage - 1);
+      if (fromUser < this.totalRecord) {
+        return fromUser;
+      } else {
+        return this.totalRecord;
+      }
+    },
+    toRecord() {
+      const toUser = this.perPage * this.currentPage;
+      if (toUser > this.totalRecord) {
+        return this.totalRecord;
+      } else {
+        return toUser;
+      }
     }
   },
   methods: {
@@ -74,12 +89,6 @@ export default {
     },
     incrementPage() {
       this.$emit('onPageChanged', this.currentPage + 1);
-    },
-    setFromUser() {
-      this.from_user = (this.perPage * this.currentPage) - (this.perPage - 1);
-    },
-    setToUser() {
-      this.to_user = this.perPage * this.currentPage;
     },
   }
 }

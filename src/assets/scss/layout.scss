@@ -33,7 +33,7 @@
     top: 0;
     right: 0;
     width: 100%;
-    z-index: 9998;
+    z-index: 9;
     background-color: #fff;
     height: 60px;
 }
@@ -61,7 +61,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 9999;
+    z-index: 9;
     width: 260px;
     border-right: 1px solid #f6f9fa;
     height: 100%;
@@ -327,6 +327,9 @@ button {
 }
 .paginate .pagination .page-item button:focus {
     background-color: #fff;
+}
+.paginate .pagination .page-item.disabled button:focus {
+    background-color: #ECF1F3;
 }
 .paginate .pagination .page-item:first-child button span {
     margin-right: 3px;

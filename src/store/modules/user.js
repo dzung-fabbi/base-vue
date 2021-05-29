@@ -5,14 +5,14 @@ export const state = {
   listUsers: [],
   statistical: {},
   userDetail: {},
-  listBlockUser: [],
+  listReportUser: [],
 }
 
 export const getters = {
   listUsers: state => state.listUsers,
   statistical: state => state.statistical,
   userDetail: state => state.userDetail,
-  listBlockUser: state => state.listBlockUser,
+  listReportUser: state => state.listReportUser,
 };
 
 export const mutations = {
@@ -25,8 +25,8 @@ export const mutations = {
   setUserDetail(state, userDetail) {
     state.userDetail = userDetail;
   },
-  setBlockUserList(state, listBlockUser) {
-    state.listBlockUser = listBlockUser;
+  setReportUserList(state, listReportUser) {
+    state.listReportUser = listReportUser;
   },
 };
 
@@ -37,7 +37,7 @@ export const actions = {
       method: "GET",
       params
     }).then(response => {
-      commit("setListUsers", response.data);
+      commit("setListUsers", response);
     });
   },
   async getStatistical({ commit }) {
@@ -68,19 +68,21 @@ export const actions = {
   async blockUser(_, body) {
     await service({
       url: api.BLOCK_USER(body.userId),
-      method: "PUT",
-      body
+      method: "POST",
+      data: {
+        status: body.status
+      }
     }).then(response => {
       console.log(response);
     });
   },
-  async getBlockUserList({ commit }, params) {
+  async getReportUserList({ commit }, params) {
     await service({
-      url: api.GET_BLOCK_USER_LIST,
+      url: api.GET_REPORT_USER_LIST,
       method: "GET",
       params
     }).then(response => {
-      commit("setBlockUserList", response.data);
+      commit("setReportUserList", response);
     });
   },
   async deleteUser(_, body) {

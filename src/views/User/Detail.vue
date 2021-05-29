@@ -12,11 +12,11 @@
       <div class="content text-start">
         <div class="cover-image d-flex flex-column">
           <span class="color-8B9DA5">カーバ</span>
-          <img :src="userInfo.cover" class="img-fluid mt-2" alt="">
+          <img :src="userInfo.image_cover_path ? userInfo.image_cover_path : null " class="img-fluid mt-2" alt="">
         </div>
         <div class="avatar-image d-flex flex-column">
           <span class="color-8B9DA5">アバター</span>
-          <img :src="userInfo.avatar" class="" alt="">
+          <img :src="userInfo.image_avatar_path ? userInfo.image_avatar_path : null " class="" alt="">
         </div>
         <div class="detail color-8B9DA5">
           <div class="row mb-5">
@@ -41,19 +41,19 @@
           </div>
           <div class="row mb-5">
             <div class="col-5">フォロワー</div>
-            <div class="col-7 text-end">{{ userInfo.follower }}</div>
+            <div class="col-7 text-end">{{ userInfo.follow_count }}</div>
           </div>
           <div class="row mb-5">
             <div class="col-5">フォロー中</div>
-            <div class="col-7 text-end">{{ userInfo.following }}</div>
+            <div class="col-7 text-end">{{ userInfo.following_count }}</div>
           </div>
           <div class="row mb-5">
             <div class="col-5">イイコ</div>
-            <div class="col-7 text-end">{{ userInfo.good }}</div>
+            <div class="col-7 text-end">{{ userInfo.like_count }}</div>
           </div>
           <div class="row mb-5">
             <div class="col-5">ポイント</div>
-            <div class="col-7 text-end">{{ userInfo.point }}</div>
+            <div class="col-7 text-end">{{ userInfo.coin_balance }}</div>
           </div>
           <div class="row">
             <div class="col-5">ステータス</div>
@@ -75,7 +75,7 @@
                 <div class="cover-image d-flex flex-column">
                   <span class="color-8B9DA5 mb-2">カーバ</span>
                   <img
-                      :src="dataChange.cover"
+                      :src="userInfo.image_cover_path ? userInfo.image_cover_path : null "
                       class="img-fluid mt-2"
                       alt=""
                       v-on:click="uploadFile('cover-image-upload')"
@@ -90,7 +90,7 @@
                 <div class="avatar-image d-flex flex-column">
                   <span class="color-8B9DA5 mb-2">アバーテ</span>
                   <img
-                      :src="dataChange.avatar"
+                      :src="dataChange.image_avatar_path ? dataChange.image_avatar_path : null "
                       class=""
                       alt=""
                       v-on:click="uploadFile('avatar-image-upload')"
@@ -153,7 +153,7 @@
                     <div class="col-12">性別</div>
                     <div class="col-12 gender-group">
                       <div class="checkbox-rounded" v-for="(gender, index) in USER_GENDER_OPTIONS" :key="index">
-                        <input type="radio" v-model="dataChange.gender" id="male" :value="gender.value"/>
+                        <input type="radio" v-model="dataChange.sex" id="male" :value="gender.value"/>
                         <label for="male">{{ gender.text }}</label>
                       </div>
                     </div>
@@ -214,35 +214,39 @@ export default {
     return {
       userInfo: {
         id: '',
-        avatar: '',
-        cover: '',
+        image_avatar_path: '',
+        image_cover_path: '',
         name: '',
         email: '',
         phone: '',
-        gender: '',
+        sex: '',
         birthday: '',
-        follower: '',
-        following: '',
-        good: '',
-        point: '',
+        follow_count: 0,
+        following_count: 0,
+        like_count: 0,
+        coin_balance: 0,
         status: '',
+        gender: '',
+        is_blocked: false,
       },
       dataChange: {
         id: '',
-        avatar: '',
-        cover: '',
+        image_avatar_path: '',
+        image_cover_path: '',
         name: '',
         email: '',
         phone: '',
-        gender: '',
+        sex: '',
         birthday: '',
-        follower: '',
-        following: '',
-        good: '',
-        point: '',
+        follow_count: 0,
+        following_count: 0,
+        like_count: 0,
+        coin_balance: 0,
         status: '',
-        avatarFile: null,
-        coverFile: null,
+        gender: '',
+        is_blocked: false,
+        url_upload_cover: '',
+        url_upload_avatar: '',
       },
       isShowModal: false,
       USER_GENDER_OPTIONS,
@@ -262,9 +266,8 @@ export default {
       if (this.userInfo.birthday) {
         this.userInfo.birthday = this.$dayjs(this.userInfo.birthday).format('YYYY-MM-DD');
       }
-      if (this.userInfo.gender) {
-        this.userInfo.gender = 2;
-      }
+      this.userInfo.status = this.setUserStatus(this.userInfo.is_blocked);
+      this.userInfo.gender = this.setGender(this.userInfo.sex);
       this.dataChange = {...this.userInfo};
       this.$root.$refs.loading.finish();
     },
@@ -321,40 +324,47 @@ export default {
     uploadFile(inputId) {
       document.getElementById(inputId).click();
     },
-    createAvatar(file) {
-      let reader = new FileReader();
-      let vm = this;
-      reader.onload = (e) => {
-        vm.dataChange.avatarFile = e.target.result;
-      };
-      reader.readAsDataURL(file);
+    async createAvatar(file) {
+      this.$root.$refs.loading.start();
+      let formData = new FormData();
+      formData.append("media", file);
+      await this.$store.dispatch('media/uploadMedia', formData).then(response => {
+        this.dataChange.image_avatar_path = response.data.url;
+        this.dataChange.url_upload_avatar = this.dataChange.image_avatar_path;
+      });
+      this.$root.$refs.loading.finish();
     },
-    createCover(file) {
-      let reader = new FileReader();
-      let vm = this;
-      reader.onload = (e) => {
-        vm.dataChange.coverFile = e.target.result;
-      };
-      reader.readAsDataURL(file);
+    async createCover(file) {
+      this.$root.$refs.loading.start();
+      let formData = new FormData();
+      formData.append("media", file);
+      await this.$store.dispatch('media/uploadMedia', formData).then(response => {
+        this.dataChange.image_cover_path = response.data.url;
+        this.dataChange.url_upload_cover = this.dataChange.image_cover_path;
+      });
+      this.$root.$refs.loading.finish();
     },
     setData() {
       let body = {
         userId: this.dataChange.id
       };
-      if (this.dataChange.coverFile) {
-        body.cover = this.dataChange.coverFile
+      if (this.dataChange.url_upload_cover) {
+        body.cover = this.dataChange.url_upload_cover
       }
-      if (this.dataChange.avatarFile) {
-        body.avatar = this.dataChange.avatarFile
+      if (this.dataChange.url_upload_avatar) {
+        body.avatar = this.dataChange.url_upload_avatar
+      }
+      if (this.dataChange.name) {
+        body.name = this.dataChange.name
       }
       if (this.dataChange.phone) {
         body.phone = this.dataChange.phone
       }
-      if (this.dataChange.gender) {
-        body.gender = this.dataChange.gender
+      if (this.dataChange.sex) {
+        body.sex = this.dataChange.sex
       }
       if (this.dataChange.birthday) {
-        body.birthday = this.dataChange.birthday
+        body.birthday = this.$dayjs(this.dataChange.birthday).format('YYYY-MM-DD')
       }
       return body;
     },
@@ -377,7 +387,8 @@ export default {
             if (isBlock) {
               this.$root.$refs.loading.start();
               const body = {
-                userId: this.userInfo.id
+                userId: this.userInfo.id,
+                status: 'BLOCK',
               }
               await this.$store.dispatch('user/blockUser', body)
                   .then(async () => {
@@ -404,7 +415,17 @@ export default {
             // An error occurred
             console.log(err)
           })
-    }
+    },
+    setUserStatus(isBlocked) {
+      return isBlocked ? 'ブロック' : 'アクティブ';
+    },
+    setGender(gender) {
+      let genderFilter = USER_GENDER_OPTIONS.filter(item => {
+        return item.value === gender;
+      });
+      if (!genderFilter.length) return gender;
+      return genderFilter[0].text;
+    },
   }
 }
 </script>

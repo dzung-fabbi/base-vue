@@ -9,7 +9,7 @@
           <h3>配信者数</h3>
         </div>
         <div class="bottom-info">
-          <span>{{ statistical.count_distributor }}</span>
+          <span>{{ statistical.distribute_count }}</span>
         </div>
       </div>
       <div class="content content-info">
@@ -17,7 +17,7 @@
           <h3>視聴者数</h3>
         </div>
         <div class="bottom-info">
-          <span>{{ statistical.count_viewer }}</span>
+          <span>{{ statistical.guest_count }}</span>
         </div>
       </div>
       <div class="content content-info">
@@ -25,7 +25,7 @@
           <h3>総ユーザー数</h3>
         </div>
         <div class="bottom-info">
-          <span>{{ statistical.count_user }}</span>
+          <span>{{ statistical.all_count }}</span>
         </div>
       </div>
     </div>
@@ -34,21 +34,20 @@
         <div class="table-header row">
           <ValidationProvider
               name="ID"
-              rules="numeric"
               v-slot="{ errors }"
               class="input-group search"
           >
               <span class="input-group-text mb-2">
                   <SearchIcon/>
               </span>
-              <input
-                  type="text"
-                  class="form-control mb-2"
-                  placeholder="名前・ワンコインID検索"
-                  v-model="filter.id"
-                  @blur="handleBlur()"
-              >
-              <span class="error text-left f-w3">{{ errors[0] }}</span>
+            <input
+                type="text"
+                class="form-control mb-2"
+                placeholder="名前・ワンコインID検索"
+                v-model="filter.id"
+                @blur="handleBlur()"
+            >
+            <span class="error text-left f-w3">{{ errors[0] }}</span>
           </ValidationProvider>
           <div class="input-group date" id="datepicker">
             <b-form-datepicker
@@ -59,9 +58,10 @@
                 placeholder="YYYY-MM-DD"
                 locale="ja"
                 :hide-header="true"
+                reset-button
             >
               <span slot="button-content">
-                <CalenderIcon />
+                <CalenderIcon/>
               </span>
             </b-form-datepicker>
           </div>
@@ -80,7 +80,7 @@
             />
           </div>
           <div class="input-group ps-0">
-            <button class="btn btn-filter" @click="handleSubmit(getUserList)">
+            <button class="btn btn-filter" @click="handleSubmit(handleFilterUser)">
               検索
             </button>
           </div>
@@ -90,27 +90,27 @@
         <table class="table color-8B9DA5">
           <thead>
           <tr>
-            <th scope="col">ワンコインID</th>
-            <th scope="col">名前</th>
-            <th scope="col">生年月日</th>
-            <th scope="col">性別</th>
-            <th scope="col">ログイン方法</th>
-            <th scope="col">電話番号</th>
-            <th scope="col">ユーザータイプ</th>
-            <th scope="col">ステータス</th>
-            <th scope="col"></th>
+            <th scope="col" class="col-1">ワンコインID</th>
+            <th scope="col" class="col-1">名前</th>
+            <th scope="col" class="col-1">生年月日</th>
+            <th scope="col" class="col-1">性別</th>
+            <th scope="col" class="col-3">ログイン方法</th>
+            <th scope="col" class="col-1">電話番号</th>
+            <th scope="col" class="col-2">ユーザータイプ</th>
+            <th scope="col" class="col-1">ステータス</th>
+            <th scope="col" class="col-1"></th>
           </tr>
           </thead>
           <tbody>
           <tr v-for="(user, index) in listUsers" :key="index">
             <td class="pt-3">{{ user.id }}</td>
             <td class="pt-3">{{ user.name }}</td>
-            <td class="pt-3">{{ user.date_of_birth }}</td>
+            <td class="pt-3">{{ user.birthday }}</td>
             <td class="pt-3">{{ user.gender }}</td>
-            <td class="pt-3">{{ user.login_info }}</td>
+            <td class="pt-3">{{ user.loginType }}</td>
             <td class="pt-3">{{ user.phone }}</td>
-            <td class="pt-3">{{ user.status }}</td>
-            <td class="pt-3">{{ user.user_type }}</td>
+            <td class="pt-3">{{ user.userStatus }}</td>
+            <td class="pt-3">{{ user.userType }}</td>
             <td>
               <router-link :to="{ name:'UserDetail', params: { id: user.id } }">
                 <button class="btn">
@@ -124,9 +124,10 @@
       </div>
     </div>
     <BasePaginate
-        :current-page="paginate.currentPage"
-        :total-page="paginate.total"
-        :per-page="paginate.perPage"
+        :current-page.sync="paginate.currentPage"
+        :total-page.sync="paginate.total"
+        :per-page.sync="paginate.perPage"
+        :total-record.sync="paginate.totalRecord"
         @onPageChanged="changePage"
     />
   </div>
@@ -137,7 +138,11 @@
 import EyeIcon from "@/components/Icon/EyeIcon";
 import SearchIcon from "@/components/Icon/SearchIcon";
 import CalenderIcon from "@/components/Icon/CalenderIcon";
-import {USER_STATUS_OPTIONS, USER_TYPE_OPTIONS} from "@/utils/const";
+import {
+  PER_PAGE_NUMBER, USER_GENDER_OPTIONS,
+  USER_STATUS_OPTIONS,
+  USER_TYPE_OPTIONS,
+} from "@/utils/const";
 import BasePaginate from "@/components/BasePaginate";
 
 export default {
@@ -154,30 +159,39 @@ export default {
         id: null,
         date: null,
         user_type: 1,
-        status: 1,
+        status: 2,
       },
       listUsers: [
         {
           id: null,
           name: null,
-          date_of_birth: null,
-          gender: null,
-          login_info: null,
+          birthday: null,
+          sex: null,
+          login_type: null,
+          email: null,
           phone: null,
-          user_type: null,
-          status: null,
+          is_distribute: null,
+          is_blocked: null,
+          loginType: null,
+          userType: null,
+          userStatus: null,
+          google_id: null,
+          apple_id: null,
+          line_id: null,
+          gender: null,
         }
       ],
       userType: USER_TYPE_OPTIONS,
       status: USER_STATUS_OPTIONS,
       statistical: {
-        count_distributor: 0,
-        count_viewer: 0,
-        count_user: 0,
+        distribute_count: 0,
+        guest_count: 0,
+        all_count: 0,
       },
       paginate: {
         currentPage: 1,
         total: 12,
+        totalRecord: 12,
       },
     }
   },
@@ -189,13 +203,13 @@ export default {
     async getUserList() {
       this.$root.$refs.loading.start();
       const params = {};
-      if (this.filter.id !== null) {
-        params.id = this.filter.id;
+      if (this.filter.id !== null && this.filter.id !== '') {
+        params.q = this.filter.id;
       } else {
-        params.id = '';
+        params.q = '';
       }
-      if (this.filter.date !== null) {
-        params.date = this.$dayjs(this.filter.date).format('DD.MM.YYYY');
+      if (this.filter.date !== null && this.filter.date !== '') {
+        params.date = this.$dayjs(this.filter.date).format('YYYY-MM-DD');
       } else {
         params.date = '';
       }
@@ -204,16 +218,28 @@ export default {
       } else {
         params.user_type = '';
       }
-      if (this.filter.status !== 1) {
-        params.status = this.filter.status;
+      if (this.filter.status !== 2) {
+        params.blocked = this.filter.status;
       } else {
-        params.status = '';
+        params.blocked = '';
       }
+      params.limit = PER_PAGE_NUMBER;
       if (this.paginate.currentPage) {
-        params.current_page = this.paginate.currentPage;
+        params.page = this.paginate.currentPage;
       }
       await this.$store.dispatch("user/getUsers", params);
-      this.listUsers = this.$store.getters["user/listUsers"];
+      this.listUsers = this.$store.getters["user/listUsers"].data;
+      this.paginate.currentPage = this.$store.getters["user/listUsers"].pagination.current_page;
+      this.paginate.totalRecord = this.$store.getters["user/listUsers"].pagination.total_record;
+      this.paginate.total = this.$store.getters["user/listUsers"].pagination.total_page;
+      this.listUsers = this.listUsers.map(user => {
+        user.loginType = this.setLoginType(user.login_type, user.email, user.google_id, user.line_id, user.apple_id);
+        user.userType = this.setUserType(user.is_distribute);
+        user.userStatus = this.setUserStatus(user.is_blocked);
+        user.birthday = this.setBirthDay(user.birthday);
+        user.gender = this.setGender(user.sex);
+        return user;
+      });
       this.$root.$refs.loading.finish();
     },
     async getStatisticalUser() {
@@ -231,6 +257,41 @@ export default {
       if (this.filter.id) {
         this.filter.id = this.filter.id.trim();
       }
+    },
+    setLoginType(loginType, email, googleId, lineId, appleId) {
+      if (!email && !googleId && !lineId && !appleId)
+        return `${loginType}:`;
+      switch (loginType) {
+        case 'GOOGLE':
+          return `${loginType}: ${googleId}`;
+        case 'LINE':
+          return `${loginType}: ${lineId}`;
+        case 'APPLE':
+          return `${loginType}: ${appleId}`;
+        default:
+          return `${loginType}: ${email}`;
+      }
+    },
+    setUserType(isDistribute) {
+      return isDistribute ? '配信者' : '視聴者';
+    },
+    setUserStatus(isBlocked) {
+      return isBlocked ? 'ブロック' : 'アクティブ';
+    },
+    setBirthDay(birthDay) {
+      if (!birthDay) return;
+      return this.$dayjs(birthDay).format('YYYY-MM-DD');
+    },
+    handleFilterUser() {
+      this.paginate.currentPage = 1;
+      this.getUserList();
+    },
+    setGender(gender) {
+      let genderFilter = USER_GENDER_OPTIONS.filter(item => {
+        return item.value === gender;
+      });
+      if (!genderFilter.length) return gender;
+      return genderFilter[0].text;
     },
   },
 };

@@ -8,7 +8,6 @@
         <div class="table-header row">
           <ValidationProvider
               name="ID"
-              rules="numeric"
               v-slot="{ errors }"
               class="input-group search"
           >
@@ -25,7 +24,7 @@
             <span class="error text-left f-w3">{{ errors[0] }}</span>
           </ValidationProvider>
           <div class="input-group ps-0">
-            <button class="btn btn-filter" @click="handleSubmit(getBlockUserList)">
+            <button class="btn btn-filter" @click="handleSubmit(handleFilter)">
               検索
             </button>
           </div>
@@ -35,13 +34,13 @@
         <table class="table color-8B9DA5">
           <thead>
           <tr>
-            <th scope="col">ワンコインID</th>
-            <th scope="col">名前</th>
-            <th scope="col">性別</th>
-            <th scope="col">報告者数</th>
-            <th scope="col">ブロック者数</th>
-            <th scope="col">ステータス</th>
-            <th scope="col"></th>
+            <th scope="col" class="col-1">ワンコインID</th>
+            <th scope="col" class="col-1">名前</th>
+            <th scope="col" class="col-1">性別</th>
+            <th scope="col" class="col-1">報告者数</th>
+            <th scope="col" class="col-1">ブロック者数</th>
+            <th scope="col" class="col-1">ステータス</th>
+            <th scope="col" class="col-1"></th>
           </tr>
           </thead>
           <tbody>
@@ -49,9 +48,9 @@
             <td class="pt-3">{{ user.id }}</td>
             <td class="pt-3">{{ user.name }}</td>
             <td class="pt-3">{{ user.gender }}</td>
-            <td class="pt-3">{{ user.email }}</td>
-            <td class="pt-3">{{ user.phone }}</td>
-            <td class="pt-3">{{ user.status }}</td>
+            <td class="pt-3">{{ user.report_count }}</td>
+            <td class="pt-3">{{ user.block_count }}</td>
+            <td class="pt-3">{{ user.userStatus }}</td>
             <td>
               <router-link :to="{ name:'UserBlockDetail', params: { id: user.id } }">
                 <button class="btn">
@@ -68,9 +67,10 @@
       </div>
     </div>
     <BasePaginate
-        :current-page="paginate.currentPage"
-        :total-page="paginate.total"
-        :per-page="paginate.perPage"
+        :current-page.sync="paginate.currentPage"
+        :total-page.sync="paginate.total"
+        :per-page.sync="paginate.perPage"
+        :total-record.sync="paginate.totalRecord"
         @onPageChanged="changePage"
     />
   </div>
@@ -82,7 +82,7 @@ import EyeIcon from "@/components/Icon/EyeIcon";
 import DeleteIcon from "@/components/Icon/DeleteIcon";
 import BasePaginate from "@/components/BasePaginate";
 import SearchIcon from "@/components/Icon/SearchIcon";
-import {MESSAGES, MODAL} from "@/utils/const";
+import {MESSAGES, MODAL, PER_PAGE_NUMBER, USER_GENDER_OPTIONS} from "@/utils/const";
 
 export default {
   name: 'UserReportList',
@@ -96,19 +96,20 @@ export default {
     return {
       listUsers: [
         {
-          id: null,
-          name: null,
-          date_of_birth: null,
-          gender: null,
-          login_info: null,
-          phone: null,
-          user_type: null,
-          status: null,
+          id: '',
+          name: '',
+          gender: '',
+          sex: '',
+          userStatus: '',
+          report_count: 0,
+          block_count: 0,
+          is_blocked: false,
         }
       ],
       paginate: {
         currentPage: 1,
         total: 12,
+        totalRecord: 12,
       },
       filter: {
         id: null,
@@ -122,16 +123,25 @@ export default {
     async getBlockUserList() {
       this.$root.$refs.loading.start();
       const params = {};
-      if (this.filter.id !== null) {
-        params.id = this.filter.id;
+      if (this.filter.id !== null && this.filter.id !== '') {
+        params.q = this.filter.id;
       } else {
-        params.id = '';
+        params.q = '';
       }
       if (this.paginate.currentPage) {
-        params.current_page = this.paginate.currentPage;
+        params.page = this.paginate.currentPage;
       }
-      await this.$store.dispatch("user/getBlockUserList", params);
-      this.listUsers = this.$store.getters["user/listBlockUser"];
+      params.limit = PER_PAGE_NUMBER;
+      await this.$store.dispatch("user/getReportUserList", params);
+      this.listUsers = this.$store.getters["user/listReportUser"].data;
+      this.paginate.currentPage = this.$store.getters["user/listReportUser"].pagination.current_page;
+      this.paginate.totalRecord = this.$store.getters["user/listReportUser"].pagination.total_record;
+      this.paginate.total = this.$store.getters["user/listReportUser"].pagination.total_page;
+      this.listUsers = this.listUsers.map(user => {
+        user.userStatus = this.setUserStatus(user.is_blocked);
+        user.gender = this.setGender(user.sex);
+        return user;
+      });
       this.$root.$refs.loading.finish();
     },
     changePage(page) {
@@ -189,6 +199,20 @@ export default {
             // An error occurred
             console.log(err)
           })
+    },
+    setUserStatus(isBlocked) {
+      return isBlocked ? 'ブロック' : 'アクティブ';
+    },
+    setGender(gender) {
+      let genderFilter = USER_GENDER_OPTIONS.filter(item => {
+        return item.value === gender;
+      });
+      if (!genderFilter.length) return gender;
+      return genderFilter[0].text;
+    },
+    handleFilter() {
+      this.paginate.currentPage = 1;
+      this.getBlockUserList();
     }
   }
 }
