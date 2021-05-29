@@ -53,7 +53,7 @@ export default [
         name: "UserDetail",
         component: () => import("../views/User/Detail.vue"),
         meta: {
-          requireLogin: false,
+          requireLogin: true,
         },
       },
       {
@@ -67,7 +67,7 @@ export default [
             name: "UserBlockList",
             component: () => import("../views/User/Block/List.vue"),
             meta: {
-              requireLogin: false,
+              requireLogin: true,
             },
           },
           {
@@ -75,7 +75,7 @@ export default [
             name: "UserBlockDetail",
             component: () => import("../views/User/Block/Detail.vue"),
             meta: {
-              requireLogin: false,
+              requireLogin: true,
             },
           },
         ]
@@ -91,7 +91,7 @@ export default [
             name: "UserReportList",
             component: () => import("../views/User/Report/List.vue"),
             meta: {
-              requireLogin: false,
+              requireLogin: true,
             },
           },
           {
@@ -99,7 +99,7 @@ export default [
             name: "UserReportDetail",
             component: () => import("../views/User/Report/Detail.vue"),
             meta: {
-              requireLogin: false,
+              requireLogin: true,
             },
           },
         ]
@@ -117,7 +117,7 @@ export default [
         name: "RevenueSystem",
         component: () => import("../views/Revenue/System.vue"),
         meta: {
-          requireLogin: false,
+          requireLogin: true,
         },
       },
       {
@@ -125,7 +125,7 @@ export default [
         name: "RevenueUser",
         component: () => import("../views/Revenue/User.vue"),
         meta: {
-          requireLogin: false,
+          requireLogin: true,
         },
       },
       {
@@ -133,7 +133,7 @@ export default [
         name: "RevenueUserDetail",
         component: () => import("../views/Revenue/UserRevenueDetail.vue"),
         meta: {
-          requireLogin: false,
+          requireLogin: true,
         },
       },
     ]
@@ -149,7 +149,7 @@ export default [
         name: "PaymentList",
         component: () => import("../views/Payment/List.vue"),
         meta: {
-          requireLogin: false,
+          requireLogin: true,
         },
       },
       {
@@ -157,7 +157,7 @@ export default [
         name: "PaymentSetting",
         component: () => import("../views/Payment/Setting.vue"),
         meta: {
-          requireLogin: false,
+          requireLogin: true,
         },
       },
     ]
@@ -167,7 +167,7 @@ export default [
     name: "LiveManagement",
     component: () => import("../views/LiveManagement.vue"),
     meta: {
-      requireLogin: false,
+      requireLogin: true,
     },
   },
 ];

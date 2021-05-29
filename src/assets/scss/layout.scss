@@ -325,6 +325,9 @@ button {
     font-size: 14px;
     cursor: pointer;
 }
+.paginate .pagination .page-item button:focus {
+    background-color: #fff;
+}
 .paginate .pagination .page-item:first-child button span {
     margin-right: 3px;
 }
