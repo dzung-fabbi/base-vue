@@ -142,39 +142,45 @@ a.navbar-brand {
     background: #fff;
 }
 
-#sidebar .sub-menu.active {
+#sidebar {
+  li.nav-item {
+    cursor: pointer;
+  }
+  .sub-menu.active {
     background-color: #f6f9fa;
-}
-
-#sidebar .sub-menu.active a:first-child {
-    color: #61727b;
-}
-
-#sidebar .right {
-    float: right;
-}
-#sidebar .sub-menu.active .child-item li {
-    padding-left: 25px;
-}
-
-#sidebar .sub-menu.active .child-item li a:hover {
-    background-color: transparent;
+  }
+  li.nav-item:not(.sub-menu) {
+    padding: 20px 15px;
+    color: #A1B3BC;
+    span {
+      padding-left: 10px;
+    }
+  }
+  li.nav-item:hover, .child-item li:hover {
     color: rgba(99, 164, 255, 1);
-}
-
-#sidebar .sub-menu.active .child-item li.current a {
+  }
+  li.router-link-exact-active.router-link-active {
+    background-color: #F6F9FA;
+    border-left: 3px solid #63A4FF;
     color: rgba(99, 164, 255, 1);
     font-weight: 500;
     font-size: 16px;
-}
-#sidebar .sub-menu.active .child-item li.current {
-    border-left: 3px solid #63A4FF;
-}
-
-#sidebar .nav-item:has(.router-link-active) {
-    background-color: #F6F9FA;
-    border-left: 3px solid #63A4FF;
   }
+  .child-item li {
+    padding: 10px 20px 10px 60px;
+    cursor: pointer;
+    color: #A1B3BC;
+  }
+  .sub-menu:not(.active) > ul {
+    display: none;
+  }
+  .right {
+    float: right;
+  }
+  .icon {
+    margin-top: 3px;
+  }
+}
 
 .main {
     margin-left: 260px;
