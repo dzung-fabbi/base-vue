@@ -49,19 +49,20 @@
               >
               <span class="error text-left f-w3">{{ errors[0] }}</span>
           </ValidationProvider>
-          <div class="input-group date" id="datepicker" data-date-format="DD.MM.YYYY">
-            <DatePicker
-                type="date"
-                class="f-w3 w-100 max-height"
+          <div class="input-group date" id="datepicker">
+            <b-form-datepicker
+                id="filter-user-date-picker"
                 v-model="filter.date"
-                format="DD.MM.YYYY"
-                value-type="DD.MM.YYYY"
-                :popup-style="{ top: '318px'}"
+                class="mb-2 filter-user-date-picker"
+                :date-format-options="{ year: 'numeric', month: 'numeric', day: 'numeric' }"
+                placeholder="YYYY-MM-DD"
+                locale="ja"
+                :hide-header="true"
             >
-              <span slot="icon-calendar">
-                <CalenderIcon/>
+              <span slot="button-content">
+                <CalenderIcon />
               </span>
-            </DatePicker>
+            </b-form-datepicker>
           </div>
           <div class="input-group filter">
             <b-form-select
@@ -149,21 +150,21 @@
 
 <script>
 
-import moment from 'moment';
 import PreviousPageIcon from "@/components/Icon/PreviousPageIcon";
 import NextPageIcon from "@/components/Icon/NextPageIcon";
-import CalenderIcon from "@/components/Icon/CalenderIcon";
 import EyeIcon from "@/components/Icon/EyeIcon";
 import SearchIcon from "@/components/Icon/SearchIcon";
+import CalenderIcon from "@/components/Icon/CalenderIcon";
+import {USER_STATUS_OPTIONS, USER_TYPE_OPTIONS} from "@/utils/const";
 
 export default {
   name: 'UserList',
   components: {
+    CalenderIcon,
     SearchIcon,
     EyeIcon,
     NextPageIcon,
     PreviousPageIcon,
-    CalenderIcon,
   },
   data() {
     return {
@@ -185,16 +186,8 @@ export default {
           status: null,
         }
       ],
-      userType: [
-        {value: 1, text: "ユーザータイプ"},
-        {value: 2, text: "視聴者"},
-        {value: 3, text: "配信者"},
-      ],
-      status: [
-        {value: 1, text: "ステータス"},
-        {value: 2, text: "アクティブ"},
-        {value: 3, text: "ブロック"},
-      ],
+      userType: USER_TYPE_OPTIONS,
+      status: USER_STATUS_OPTIONS,
       statistical: {
         count_distributor: 0,
         count_viewer: 0,
@@ -223,7 +216,7 @@ export default {
         params.id = '';
       }
       if (this.filter.date !== null) {
-        params.date = moment(this.filter.date).format('DD.MM.YYYY');
+        params.date = this.$dayjs(this.filter.date).format('DD.MM.YYYY');
       } else {
         params.date = '';
       }

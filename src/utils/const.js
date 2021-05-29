@@ -4,7 +4,14 @@ export const MESSAGES = {
   SAVE_ERROR: "保存に失敗しました",
   DATE_ERROR: "は今より長くなければなりません",
   CONFIRM_CANCEL: "本当にキャンセルしてよろしいでしょうか。",
-  INTERVAL_ERROR: "エラーが発生しました。"
+  INTERVAL_ERROR: "エラーが発生しました。",
+  CONFIRM_BLOCK_USER: 'Are You Sure Block This User?',
+  LOGIN_SUCCESS: 'You have successfully logged in',
+  LOGIN_FAIL: 'Incorrect account or password',
+  UPDATE_USER_SUCCESS: 'Update user success',
+  UPDATE_USER_FAIL: 'Update user failed',
+  BLOCK_USER_SUCCESS: 'Block user success',
+  BLOCK_USER_FAIL: 'Block user failed',
 };
 
 export const RESERVATION_STATUS = {
@@ -96,3 +103,30 @@ export const MESSAGES_TYPE = {
   TEXT: 1,
   GIFT: 8
 };
+
+export const MODAL = {
+  MODAL_NOTICE: 'Notice',
+  MODAL_TYPE_SUCCESS: 'success',
+  MODAL_TYPE_DANGER: 'danger',
+  CONFIRM_BLOCK_USER_TITLE: 'Please Confirm',
+  LABEL_OK: 'OK',
+  LABEL_CANCEL: 'Cancel',
+};
+
+export const USER_TYPE_OPTIONS = [
+  {value: 1, text: "ユーザータイプ"},
+  {value: 2, text: "視聴者"},
+  {value: 3, text: "配信者"},
+];
+
+export const USER_STATUS_OPTIONS = [
+  {value: 1, text: "ステータス"},
+  {value: 2, text: "アクティブ"},
+  {value: 3, text: "ブロック"},
+];
+
+export const USER_GENDER_OPTIONS = [
+  {value: 1, text: "男性"},
+  {value: 2, text: "女性"},
+  {value: 3, text: "内緒"},
+];

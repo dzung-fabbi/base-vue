@@ -21,35 +21,35 @@
           <DashboardIcon />
           <span>ダッシュボード</span>
         </router-link>
-        <li 
-          class='nav-item sub-menu' 
+        <li
+          class='nav-item sub-menu'
           :class="isExpandUser ? 'active' : ''"
           @click="isExpandUser = !isExpandUser"
         >
           <a>
             <UserIcon />
             <span>ユーザー管理</span>
-            <b-icon class="icon right" 
-              :icon="isExpandUser ? 'chevron-down' : 'chevron-up'" 
+            <b-icon class="icon right"
+              :icon="isExpandUser ? 'chevron-down' : 'chevron-up'"
               aria-hidden="true"
             ></b-icon>
           </a>
           <ul class="child-item">
-            <router-link 
+            <router-link
               tag="li" :to="{ name:'UserList' }"
               @click.native="onClickSub($event, 'isExpandUser')"
             >ユーザー一覧</router-link>
-            <router-link 
+            <router-link
               tag="li" :to="{ name: 'UserReportList' }"
               @click.native="onClickSub($event, 'isExpandUser')"
             >ブロック一覧管理</router-link>
-            <router-link 
+            <router-link
               tag="li" :to="{ name: 'UserBlockList' }"
               @click.native="onClickSub($event, 'isExpandUser')"
             >ブロック一覧管理</router-link>
           </ul>
         </li>
-        <li 
+        <li
           class="nav-item sub-menu"
           :class="isExpandRevenue ? 'active' : ''"
           @click="isExpandRevenue = !isExpandRevenue"
@@ -57,23 +57,23 @@
           <a>
             <RevenueIcon />
             <span>売上管理</span>
-            <b-icon class="icon right" 
-              :icon="isExpandRevenue ? 'chevron-down' : 'chevron-up'" 
+            <b-icon class="icon right"
+              :icon="isExpandRevenue ? 'chevron-down' : 'chevron-up'"
               aria-hidden="true"
             ></b-icon>
           </a>
           <ul class="child-item">
-            <router-link 
+            <router-link
               tag="li" :to="{ name: 'RevenueSystem' }"
               @click.native="onClickSub($event, 'isExpandRevenue')"
             >総売上</router-link>
-            <router-link 
+            <router-link
               tag="li" :to="{ name: 'RevenueUser' }"
               @click.native="onClickSub($event, 'isExpandRevenue')"
             >収入管理</router-link>
           </ul>
         </li>
-        <li 
+        <li
           class="nav-item sub-menu"
           :class="isExpandPayment ? 'active' : ''"
           @click="isExpandPayment = !isExpandPayment"
@@ -81,17 +81,17 @@
           <a>
             <PaymentIcon />
             <span>決済管理</span>
-            <b-icon class="icon right" 
-              :icon="isExpandPayment ? 'chevron-down' : 'chevron-up'" 
+            <b-icon class="icon right"
+              :icon="isExpandPayment ? 'chevron-down' : 'chevron-up'"
               aria-hidden="true"
             ></b-icon>
           </a>
           <ul class="child-item">
-            <router-link 
+            <router-link
               tag="li" :to="{ name: 'PaymentList' }"
               @click.native="onClickSub($event, 'isExpandPayment')"
             >決済履歴</router-link>
-            <router-link 
+            <router-link
               tag="li" :to="{ name: 'PaymentSetting' }"
               @click.native="onClickSub($event, 'isExpandPayment')"
             >設定</router-link>
@@ -117,6 +117,8 @@ import PaymentIcon from "@/components/Icon/PaymentIcon";
 import LiveIcon from "@/components/Icon/LiveIcon";
 import LogoutIcon from "@/components/Icon/LogoutIcon";
 import Cookies from "js-cookie";
+import { mapGetters } from "vuex";
+
 export default {
   components: {
     DashboardIcon,
@@ -128,7 +130,6 @@ export default {
   },
   data()  {
     return {
-      user: null,
       isExpandUser: false,
       isExpandRevenue: false,
       isExpandPayment: false
@@ -144,8 +145,10 @@ export default {
       this.isExpandPayment = true;
     }
   },
-  created() {
-    this.user = this.$store.getters["auth/user"];
+  computed: {
+    ...mapGetters({
+      user: 'auth/user',
+    })
   },
   methods: {
     logOut() {
