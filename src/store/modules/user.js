@@ -4,13 +4,15 @@ import service from "@/utils/axios";
 export const state = {
   listUsers: [],
   statistical: {},
-  userDetail: {}
+  userDetail: {},
+  listBlockUser: [],
 }
 
 export const getters = {
   listUsers: state => state.listUsers,
   statistical: state => state.statistical,
   userDetail: state => state.userDetail,
+  listBlockUser: state => state.listBlockUser,
 };
 
 export const mutations = {
@@ -22,6 +24,9 @@ export const mutations = {
   },
   setUserDetail(state, userDetail) {
     state.userDetail = userDetail;
+  },
+  setBlockUserList(state, listBlockUser) {
+    state.listBlockUser = listBlockUser;
   },
 };
 
@@ -63,6 +68,24 @@ export const actions = {
   async blockUser(_, body) {
     await service({
       url: api.BLOCK_USER(body.userId),
+      method: "PUT",
+      body
+    }).then(response => {
+      console.log(response);
+    });
+  },
+  async getBlockUserList({ commit }, params) {
+    await service({
+      url: api.GET_BLOCK_USER_LIST,
+      method: "GET",
+      params
+    }).then(response => {
+      commit("setBlockUserList", response.data);
+    });
+  },
+  async deleteUser(_, body) {
+    await service({
+      url: api.DELETE_USER(body.userId),
       method: "PUT",
       body
     }).then(response => {

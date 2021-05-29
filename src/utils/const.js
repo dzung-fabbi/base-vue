@@ -12,6 +12,9 @@ export const MESSAGES = {
   UPDATE_USER_FAIL: 'Update user failed',
   BLOCK_USER_SUCCESS: 'Block user success',
   BLOCK_USER_FAIL: 'Block user failed',
+  CONFIRM_DELETE_USER: 'Are You Sure Delete This User?',
+  DELETE_USER_SUCCESS: 'Delete user success',
+  DELETE_USER_FAIL: 'Delete user failed',
 };
 
 export const RESERVATION_STATUS = {
@@ -111,6 +114,7 @@ export const MODAL = {
   CONFIRM_BLOCK_USER_TITLE: 'Please Confirm',
   LABEL_OK: 'OK',
   LABEL_CANCEL: 'Cancel',
+  CONFIRM_DELETE_USER_TITLE: 'Please Confirm',
 };
 
 export const USER_TYPE_OPTIONS = [

@@ -35,7 +35,8 @@
           <ValidationProvider
               name="ID"
               rules="numeric"
-              v-slot="{ errors }" class="input-group search"
+              v-slot="{ errors }"
+              class="input-group search"
           >
               <span class="input-group-text mb-2">
                   <SearchIcon/>
@@ -122,49 +123,30 @@
         </table>
       </div>
     </div>
-    <div class="paginate d-flex justify-content-end align-items-center">
-      <span class="pagination-detail">表示： {{ paginate.from_user }}-{{ this.paginate.to_user }} 件</span>
-      <div class='pagination-container align-items-center ms-2'>
-        <nav aria-label="Page navigation example">
-          <ul class="pagination mb-0">
-            <li class="page-item" :class="{'disabled': paginate.currentPage === 1}">
-              <button class="btn page-link" v-on:click="decrementPage">
-                <span aria-hidden="true"><PreviousPageIcon/></span>
-              </button>
-            </li>
-            <li class="page-item">
-              <button class="btn page-link">{{ paginate.currentPage }}</button>
-            </li>
-            <li class="page-item" :class="{'disabled': paginate.currentPage === paginate.total}">
-              <button class=" btn page-link" v-on:click="incrementPage">
-                <span aria-hidden="true"><NextPageIcon/></span>
-              </button>
-            </li>
-          </ul>
-        </nav>
-      </div>
-      <span class="pagination-total ms-2">総計：{{ paginate.total }}ページ</span>
-    </div>
+    <BasePaginate
+        :current-page="paginate.currentPage"
+        :total-page="paginate.total"
+        :per-page="paginate.perPage"
+        @onPageChanged="changePage"
+    />
   </div>
 </template>
 
 <script>
 
-import PreviousPageIcon from "@/components/Icon/PreviousPageIcon";
-import NextPageIcon from "@/components/Icon/NextPageIcon";
 import EyeIcon from "@/components/Icon/EyeIcon";
 import SearchIcon from "@/components/Icon/SearchIcon";
 import CalenderIcon from "@/components/Icon/CalenderIcon";
 import {USER_STATUS_OPTIONS, USER_TYPE_OPTIONS} from "@/utils/const";
+import BasePaginate from "@/components/BasePaginate";
 
 export default {
   name: 'UserList',
   components: {
+    BasePaginate,
     CalenderIcon,
     SearchIcon,
     EyeIcon,
-    NextPageIcon,
-    PreviousPageIcon,
   },
   data() {
     return {
@@ -196,9 +178,6 @@ export default {
       paginate: {
         currentPage: 1,
         total: 12,
-        perPage: 12,
-        from_user: 1,
-        to_user: 12,
       },
     }
   },
@@ -244,23 +223,9 @@ export default {
       this.$root.$refs.loading.finish();
       this.$root.$refs.loading.finish();
     },
-    decrementPage() {
-      this.paginate.currentPage -= 1;
-      this.setFromUser();
-      this.setToUser();
+    changePage(page) {
+      this.paginate.currentPage = page;
       this.getUserList();
-    },
-    incrementPage() {
-      this.paginate.currentPage += 1;
-      this.setFromUser();
-      this.setToUser();
-      this.getUserList();
-    },
-    setFromUser() {
-      this.paginate.from_user = (this.paginate.perPage * this.paginate.currentPage) - (this.paginate.perPage - 1);
-    },
-    setToUser() {
-      this.paginate.to_user = this.paginate.perPage * this.paginate.currentPage;
     },
     handleBlur() {
       if (this.filter.id) {
