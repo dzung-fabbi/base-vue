@@ -26,7 +26,7 @@
       <ValidationObserver v-slot="{ handleSubmit }">
         <div class="table-header row">
           <ValidationProvider
-              name="ID"
+              name="名前・ワンコインID検索"
               v-slot="{ errors }"
               class="input-group search"
           >
