@@ -146,3 +146,9 @@ export const REPORT_STATUS_OPTIONS = [
   {value: 'REPORT', text: "報告"},
   {value: 'BLOCK', text: "ブロック"},
 ];
+
+export const SYSTEM_REVENUE_STATUS_OPTIONS = [
+  {value: 0, text: "ステータス"},
+  {value: 1, text: "成功"},
+  {value: 2, text: "失敗"},
+];
