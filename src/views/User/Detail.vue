@@ -75,7 +75,7 @@
                 <div class="cover-image d-flex flex-column">
                   <span class="color-8B9DA5 mb-2">カーバ</span>
                   <img
-                      :src="userInfo.image_cover_path ? userInfo.image_cover_path : null "
+                      :src="dataChange.image_cover_path ? dataChange.image_cover_path : null "
                       class="img-fluid mt-2"
                       alt=""
                       v-on:click="uploadFile('cover-image-upload')"
@@ -108,7 +108,7 @@
                     <div class="col-12 input-group">
                       <ValidationProvider
                           name="名前"
-                          rules="required"
+                          rules="max:255"
                           v-slot="{ errors }"
                           class="w-100"
                       >
@@ -134,7 +134,7 @@
                     <div class="col-12 input-group">
                       <ValidationProvider
                           name="電話番号"
-                          rules="required"
+                          rules="max:20"
                           v-slot="{ errors }"
                           class="w-100"
                       >
@@ -151,19 +151,32 @@
                   </div>
                   <div class="row mb-2">
                     <div class="col-12">性別</div>
-                    <div class="col-12 gender-group">
-                      <div class="checkbox-rounded" v-for="(gender, index) in USER_GENDER_OPTIONS" :key="index">
-                        <input type="radio" v-model="dataChange.sex" id="male" :value="gender.value"/>
-                        <label for="male">{{ gender.text }}</label>
+                    <ValidationProvider
+                        name="性別"
+                        rules=""
+                        v-slot="{ errors }"
+                    >
+                      <div class="col-12 gender-group">
+                        <div class="checkbox-rounded" v-for="(gender, index) in USER_GENDER_OPTIONS" :key="index">
+                          <input
+                              type="radio"
+                              v-model="dataChange.sex"
+                              :id="gender.value"
+                              :value="gender.value"
+                              :checked="gender.value === dataChange.sex"
+                          />
+                          <label :for="gender.value">{{ gender.text }}</label>
+                        </div>
                       </div>
-                    </div>
+                      <span class="error text-left f-w3">{{ errors[0] }}</span>
+                    </ValidationProvider>
                   </div>
                   <div class="row mb-4">
                     <div class="col-6 mb-2">生年月日</div>
                     <div class="input-group date" id="datepicker" data-date-format="DD.MM.YYYY">
                       <ValidationProvider
                           name="生年月日"
-                          rules="required"
+                          rules=""
                           v-slot="{ errors }"
                           class="w-100"
                       >
@@ -175,6 +188,7 @@
                             placeholder="YYYY-MM-DD"
                             locale="ja"
                             :hide-header="true"
+                            reset-button
                         >
                           <span slot="button-content">
                             <CalenderIcon/>
@@ -311,14 +325,12 @@ export default {
       let files = e.target.files || e.dataTransfer.files;
       if (!files.length)
         return;
-      this.dataChange.avatar = URL.createObjectURL(files[0]);
       this.createAvatar(files[0]);
     },
     onChangeCover(e) {
       let files = e.target.files || e.dataTransfer.files;
       if (!files.length)
         return;
-      this.dataChange.cover = URL.createObjectURL(files[0]);
       this.createCover(files[0]);
     },
     uploadFile(inputId) {
@@ -349,10 +361,10 @@ export default {
         userId: this.dataChange.id
       };
       if (this.dataChange.url_upload_cover) {
-        body.cover = this.dataChange.url_upload_cover
+        body.image_cover_path = this.dataChange.url_upload_cover
       }
       if (this.dataChange.url_upload_avatar) {
-        body.avatar = this.dataChange.url_upload_avatar
+        body.image_avatar_path = this.dataChange.url_upload_avatar
       }
       if (this.dataChange.name) {
         body.name = this.dataChange.name
@@ -360,7 +372,7 @@ export default {
       if (this.dataChange.phone) {
         body.phone = this.dataChange.phone
       }
-      if (this.dataChange.sex) {
+      if (this.dataChange.sex !== '' && this.dataChange.sex !== null) {
         body.sex = this.dataChange.sex
       }
       if (this.dataChange.birthday) {

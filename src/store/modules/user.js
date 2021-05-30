@@ -59,8 +59,8 @@ export const actions = {
   async updateUserInfo({ commit }, body) {
     await service({
       url: api.UPDATE_USER_INFO(body.userId),
-      method: "PUT",
-      body
+      method: "POST",
+      data: body
     }).then(response => {
       commit("setUserDetail", response.data);
     });
