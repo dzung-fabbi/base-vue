@@ -66,3 +66,10 @@ export const SYSTEM_REVENUE_STATUS_OPTIONS = [
   {value: 1, text: "成功"},
   {value: 2, text: "失敗"},
 ];
+
+export const PAYMENT_MANAGEMENT_STATUS_OPTIONS = [
+  {value: 0, text: "ステータス"},
+  {value: 1, text: "成功"},
+  {value: 2, text: "失敗"},
+  {value: 3, text: "進行中"},
+];
