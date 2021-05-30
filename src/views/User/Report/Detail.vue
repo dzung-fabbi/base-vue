@@ -222,7 +222,7 @@ export default {
     },
     changePage(page) {
       this.paginate.currentPage = page;
-      this.getBlockUserList();
+      this.getReportList();
     },
     setUserStatus(isBlocked) {
       return isBlocked ? 'ブロック' : 'アクティブ';

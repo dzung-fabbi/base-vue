@@ -213,7 +213,7 @@ export default {
     handleFilter() {
       this.paginate.currentPage = 1;
       this.getBlockUserList();
-    }
+    },
   }
 }
 </script>
