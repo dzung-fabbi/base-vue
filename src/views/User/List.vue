@@ -79,7 +79,7 @@
                 :options="status"
             />
           </div>
-          <div class="input-group ps-0">
+          <div class="input-group ps-0 group-btn-filter">
             <button class="btn btn-filter" @click="handleSubmit(handleFilterUser)">
               検索
             </button>
