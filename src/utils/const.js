@@ -119,18 +119,21 @@ export const MODAL = {
 
 export const USER_TYPE_OPTIONS = [
   {value: 1, text: "ユーザータイプ"},
-  {value: 2, text: "視聴者"},
-  {value: 3, text: "配信者"},
+  {value: 'GUEST', text: "視聴者"},
+  {value: 'DISTRIBUTE', text: "配信者"},
 ];
 
 export const USER_STATUS_OPTIONS = [
-  {value: 1, text: "ステータス"},
-  {value: 2, text: "アクティブ"},
-  {value: 3, text: "ブロック"},
+  {value: 2, text: "ステータス"},
+  {value: 0, text: "アクティブ"},
+  {value: 1, text: "ブロック"},
 ];
 
 export const USER_GENDER_OPTIONS = [
-  {value: 1, text: "男性"},
-  {value: 2, text: "女性"},
-  {value: 3, text: "内緒"},
+  {value: 0, text: "男性"},
+  {value: 1, text: "女性"},
+  {value: 2, text: "内緒"},
 ];
+
+export const PER_PAGE_NUMBER = 12;
+

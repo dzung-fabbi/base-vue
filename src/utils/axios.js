@@ -15,7 +15,7 @@ const service = axios.create({
 
 service.interceptors.request.use(
   config => {
-    const token = Cookie.get("token");
+    const token = Cookie.get("access_token");
     if (token) {
       config.headers.common["Accept"] = "application/json";
       config.headers.common["Authorization"] = `Bearer ${token}`;

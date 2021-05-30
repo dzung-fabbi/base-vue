@@ -30,6 +30,7 @@
   height: 100px;
   width: 100px;
   margin-top: 11px;
+  border: 1px solid #c4c4c4;
 }
 
 .detail {
@@ -57,7 +58,7 @@
 
 #edit-user-modal {
   background-color: rgba(0, 0, 0, 0.7);
-  z-index: 10000;
+  z-index: 10;
 }
 #edit-user-modal .modal-body {
   padding: 20px;

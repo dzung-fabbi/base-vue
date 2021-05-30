@@ -3,7 +3,7 @@
     <div class="header-nav">
       <ul class="nav justify-content-end">
         <li class="nav-item dropdown">
-          <b-dropdown id="dropdown-right" right :text="user.userName" class="nav-link text-body fw-bold">
+          <b-dropdown id="dropdown-right" right :text="user.user_name" class="nav-link text-body fw-bold">
             <b-dropdown-item @click="logOut">
               <LogoutIcon />
               <span>ログアウト</span>
