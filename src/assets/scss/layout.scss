@@ -206,7 +206,9 @@ a.navbar-brand {
 .table-header .input-group {
     width: 300px;
 }
-
+.table-header .input-group.group-btn-filter {
+    width: max-content;
+}
 .table-header .input-group .btn-filter {
     width: 100px;
     height: 45px;

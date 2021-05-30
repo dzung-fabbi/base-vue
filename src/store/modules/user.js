@@ -6,6 +6,7 @@ export const state = {
   statistical: {},
   userDetail: {},
   listReportUser: [],
+  reporterList: [],
 }
 
 export const getters = {
@@ -13,6 +14,7 @@ export const getters = {
   statistical: state => state.statistical,
   userDetail: state => state.userDetail,
   listReportUser: state => state.listReportUser,
+  reporterList: state => state.reporterList,
 };
 
 export const mutations = {
@@ -27,6 +29,9 @@ export const mutations = {
   },
   setReportUserList(state, listReportUser) {
     state.listReportUser = listReportUser;
+  },
+  setReporterList(state, reporterList) {
+    state.reporterList = reporterList;
   },
 };
 
@@ -92,6 +97,15 @@ export const actions = {
       body
     }).then(response => {
       console.log(response);
+    });
+  },
+  async getReporterList({ commit }, params) {
+    await service({
+      url: api.REPORT_LIST(params.userId),
+      method: "GET",
+      params
+    }).then(response => {
+      commit("setReporterList", response);
     });
   },
 };
