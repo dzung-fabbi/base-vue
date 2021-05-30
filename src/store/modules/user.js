@@ -88,7 +88,7 @@ export const actions = {
   async deleteUser(_, body) {
     await service({
       url: api.DELETE_USER(body.userId),
-      method: "PUT",
+      method: "GET",
       body
     }).then(response => {
       console.log(response);
