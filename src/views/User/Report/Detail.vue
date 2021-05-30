@@ -116,7 +116,7 @@
 <script>
 
 import BasePaginate from "@/components/BasePaginate";
-import {MESSAGES, MODAL, PER_PAGE_NUMBER, USER_GENDER_OPTIONS, USER_STATUS_OPTIONS} from "@/utils/const";
+import {MESSAGES, MODAL, PER_PAGE_NUMBER, USER_GENDER_OPTIONS, REPORT_STATUS_OPTIONS} from "@/utils/const";
 import CalenderIcon from "@/components/Icon/CalenderIcon";
 
 export default {
@@ -164,7 +164,7 @@ export default {
         status: 2,
         date: null,
       },
-      status: USER_STATUS_OPTIONS,
+      status: REPORT_STATUS_OPTIONS,
     }
   },
   created() {
@@ -199,9 +199,9 @@ export default {
         params.date = '';
       }
       if (this.filter.status !== 2) {
-        params.blocked = this.filter.status;
+        params.status = this.filter.status;
       } else {
-        params.blocked = '';
+        params.status = '';
       }
       if (this.paginate.currentPage) {
         params.page = this.paginate.currentPage;
@@ -213,7 +213,7 @@ export default {
       this.paginate.totalRecord = this.$store.getters["user/reporterList"].pagination.total_record;
       this.paginate.total = this.$store.getters["user/reporterList"].pagination.total_page;
       this.reporterList = this.reporterList.map(user => {
-        user.userStatus = this.setUserStatus(user.is_blocked);
+        user.userStatus = this.setReporterStatus(user.is_blocked, user.is_report);
         user.gender = this.setGender(user.sex);
         user.date = this.setFormatDate(user.date);
         return user;
@@ -226,6 +226,11 @@ export default {
     },
     setUserStatus(isBlocked) {
       return isBlocked ? 'ブロック' : 'アクティブ';
+    },
+    setReporterStatus(isBlocked, isReport) {
+      if (isBlocked) return 'ブロック';
+      if (isReport) return '報告';
+      else return '';
     },
     setGender(gender) {
       let genderFilter = USER_GENDER_OPTIONS.filter(item => {

@@ -137,3 +137,8 @@ export const USER_GENDER_OPTIONS = [
 
 export const PER_PAGE_NUMBER = 12;
 
+export const REPORT_STATUS_OPTIONS = [
+  {value: 2, text: "ステータス"},
+  {value: 'REPORT', text: "報告"},
+  {value: 'BLOCK', text: "ブロック"},
+];
