@@ -12,6 +12,7 @@ import Meta from "vue-meta";
 import { loadVeeValidateExtend } from "./plugins/vee-validate";
 import DashboardLayout from './components/DashboardLayout.vue';
 import EmptyLayout from './components/EmptyLayout.vue';
+import money from 'v-money'
 import ja from "vee-validate/dist/locale/ja.json";
 Object.keys(rules).forEach(rule => {
   extend(rule, rules[rule]);
@@ -22,6 +23,7 @@ Vue.use(BootstrapVue);
 Vue.use(BootstrapVueIcons);
 Vue.use(plugins);
 Vue.use(Meta);
+Vue.use(money, {precision: 0});
 Vue.component('default-layout', DashboardLayout);
 Vue.component('empty-layout', EmptyLayout);
 loadVeeValidateExtend();

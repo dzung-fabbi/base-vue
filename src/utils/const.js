@@ -1,4 +1,5 @@
 export const MESSAGES = {
+  NOTICE: "通知",
   REQUIRED: "は必須です。",
   SAVE_SUCCESS: "保存しました。",
   SAVE_ERROR: "保存に失敗しました",
@@ -18,97 +19,10 @@ export const MESSAGES = {
   CONFIRM_UNBLOCK_USER: 'Are You Sure Unblock This User?',
   UNBLOCK_USER_SUCCESS: 'Unblock user success',
   UNBLOCK_USER_FAIL: 'Unblock user fail',
+  ERROR_PAYMENT_SETTING_1: 'RangerTo must be greater than RangerFrom',
+  ERROR_PAYMENT_SETTING_2: 'RangerFrom of next setting must be greater than RangerTo of previous setting'
 };
 
-export const RESERVATION_STATUS = {
-  SCHEDULE: "予約予定",
-  ALREADY: "予約済"
-};
-
-export const COMMON_DATA = {
-  GOLF_AREAS: "golfAreas",
-  PREFECTURES: "prefectures",
-  RESIDENCES: "residences",
-  OCCUPATIONS: "occupations",
-  GOLF_EXPERIENCES: "golfExperiences",
-  GOLF_FREQUENCIES: "golfFrequencies",
-  CIGARETTES: "cigarettes",
-  ALCOHOLS: "alcohols",
-  ANNUAL_INCOMES: "annualIncomes",
-  RELATIONSHIPS: "relationships",
-  APPEARANCES: "appearances",
-  FIGURES: "figures",
-  PLANS: "plans",
-  GOLF_COURSES: "golfCourses",
-  FEMALE_GOLF_RANKS: "femaleGolfRanks",
-  FEMALE_PREGO_RANKS: "femalePregoRanks",
-  MALE_GOLF_RANKS: "maleGolfRanks",
-  MALE_PREGO_RANKS: "malePregoRanks",
-  ATTITUDES: "attitudes",
-  PREFERRED_AGES: "preferredAges",
-  OTHER_PREFERENCES: "otherPreferences"
-};
-
-export const PERPAGE_ORDER = 8;
-
-export const MAX_NUMBER_OF_OPTION = 10;
-
-export const STATUS_ORDER = {
-  NOT_AVAILABLE: 0,
-  AVAILABLE: 1,
-  CANCELED: 2
-};
-
-export const STATUS_ORDER_TEXT = {
-  [STATUS_ORDER.NOT_AVAILABLE]: "未返答",
-  [STATUS_ORDER.AVAILABLE]: "承認済み",
-  [STATUS_ORDER.CANCELED]: "キャンセル済み"
-};
-
-export const ADS_STATUS_VALUE = {
-  OPEN: 0,
-  CANCEL_BEFORE_CONFIRM: 1,
-  AUTO_CANCEL: 2,
-  CONFIRMED: 3,
-  CANCEL_AFTER_CONFIRM: 4,
-  CANCEL_DUE_REASON: 5,
-  ASSEMBLED: 6,
-  MANUAL_TERMINATION: 7,
-  AUTO_TERMINATION: 8
-};
-
-export const ADS_STATUS_TEXT = {
-  [ADS_STATUS_VALUE.OPEN]: "公開中",
-  [ADS_STATUS_VALUE.CANCEL_BEFORE_CONFIRM]: "確定前キャンセル",
-  [ADS_STATUS_VALUE.AUTO_CANCEL]: "自動キャンセル",
-  [ADS_STATUS_VALUE.CONFIRMED]: "確定済み",
-  [ADS_STATUS_VALUE.CANCEL_AFTER_CONFIRM]: "確定後キャンセル",
-  [ADS_STATUS_VALUE.CANCEL_DUE_REASON]: "やむを得ない理由によるキャンセル",
-  [ADS_STATUS_VALUE.ASSEMBLED]: "集合済み",
-  [ADS_STATUS_VALUE.MANUAL_TERMINATION]: "手動終了",
-  [ADS_STATUS_VALUE.AUTO_TERMINATION]: "自動終了"
-};
-
-export const MIN_WIDTH_PC = 1200;
-
-export const RATIO_GOLF_RANK = 60 / 30;
-
-export const MAX_LENGTH_INPUT = 255;
-
-export const STATUS_GIFT_USER = {
-  AVAILABLE: 0,
-  USED: 1
-};
-
-export const GIFT_TYPE = {
-  FREE: 1,
-  NOT_FREE: 2
-};
-
-export const MESSAGES_TYPE = {
-  TEXT: 1,
-  GIFT: 8
-};
 
 export const MODAL = {
   MODAL_NOTICE: 'Notice',
