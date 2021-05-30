@@ -1,164 +1,173 @@
 .background-a1b3bc {
-    background-color: #a1b3bc !important;
+  background-color: #a1b3bc !important;
 }
 
 .background-C4C4C4 {
-    background-color: #c4c4c4;
-    border-color: #C4C4C4;
-    color: #fff;
+  background-color: #c4c4c4;
+  border-color: #C4C4C4;
+  color: #fff;
 }
 
 .background-black {
-    background-color: #000000 !important;
+  background-color: #000000 !important;
 }
 
 .background-c4c4c4 {
-    background-color: #c4c4c4 !important;
+  background-color: #c4c4c4 !important;
 }
 
 .color-8B9DA5 {
-    color: #8B9DA5 !important;
+  color: #8B9DA5 !important;
 }
 
 .color-61727b {
-    color: #61727b !important;
+  color: #61727b !important;
 }
 
 .background-f6f9fa {
-    background-color: #f6f9fa !important;
+  background-color: #f6f9fa !important;
 }
 
 .header-nav {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 100%;
-    z-index: 9;
-    background-color: #fff;
-    height: 60px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  z-index: 9;
+  background-color: #fff;
+  height: 60px;
 }
 
 .header-nav .nav {
-    margin-top: 4px;
+  margin-top: 4px;
 }
 
 .header-nav .nav .dropdown-menu a,
 .header-nav .nav .dropdown-menu a:focus,
 .header-nav .nav .dropdown-menu a:active {
-    background-color: #fff;
-    outline: none;
+  background-color: #fff;
+  outline: none;
 }
 
 .header-nav .nav .dropdown-item svg {
-    margin-bottom: 2px;
+  margin-bottom: 2px;
 }
 
 .header-nav .nav .dropdown-item:active {
-    color: #212529;
+  color: #212529;
 }
 
 #sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 9;
-    width: 260px;
-    border-right: 1px solid #f6f9fa;
-    height: 100%;
-    background-color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  width: 260px;
+  border-right: 1px solid #f6f9fa;
+  height: 100%;
+  background-color: #fff;
 }
 
 #sidebar .nav-item {
-    text-align: left;
-    padding: 10px 15px 10px 0;
-    border-left: 3px solid transparent;
+  text-align: left;
+  padding: 10px 15px 10px 0;
+  border-left: 3px solid transparent;
 }
 
 #sidebar .nav-item a {
-    color: #A1B3BC;
-    margin-left: 15px;
+  color: #A1B3BC;
+  margin-left: 15px;
 }
+
 #sidebar .nav-item a:hover {
-    background-color: transparent;
-    color: rgba(99, 164, 255, 1) !important;
+  background-color: transparent;
+  color: rgba(99, 164, 255, 1) !important;
 }
+
 #sidebar .nav-item a svg {
-     width: 30px;
- }
+  width: 30px;
+}
 
 #sidebar .nav-item a.active {
-    color: #61727b;
+  color: #61727b;
 }
 
 .logo {
-    max-height: 50px;
-    margin: 40px 0;
+  max-height: 50px;
+  margin: 40px 0;
 }
 
 a.navbar-brand {
-    text-align: center;
-    width: 100%;
-    display: block;
+  text-align: center;
+  width: 100%;
+  display: block;
 }
 
 #sidebar ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 #sidebar ul li a {
-    display: block;
-    padding: 10px 15px 10px 0;
-    color: #333;
-    text-decoration: none;
-    -webkit-transition: 0.2s linear;
-    -moz-transition: 0.2s linear;
-    -ms-transition: 0.2s linear;
-    -o-transition: 0.2s linear;
-    transition: 0.2s linear;
+  display: block;
+  padding: 10px 15px 10px 0;
+  color: #333;
+  text-decoration: none;
+  -webkit-transition: 0.2s linear;
+  -moz-transition: 0.2s linear;
+  -ms-transition: 0.2s linear;
+  -o-transition: 0.2s linear;
+  transition: 0.2s linear;
 }
 
 #sidebar ul li a:hover {
-    background: #f8f8f8;
-    color: #515151;
+  background: #f8f8f8;
+  color: #515151;
 }
 
 #sidebar ul li a .fa {
-    width: 16px;
-    text-align: center;
-    margin-right: 5px;
+  width: 16px;
+  text-align: center;
+  margin-right: 5px;
 }
+
 #sidebar .vertical-nav li .child-item {
-    padding-left: 0;
+  padding-left: 0;
 }
+
 #sidebar .vertical-nav li .child-item li a {
-    background: #f6f9fa;
-    border-left: 4px solid transparent;
-    padding: 10px 20px;
+  background: #f6f9fa;
+  border-left: 4px solid transparent;
+  padding: 10px 20px;
 }
 
 #sidebar .vertical-nav li .child-item li a:hover {
-    background: #fff;
+  background: #fff;
 }
 
 #sidebar {
   li.nav-item {
     cursor: pointer;
   }
+
   .sub-menu.active {
     background-color: #f6f9fa;
   }
+
   li.nav-item:not(.sub-menu) {
     padding: 20px 15px;
     color: #A1B3BC;
+
     span {
       padding-left: 10px;
     }
   }
+
   li.nav-item:hover, .child-item li:hover {
     color: rgba(99, 164, 255, 1);
   }
+
   li.router-link-exact-active.router-link-active {
     background-color: #F6F9FA;
     border-left: 3px solid #63A4FF;
@@ -166,88 +175,100 @@ a.navbar-brand {
     font-weight: 500;
     font-size: 16px;
   }
+
   .child-item li {
     padding: 10px 20px 10px 60px;
     cursor: pointer;
     color: #A1B3BC;
   }
+
   .sub-menu:not(.active) > ul {
     display: none;
   }
+
   .right {
     float: right;
   }
+
   .icon {
     margin-top: 3px;
   }
 }
 
 .main {
-    margin-left: 260px;
-    margin-top: 50px;
-    max-width: calc(100% - 260px);
-    padding: 20px;
-    min-height: 100vh;
+  margin-left: 260px;
+  margin-top: 50px;
+  max-width: calc(100% - 260px);
+  padding: 20px;
+  min-height: 100vh;
 }
 
 .main .heading h2 {
-    color: #333333;
-    font-weight: 700;
-    font-size: 22px;
+  color: #333333;
+  font-weight: 700;
+  font-size: 22px;
 }
+
 .main .right-heading {
-    margin-top: 18px;
+  margin-top: 18px;
 }
+
 .main .right-heading button {
-    min-height: 40px;
-    min-width: 90px;
+  min-height: 40px;
+  min-width: 90px;
 }
 
 .table-header .input-group {
-    width: 300px;
+  width: 300px;
 }
+
 .table-header .input-group.group-btn-filter {
-    width: max-content;
+  width: max-content;
 }
+
 .table-header .input-group .btn-filter {
-    width: 100px;
-    height: 45px;
-    background-color: #000000;
-    color: #FFFFFF;
-    border-radius: 5px!important;
+  width: 100px;
+  height: 45px;
+  background-color: #000000;
+  color: #FFFFFF;
+  border-radius: 5px !important;
 }
 
 .table-header .search .input-group-text, .table-header .search input {
-    background-color: #f6f9fa;
-    border: none;
-    padding: 0.6rem 0.8rem;
-    border-radius: 5px;
-    color: #8B9DA5;
+  background-color: #f6f9fa;
+  border: none;
+  padding: 0.6rem 0.8rem;
+  border-radius: 5px;
+  color: #8B9DA5;
 }
+
 .table-header .search input {
-    border-top-right-radius: 5px!important;
-    border-bottom-right-radius: 5px!important;
+  border-top-right-radius: 5px !important;
+  border-bottom-right-radius: 5px !important;
 }
+
 .table-header .search input, .table-header .filter select {
-    height: 45px;
-    width: 155px;
+  height: 45px;
+  width: 155px;
 }
+
 .table-header .date .max-height input {
-    max-height: 45px;
+  max-height: 45px;
 }
+
 .table-header .date .input-group-text, .table-header .date input {
-    background-color: #fff;
-    padding: 0.6rem 0.8rem;
-    border: none;
-    color: #8B9DA5;
+  background-color: #fff;
+  padding: 0.6rem 0.8rem;
+  border: none;
+  color: #8B9DA5;
 }
 
 .table-header .filter select {
-    background-color: #f6f9fa;
-    padding: 0.6rem 0.8rem;
-    border: 1px solid #ECF1F3;
-    border-radius: 5px;
-    color: #8B9DA5;
+  background-color: #f6f9fa;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #ECF1F3;
+  border-radius: 5px;
+  color: #8B9DA5;
 }
 
 button,
@@ -260,253 +281,264 @@ select:focus,
 option,
 option:focus,
 a:focus {
-    outline: none !important;
-    box-shadow: none !important;
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 .table-header .date {
-    border: 1px solid #dee2e6;
-    border-radius: 5px;
-    flex-wrap: nowrap;
-    max-height: 45px;
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+  flex-wrap: nowrap;
+  max-height: 45px;
 }
 
 button {
-    border-radius: .5rem !important;
+  border-radius: .5rem !important;
 }
 
 .table-header #datepicker > span:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .content {
-    background-color: #fff;
-    margin-top: 20px;
-    padding: 20px;
-    border-radius: 10px;
+  background-color: #fff;
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 10px;
 }
 
 .table-content thead tr {
-    border-bottom: 1px solid #dee2e6;
+  border-bottom: 1px solid #dee2e6;
 }
 
 .table-content thead tr th {
-    padding: 15px 5px;
-    border-bottom: none;
-    font-weight: 500;
+  padding: 15px 5px;
+  border-bottom: none;
+  font-weight: 500;
 }
 
 .table-content {
-    margin-top: 20px;
-    border-top: 1px solid #dee2e6;
-    text-align: left;
+  margin-top: 20px;
+  border-top: 1px solid #dee2e6;
+  text-align: left;
 }
 
 .paginate {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .paginate {
-    margin-top: 20px;
+  margin-top: 20px;
 }
+
 .paginate .pagination .page-item {
-    cursor: pointer;
+  cursor: pointer;
 }
+
 .paginate .pagination .page-item.disabled {
-    cursor: default;
+  cursor: default;
 }
+
 .paginate .pagination .page-item.disabled button {
-    background-color: #ECF1F3;
+  background-color: #ECF1F3;
 }
+
 .paginate .pagination .page-item button {
-    padding: 3px 9px 4px 11px;
-    border-radius: .5rem;
-    border: 1px solid #8b9da5;
-    color: #333333;
-    font-weight: 600;
-    font-size: 14px;
-    cursor: pointer;
+  padding: 3px 9px 4px 11px;
+  border-radius: .5rem;
+  border: 1px solid #8b9da5;
+  color: #333333;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
 }
+
 .paginate .pagination .page-item button:focus {
-    background-color: #fff;
+  background-color: #fff;
 }
+
 .paginate .pagination .page-item.disabled button:focus {
-    background-color: #ECF1F3;
+  background-color: #ECF1F3;
 }
+
 .paginate .pagination .page-item:first-child button span {
-    margin-right: 3px;
+  margin-right: 3px;
 }
+
 .paginate .pagination .page-item:last-child button span {
-    margin-left: 3px;
+  margin-left: 3px;
 }
+
 .paginate .pagination .page-item:first-child button, .paginate .pagination .page-item:last-child button {
-    color: #8b9da5;
-    padding: 2px 8px 4px 9px;
+  color: #8b9da5;
+  padding: 2px 8px 4px 9px;
 }
 
 .paginate .pagination .page-item:not(:last-child) {
-    margin-right: 15px;
+  margin-right: 15px;
 }
 
 .paginate .pagination-detail {
-    color: #000;
-    font-size: 14px;
+  color: #000;
+  font-size: 14px;
 }
 
 .paginate .pagination-total {
-    color: #8b9da5;
-    font-size: 14px;
+  color: #8b9da5;
+  font-size: 14px;
 }
 
 .switch-black input[type="checkbox"] {
-    position: relative;
-    width: 40px;
-    height: 20px;
-    -webkit-appearance: none;
-    background: #C4C4C4;
-    border-radius: 100px;
-    outline: none;
-    box-shadow: inset 0 0 5px rgba(0, 0, 0, .2);
-    transition: .5s;
-    cursor: pointer;
+  position: relative;
+  width: 40px;
+  height: 20px;
+  -webkit-appearance: none;
+  background: #C4C4C4;
+  border-radius: 100px;
+  outline: none;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, .2);
+  transition: .5s;
+  cursor: pointer;
 }
 
 .switch-black input[type="checkbox"]::before {
-    content: '';
-    position: absolute;
-    width: 50%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background: #000;
-    border-radius: 50%;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
-    transform: scale(1.1);
-    transition: .5s;
+  content: '';
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #000;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+  transform: scale(1.1);
+  transition: .5s;
 }
 
 .switch-black input:checked[type="checkbox"]::before {
-    left: 50%;
+  left: 50%;
 }
 
 .checkbox-rounded {
-    position: relative;
-    padding: 20px 0 20px 40px;
-    text-align: left;
+  position: relative;
+  padding: 20px 0 20px 40px;
+  text-align: left;
 }
 
 .checkbox-rounded label {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .checkbox-rounded label:before,
 .checkbox-rounded label:after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    border-radius: 50%;
+  content: '';
+  position: absolute;
+  top: 50%;
+  border-radius: 50%;
 }
 
 .checkbox-rounded label:before {
-    left: 0;
-    width: 30px;
-    height: 30px;
-    margin: -15px 0 0;
-    background: #f7f7f7;
-    box-shadow: 0 0 1px grey;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  margin: -15px 0 0;
+  background: #f7f7f7;
+  box-shadow: 0 0 1px grey;
 }
 
 .checkbox-rounded label:after {
-    left: 5px;
-    width: 20px;
-    height: 20px;
-    margin: -10px 0 0;
-    opacity: 0;
-    background: #000000;
-    transform: translate3d(-40px, 0, 0) scale(0.5);
-    transition: opacity 0.25s ease-in-out, transform 0.25s ease-in-out;
+  left: 5px;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0;
+  opacity: 0;
+  background: #000000;
+  transform: translate3d(-40px, 0, 0) scale(0.5);
+  transition: opacity 0.25s ease-in-out, transform 0.25s ease-in-out;
 }
 
 .checkbox-rounded input[type="checkbox"], .checkbox-rounded input[type="radio"] {
-    position: absolute;
-    top: 0;
-    left: -9999px;
-    visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: -9999px;
+  visibility: hidden;
 }
 
 .checkbox-rounded input[type="checkbox"]:checked + label:after,
 .checkbox-rounded input[type="radio"]:checked + label:after {
-    transform: translate3d(0, 0, 0);
-    opacity: 1;
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
 }
 
 .tab-slider--nav {
-    width: 100%;
+  width: 100%;
 }
 
 .tab-slider--tabs {
-    display: flex;
-    justify-content: space-between;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
 }
 
 .tab-slider--tabs .tab-title .top-title {
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 23px;
-    color: rgba(51, 51, 51, 1);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 23px;
+  color: rgba(51, 51, 51, 1);
 }
 
 .tab-slider--trigger .tab-title .bottom-title {
-    font-style: normal;
-    font-weight: bold;
-    font-size: 22px;
-    line-height: 32px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 32px;
 }
 
 .tab-slider--trigger {
-    padding: 12px 15px;
-    cursor: pointer;
-    transition: color 250ms ease-in-out;
-    background: #fff;
-    border-radius: 10px;
-    width: calc((100% - 40px) / 3);
+  padding: 12px 15px;
+  cursor: pointer;
+  transition: color 250ms ease-in-out;
+  background: #fff;
+  border-radius: 10px;
+  width: calc((100% - 40px) / 3);
 }
 
 .tab-slider--trigger.active .tab-title .top-title,
 .tab-slider--trigger.active .tab-title .bottom-title {
-    color: #fff;
+  color: #fff;
 }
 
 .tab-slider--trigger.active {
-    background: #C5CCFD;
-    transition: all 250ms ease-in-out;
-    border-radius: 10px;
+  background: #C5CCFD;
+  transition: all 250ms ease-in-out;
+  border-radius: 10px;
 }
 
 .tab-slider--trigger.slide.active {
-    left: 50%;
-    color: #fff;
+  left: 50%;
+  color: #fff;
 }
 
 .tab-slider--body {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
+
 .table-content tbody tr td {
-    font-weight: 400;
-    font-size: 13px;
+  font-weight: 400;
+  font-size: 13px;
 }
 
 .table-content tbody tr td a {
-    text-decoration: none;
-    color: #8B9DA5;
+  text-decoration: none;
+  color: #8B9DA5;
 }
+
 .error {
-    font-size: 14px;
-    color: red;
+  font-size: 14px;
+  color: red;
 }
 
 #dropdown-right button {
@@ -516,55 +548,87 @@ button {
 }
 
 #datepicker .mx-input-wrapper {
-    position: static;
+  position: static;
 }
-#datepicker .mx-input-wrapper .mx-icon-calendar, #datepicker .mx-input-wrapper  .mx-icon-clear {
-    left: 8px;
-    right: unset;
+
+#datepicker .mx-input-wrapper .mx-icon-calendar, #datepicker .mx-input-wrapper .mx-icon-clear {
+  left: 8px;
+  right: unset;
 }
+
 #datepicker .mx-input-wrapper input {
-    height: 100%;
-    margin-top: 2px;
-    margin-left: 25px;
-    width: 225px;
+  height: 100%;
+  margin-top: 2px;
+  margin-left: 25px;
+  width: 225px;
 }
+
 #edit-user-modal #datepicker {
-    position: relative;
+  position: relative;
 }
+
 #edit-user-modal #datepicker .mx-datepicker .mx-input-wrapper input {
-    margin-top: 2px;
-    margin-left: 0;
-    padding-left: 30px;
-    height: 38px;
-    width: 100%;
-    color: #8B9DA5;
+  margin-top: 2px;
+  margin-left: 0;
+  padding-left: 30px;
+  height: 38px;
+  width: 100%;
+  color: #8B9DA5;
 }
+
 .hidden {
-    display: none!important;
+  display: none !important;
 }
+
 .form-control.focus {
-    box-shadow: none!important;
+  box-shadow: none !important;
 }
+
 .filter-user-date-picker {
-    width: 100%;
-    height: 80%;
-    border: none;
-    margin-top: 4px;
+  width: 100%;
+  height: 80%;
+  border: none;
+  margin-top: 4px;
 }
+
 .filter-user-date-picker button,
 .filter-user-date-picker label,
 .modal-edit-user-date-picker label,
 .modal-edit-user-date-picker button {
-    color: #8B9DA5;
-    text-align: left;
+  color: #8B9DA5;
+  text-align: left;
 }
+
 .filter-user-date-picker button {
-    margin-top: 2px;
+  margin-top: 2px;
 }
+
 .modal-edit-user-date-picker {
-    border: 1px solid #ced4da;
+  border: 1px solid #ced4da;
 }
+
 .confirm-modal button {
-    background-color: transparent;
-    border: 1px solid transparent;
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+
+.live-management-heading {
+  margin-top: 0!important;
+
+  #datepicker {
+    width: 250px;
+    .input-group-text {
+      padding: 0;
+    }
+
+    button#filter-user-date-picker {
+      min-width: 60px;
+    }
+
+    label {
+      text-align: left;
+      margin: 3px 2px;
+      color: #8B9DA5;
+    }
+  }
 }
