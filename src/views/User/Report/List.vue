@@ -52,7 +52,7 @@
             <td class="pt-3">{{ user.block_count }}</td>
             <td class="pt-3">{{ user.userStatus }}</td>
             <td>
-              <router-link :to="{ name:'UserBlockDetail', params: { id: user.id } }">
+              <router-link :to="{ name:'UserReportDetail', params: { id: user.id } }">
                 <button class="btn">
                   <EyeIcon/>
                 </button>
@@ -181,7 +181,7 @@ export default {
                         MODAL.MODAL_NOTICE,
                         MODAL.MODAL_TYPE_SUCCESS,
                     );
-                    await this.getUserDetail();
+                    await this.getBlockUserList();
                     this.$root.$refs.loading.finish();
                   })
                   .catch(error => {
