@@ -7,6 +7,7 @@ export const state = {
   userDetail: {},
   listReportUser: [],
   reporterList: [],
+  blockList: [],
 }
 
 export const getters = {
@@ -15,6 +16,7 @@ export const getters = {
   userDetail: state => state.userDetail,
   listReportUser: state => state.listReportUser,
   reporterList: state => state.reporterList,
+  blockList: state => state.blockList,
 };
 
 export const mutations = {
@@ -32,6 +34,9 @@ export const mutations = {
   },
   setReporterList(state, reporterList) {
     state.reporterList = reporterList;
+  },
+  setBlockList(state, blockList) {
+    state.blockList = blockList;
   },
 };
 
@@ -106,6 +111,15 @@ export const actions = {
       params
     }).then(response => {
       commit("setReporterList", response);
+    });
+  },
+  async getBlockList({ commit }, params) {
+    await service({
+      url: api.BLOCK_LIST,
+      method: "GET",
+      params
+    }).then(response => {
+      commit("setBlockList", response);
     });
   },
 };

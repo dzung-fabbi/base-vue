@@ -9,3 +9,4 @@ export const GET_REPORT_USER_LIST = "/api/v1/cms/user/reports";
 export const DELETE_USER = user_id => `/api/v1/cms/user/${user_id}/report/delete`;
 export const UPLOAD_MEDIA = "/api/v1/general/upload";
 export const REPORT_LIST = user_id => `/api/v1/cms/user/${user_id}/reports`;
+export const BLOCK_LIST = "/api/v1/cms/user/blocks";
