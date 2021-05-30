@@ -51,7 +51,7 @@
             >
             <span class="error text-left f-w3">{{ errors[0] }}</span>
           </ValidationProvider>
-          <div class="input-group filter">
+          <div class="input-group filter ps-0">
             <b-form-select
                 class="type form-select"
                 v-model="filter.status"
