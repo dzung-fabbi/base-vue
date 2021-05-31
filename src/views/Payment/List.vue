@@ -77,13 +77,13 @@
           </thead>
           <tbody>
           <tr v-for="(payment, index) in managementList" :key="index">
-            <td class="pt-3 pb-3">{{ payment.id }}</td>
+            <td class="pt-3 pb-3">{{ payment.user_id }}</td>
             <td class="pt-3 pb-3">{{ payment.name }}</td>
-            <td class="pt-3 pb-3">{{ payment.date }}</td>
-            <td class="pt-3 pb-3">{{ payment.coin_balance }}</td>
-            <td class="pt-3 pb-3">{{ payment.real_balance }}</td>
+            <td class="pt-3 pb-3">{{ payment.create_at }}</td>
+            <td class="pt-3 pb-3">{{ payment.money_total }}</td>
+            <td class="pt-3 pb-3">{{ payment.money_receive }}</td>
             <td class="pt-3 pb-3">{{ payment.status }}</td>
-            <td class="pt-3 pb-3">{{ payment.last_update }}</td>
+            <td class="pt-3 pb-3">{{ payment.update_at }}</td>
           </tr>
           </tbody>
         </table>
@@ -113,13 +113,14 @@ export default {
     return {
       managementList: [
         {
-          id: null,
+          is: null,
           name: null,
-          date: null,
-          coin_balance: null,
-          real_balance: null,
+          user_id: null,
+          create_at: null,
+          money_total: null,
+          money_receive: null,
           status: null,
-          last_update: null,
+          update_at: null,
         }
       ],
       paginate: {
@@ -129,12 +130,15 @@ export default {
       },
       filter: {
         id: null,
-        status: 0,
+        status: 3,
         date: null,
       },
       status: PAYMENT_MANAGEMENT_STATUS_OPTIONS,
       total: 0,
     }
+  },
+  created() {
+    this.getPaymentManagementList();
   },
   methods: {
     async getPaymentManagementList() {
@@ -145,7 +149,7 @@ export default {
       } else {
         params.q = '';
       }
-      if (this.filter.status !== null && this.filter.status !== '' && this.filter.status !== 0) {
+      if (this.filter.status !== null && this.filter.status !== '' && this.filter.status !== 3) {
         params.status = this.filter.status;
       } else {
         params.status = '';
@@ -166,9 +170,10 @@ export default {
       this.paginate.totalRecord = this.$store.getters["payment/managementList"].pagination.total_record;
       this.paginate.total = this.$store.getters["payment/managementList"].pagination.total_page;
       this.managementList = this.managementList.map(payment => {
-        payment.date = this.setFormatDate(payment.date);
-        payment.coin_balance = this.setCoinBalance(payment.coin_balance);
-        payment.real_balance = this.setCoinBalance(payment.real_balance);
+        payment.create_at = this.setFormatDate(payment.create_at);
+        payment.update_at = this.setFormatDate(payment.update_at);
+        payment.money_total = this.setCoinBalance(payment.money_total);
+        payment.money_receive = this.setCoinBalance(payment.money_receive);
         payment.status = this.setPaymentStatus(payment.status);
         return payment;
       });
