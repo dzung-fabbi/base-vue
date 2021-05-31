@@ -55,7 +55,7 @@
               </span>
             </b-form-datepicker>
           </div>
-          <div class="input-group">
+          <div class="input-group group-btn-filter">
             <button class="btn btn-filter" @click="handleSubmit(handleFilter)">
               検索
             </button>
