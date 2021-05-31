@@ -64,9 +64,9 @@ export const REPORT_STATUS_OPTIONS = [
 ];
 
 export const SYSTEM_REVENUE_STATUS_OPTIONS = [
-  {value: 0, text: "ステータス"},
+  {value: 2, text: "ステータス"},
   {value: 1, text: "成功"},
-  {value: 2, text: "失敗"},
+  {value: 0, text: "失敗"},
 ];
 
 export const PAYMENT_MANAGEMENT_STATUS_OPTIONS = [
