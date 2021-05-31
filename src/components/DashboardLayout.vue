@@ -118,6 +118,7 @@ import LiveIcon from "@/components/Icon/LiveIcon";
 import LogoutIcon from "@/components/Icon/LogoutIcon";
 import Cookies from "js-cookie";
 import { mapGetters } from "vuex";
+import {MESSAGES, MODAL} from "@/utils/const";
 
 export default {
   components: {
@@ -156,6 +157,11 @@ export default {
       Cookies.remove("access_token");
       this.$router.push({ name: "Login" });
       this.$root.$refs.loading.finish();
+      this.$toast(
+          MESSAGES.LOGOUT_SUCCESS,
+          MODAL.MODAL_NOTICE,
+          MODAL.MODAL_TYPE_SUCCESS,
+      );
     },
     onClickSub(event, name) {
       event.stopPropagation();

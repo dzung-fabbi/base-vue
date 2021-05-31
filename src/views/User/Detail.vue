@@ -299,7 +299,6 @@ export default {
     async updateInfo() {
       this.$root.$refs.loading.start();
       const body = this.setData();
-      console.log(body)
       await this.$store.dispatch('user/updateUserInfo', body)
           .then(async () => {
             this.showModal();

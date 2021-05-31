@@ -197,7 +197,6 @@ export default {
                   userId: userId,
                   status: 'UNBLOCK',
                 }
-                console.log(body)
                 await this.$store.dispatch('user/blockUser', body)
                     .then(async () => {
                       this.$toast(

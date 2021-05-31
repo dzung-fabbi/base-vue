@@ -6,7 +6,7 @@ export const toast = (
   message,
   title = null,
   type = "success",
-  position = "top-right",
+  position = "bottom-right",
   duration = 5000
 ) => {
   Vue.use(VueToast);
@@ -16,7 +16,6 @@ export const toast = (
     duration,
     position,
     type: type === 'danger' ? 'error' : type,
-    queue: true,
     dismissible: true
   });
 };

@@ -233,7 +233,7 @@ export default {
       this.paginate.totalRecord = this.$store.getters["user/listUsers"].pagination.total_record;
       this.paginate.total = this.$store.getters["user/listUsers"].pagination.total_page;
       this.listUsers = this.listUsers.map(user => {
-        user.loginType = this.setLoginType(user.login_type, user.email, user.google_id, user.line_id, user.apple_id);
+        user.loginType = this.setLoginType(user.login_type, user.user_name, user.google_id, user.line_id, user.apple_id);
         user.userType = this.setUserType(user.is_distribute);
         user.userStatus = this.setUserStatus(user.is_blocked);
         user.birthday = this.setBirthDay(user.birthday);
@@ -258,9 +258,7 @@ export default {
         this.filter.id = this.filter.id.trim();
       }
     },
-    setLoginType(loginType, email, googleId, lineId, appleId) {
-      if (!email && !googleId && !lineId && !appleId)
-        return `${loginType}:`;
+    setLoginType(loginType, userName, googleId, lineId, appleId) {
       switch (loginType) {
         case 'GOOGLE':
           return `${loginType}: ${googleId}`;
@@ -269,7 +267,7 @@ export default {
         case 'APPLE':
           return `${loginType}: ${appleId}`;
         default:
-          return `${loginType}: ${email}`;
+          return `${loginType}: ${userName}`;
       }
     },
     setUserType(isDistribute) {
