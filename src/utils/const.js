@@ -20,7 +20,9 @@ export const MESSAGES = {
   UNBLOCK_USER_SUCCESS: 'Unblock user success',
   UNBLOCK_USER_FAIL: 'Unblock user fail',
   ERROR_PAYMENT_SETTING_1: 'RangerTo must be greater than RangerFrom',
-  ERROR_PAYMENT_SETTING_2: 'RangerFrom of next setting must be greater than RangerTo of previous setting'
+  ERROR_PAYMENT_SETTING_2: 'RangerFrom of next setting must be greater than RangerTo of previous setting',
+  LOGOUT_SUCCESS: 'You have successfully logout',
+  CANNOT_GET_DATA: 'OOP! Something went wrong!',
 };
 
 
