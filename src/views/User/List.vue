@@ -65,14 +65,14 @@
               </span>
             </b-form-datepicker>
           </div>
-          <div class="input-group filter">
+          <div class="input-group filter pe-0">
             <b-form-select
                 class="type form-select"
                 v-model="filter.user_type"
                 :options="userType"
             />
           </div>
-          <div class="input-group filter ps-0">
+          <div class="input-group filter">
             <b-form-select
                 class="type form-select"
                 v-model="filter.status"

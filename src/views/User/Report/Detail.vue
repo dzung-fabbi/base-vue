@@ -49,14 +49,14 @@
       <div class="right-content">
         <ValidationObserver v-slot="{ handleSubmit }">
           <div class="table-header row">
-            <div class="input-group filter">
+            <div class="input-group filter mt-2">
               <b-form-select
                   class="type form-select"
                   v-model="filter.status"
                   :options="status"
               />
             </div>
-            <div class="input-group date" id="datepicker" data-date-format="dd-mm-yyyy">
+            <div class="input-group date mt-2" id="datepicker" data-date-format="dd-mm-yyyy">
               <b-form-datepicker
                   id="filter-user-date-picker"
                   v-model="filter.date"
@@ -72,7 +72,7 @@
               </span>
               </b-form-datepicker>
             </div>
-            <div class="input-group">
+            <div class="input-group group-btn-filter mt-2">
               <button class="btn btn-filter" @click="handleSubmit(handleFilterUser)">
                 検索
               </button>
