@@ -80,10 +80,10 @@
           </thead>
           <tbody>
           <tr v-for="(revenue, index) in systemRevenueList" :key="index">
-            <td class="pt-3 pb-3">{{ revenue.id }}</td>
-            <td class="pt-3 pb-3">{{ revenue.name }}</td>
-            <td class="pt-3 pb-3">{{ revenue.date }}</td>
-            <td class="pt-3 pb-3">{{ revenue.coin_balance }}</td>
+            <td class="pt-3 pb-3">{{ revenue.user_id }}</td>
+            <td class="pt-3 pb-3">{{ revenue.user_name }}</td>
+            <td class="pt-3 pb-3">{{ revenue.create_at }}</td>
+            <td class="pt-3 pb-3">{{ revenue.price }}</td>
             <td class="pt-3 pb-3">{{ revenue.coin }}</td>
             <td class="pt-3 pb-3">{{ revenue.status }}</td>
           </tr>
@@ -116,9 +116,10 @@ export default {
       systemRevenueList: [
         {
           id: null,
-          name: null,
-          date: null,
-          coin_balance: null,
+          user_id: null,
+          user_name: null,
+          create_at: null,
+          price: null,
           coin: null,
           status: null,
         }
@@ -130,15 +131,18 @@ export default {
       },
       filter: {
         id: null,
-        status: 0,
-        date: null,
+        status: 2,
+        date: {
+          start: new Date(2020, 0, 1),
+          end: new Date(2020, 0, 1),
+        },
       },
       status: SYSTEM_REVENUE_STATUS_OPTIONS,
       total: 0,
     }
   },
   created() {
-    // this.getSystemRevenueList();
+    this.getSystemRevenueList();
   },
   methods: {
     async getSystemRevenueList() {
@@ -149,7 +153,7 @@ export default {
       } else {
         params.q = '';
       }
-      if (this.filter.status !== null && this.filter.status !== '' && this.filter.status !== 0) {
+      if (this.filter.status !== null && this.filter.status !== '' && this.filter.status !== 2) {
         params.status = this.filter.status;
       } else {
         params.status = '';
@@ -166,12 +170,13 @@ export default {
       await this.$store.dispatch("revenue/getSystemRevenueList", params);
       this.systemRevenueList = this.$store.getters["revenue/systemRevenueList"].data.data;
       this.total = this.$store.getters["revenue/systemRevenueList"].data.total;
+      this.total = this.setCoinBalance(this.total);
       this.paginate.currentPage = this.$store.getters["revenue/systemRevenueList"].pagination.current_page;
       this.paginate.totalRecord = this.$store.getters["revenue/systemRevenueList"].pagination.total_record;
       this.paginate.total = this.$store.getters["revenue/systemRevenueList"].pagination.total_page;
       this.systemRevenueList = this.systemRevenueList.map(revenue => {
-        revenue.date = this.setFormatDate(revenue.date);
-        revenue.coin_balance = this.setCoinBalance(revenue.coin_balance);
+        revenue.create_at = this.setFormatDate(revenue.create_at);
+        revenue.price = this.setCoinBalance(revenue.price);
         revenue.coin = this.setCoin(revenue.coin);
         revenue.status = this.setStatus(revenue.status);
         return revenue;
@@ -184,7 +189,7 @@ export default {
     },
     setCoinBalance(coinBalance) {
       if (!coinBalance) return;
-      return `${coinBalance} ¥`;
+      return `¥ ${coinBalance}`;
     },
     setCoin(coin) {
       if (!coin) return;

@@ -166,6 +166,7 @@ export default {
       await this.$store.dispatch("payment/getPaymentManagementList", params);
       this.managementList = this.$store.getters["payment/managementList"].data.data;
       this.total = this.$store.getters["payment/managementList"].data.total;
+      this.total = this.setCoinBalance(this.total);
       this.paginate.currentPage = this.$store.getters["payment/managementList"].pagination.current_page;
       this.paginate.totalRecord = this.$store.getters["payment/managementList"].pagination.total_record;
       this.paginate.total = this.$store.getters["payment/managementList"].pagination.total_page;
@@ -198,7 +199,7 @@ export default {
     },
     setCoinBalance(coinBalance) {
       if (!coinBalance) return;
-      return `${coinBalance} ¥`;
+      return `¥ ${coinBalance}`;
     },
     setPaymentStatus(status) {
       switch (status) {
