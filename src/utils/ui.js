@@ -1,22 +1,23 @@
-import Vue from "vue";
+import Vue from 'vue';
+import VueToast from 'vue-toast-notification';
+import 'vue-toast-notification/dist/theme-sugar.css';
 
 export const toast = (
   message,
   title = null,
-  variant = "secondary",
-  toaster = "b-toaster-top-center",
-  autoHideDelay = 2000
+  type = "success",
+  position = "top-right",
+  duration = 5000
 ) => {
-  const vm = new Vue({});
-  return vm.$bvToast.toast(message, {
+  Vue.use(VueToast);
+  return Vue.$toast.open({
+    message,
     title,
-    noCloseButton: false,
-    autoHideDelay,
-    appendToast: true,
-    toaster,
-    variant,
-    noFade: false,
-    solid: true
+    duration,
+    position,
+    type: type === 'danger' ? 'error' : type,
+    queue: true,
+    dismissible: true
   });
 };
 
