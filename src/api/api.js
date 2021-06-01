@@ -11,4 +11,3 @@ export const UPLOAD_MEDIA = "/api/v1/general/upload";
 export const REPORT_LIST = user_id => `/api/v1/cms/user/${user_id}/reports`;
 export const BLOCK_LIST = "/api/v1/cms/user/blocks";
 export const LIVE_MANAGEMENT = "/api/v1/cms/live/managements";
-export const SYSTEM_REVENUE = "/api/v1/cms/purchase/managements";
