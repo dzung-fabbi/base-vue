@@ -45,18 +45,18 @@ export default {
     perPage: {
       type: Number,
       required: true,
-      default: 12,
+      default: 10,
     },
     totalRecord: {
       type: Number,
       required: true,
-      default: 12,
+      default: 10,
     }
   },
   data() {
     return {
       from_record: 1,
-      to_record: 12,
+      to_record: 10,
     }
   },
   computed: {
