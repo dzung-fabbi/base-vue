@@ -4,21 +4,22 @@
       <div class="left-heading"><h2>総売上</h2></div>
       <div class="right-heading live-management-heading">
         <div class="input-group date" id="datepicker" data-date-format="dd-mm-yyyy">
-          <b-form-datepicker
+          <date-range-picker
+              class="input-group-text date-range-picker"
               id="filter-user-date-picker"
+              ref="picker"
+              :locale-data="SETTING_DATE_RANGE_LOCALE"
+              :timePicker="false"
+              :show-week-numbers="false"
+              :showDropdowns="false"
+              :autoApply="false"
               v-model="filter.date"
-              class="input-group-text"
-              :date-format-options="{ year: 'numeric', month: 'numeric', day: 'numeric' }"
-              placeholder="YYYY-MM-DD"
-              locale="ja"
-              :hide-header="true"
-              reset-button
-              @input="handleFilter"
+              @update="getSystemRevenueList"
+              :opens="'left'"
+              :class="{'no-value': filterDateNull }"
           >
-              <span slot="button-content">
-                <CalenderIcon />
-              </span>
-          </b-form-datepicker>
+          </date-range-picker>
+          <CalenderIcon class="date-range-picker-icon"/>
         </div>
       </div>
     </div>
@@ -104,13 +105,15 @@
 <script>
 
 import BasePaginate from "@/components/BasePaginate";
-import {PER_PAGE_NUMBER, SYSTEM_REVENUE_STATUS_OPTIONS} from "@/utils/const";
+import {PER_PAGE_NUMBER, SYSTEM_REVENUE_STATUS_OPTIONS, SETTING_DATE_RANGE_LOCALE} from "@/utils/const";
 import SearchIcon from "@/components/Icon/SearchIcon";
+import DateRangePicker from 'vue2-daterange-picker';
+import 'vue2-daterange-picker/dist/vue2-daterange-picker.css';
 import CalenderIcon from "@/components/Icon/CalenderIcon";
 
 export default {
   name: 'RevenueSystem',
-  components: {CalenderIcon, SearchIcon, BasePaginate},
+  components: {CalenderIcon, SearchIcon, BasePaginate, DateRangePicker},
   data() {
     return {
       systemRevenueList: [
@@ -133,16 +136,22 @@ export default {
         id: null,
         status: 2,
         date: {
-          start: new Date(2020, 0, 1),
-          end: new Date(2020, 0, 1),
+          startDate: null,
+          endDate: null,
         },
       },
       status: SYSTEM_REVENUE_STATUS_OPTIONS,
       total: 0,
+      SETTING_DATE_RANGE_LOCALE
     }
   },
   created() {
     this.getSystemRevenueList();
+  },
+  computed: {
+    filterDateNull() {
+      return !this.filter.date.startDate || this.filter.date.endDate;
+    }
   },
   methods: {
     async getSystemRevenueList() {
@@ -158,10 +167,12 @@ export default {
       } else {
         params.status = '';
       }
-      if (this.filter.date !== null && this.filter.date !== '') {
-        params.date = this.filter.date;
+      if (this.filter.date.startDate !== null && this.filter.date.endDate !== null) {
+        params.date_from = this.setFormatDate(this.filter.date.startDate);
+        params.date_to = this.setFormatDate(this.filter.date.endDate);
       } else {
-        params.date = '';
+        params.date_from = '';
+        params.date_to = '';
       }
       if (this.paginate.currentPage) {
         params.page = this.paginate.currentPage;
