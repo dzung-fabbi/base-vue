@@ -26,6 +26,7 @@
 <script>
 import NextPageIcon from "@/components/Icon/NextPageIcon";
 import PreviousPageIcon from "@/components/Icon/PreviousPageIcon";
+import {PER_PAGE_NUMBER} from '@/utils/const';
 
 export default {
   components: {
@@ -45,18 +46,18 @@ export default {
     perPage: {
       type: Number,
       required: true,
-      default: 12,
+      default: PER_PAGE_NUMBER,
     },
     totalRecord: {
       type: Number,
       required: true,
-      default: 12,
+      default: PER_PAGE_NUMBER,
     }
   },
   data() {
     return {
       from_record: 1,
-      to_record: 12,
+      to_record: PER_PAGE_NUMBER,
     }
   },
   computed: {
