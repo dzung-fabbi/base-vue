@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueToast from 'vue-toast-notification';
 import 'vue-toast-notification/dist/theme-sugar.css';
+Vue.use(VueToast);
 
 export const toast = (
   message,
@@ -9,7 +10,6 @@ export const toast = (
   position = "bottom-right",
   duration = 5000
 ) => {
-  Vue.use(VueToast);
   return Vue.$toast.open({
     message,
     title,

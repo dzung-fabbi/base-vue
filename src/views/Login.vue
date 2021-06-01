@@ -40,6 +40,7 @@
                       class='form-control'
                       id='password'
                       placeholder='パスワード'
+                      @keyup="onKeyup"
                   >
                   <button class='btn btn-toggle-password' :class="{'hidden': passwordFieldType === 'text' }" type='button'
                           id='show-password' @click='switchVisibility'>
@@ -125,6 +126,11 @@ export default {
                 MODAL.MODAL_TYPE_DANGER
             );
           });
+    },
+    onKeyup($event) {
+      if ($event.keyCode === 13) {
+        this.handleLogin();
+      }
     }
   }
 };
