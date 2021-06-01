@@ -55,7 +55,7 @@ export const USER_GENDER_OPTIONS = [
   {value: 2, text: "内緒"},
 ];
 
-export const PER_PAGE_NUMBER = 12;
+export const PER_PAGE_NUMBER = 10;
 
 export const REPORT_STATUS_OPTIONS = [
   {value: 2, text: "ステータス"},
