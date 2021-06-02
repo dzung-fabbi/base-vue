@@ -3,8 +3,10 @@
     <div class="heading text-start">
       <div class="left-heading"><h2>総売上</h2></div>
       <div class="right-heading live-management-heading">
-        <button type="button" class="btn btn-dark background-black float-end me-2" data-bs-toggle="modal"
-          data-bs-target="#edit-user-modal">CSV 出力
+        <button type="button" 
+          @click="exportData"
+          class="btn btn-dark background-black float-end me-2">
+          CSV 出力
         </button>
       </div>
     </div>
@@ -156,6 +158,20 @@ export default {
         this.filter.id = this.filter.id.trim();
       }
     },
+    exportData() {
+      this.$root.$refs.loading.start();
+      this.$store.dispatch("revenue/export").then(res => {
+        if (res.data?.url) {
+          var dlink = document.createElement('a');
+          dlink.href = res.data.url;
+          dlink.click();
+          dlink.remove();
+        }
+        this.$root.$refs.loading.finish();
+      }).catch(() => {
+        this.$root.$refs.loading.finish();
+      });
+    }
   }
 }
 </script>
