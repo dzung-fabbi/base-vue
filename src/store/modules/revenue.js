@@ -39,4 +39,16 @@ export const actions = {
       commit("setUserRevenueList", response);
     });
   },
+  export() {
+    return new Promise((resolve, reject) => {
+      service({
+        url: api.EXPORT_USERS_REVENUE,
+        method: "GET"
+      }).then(response => {
+        resolve(response);
+      }).catch(error => {
+        reject(error);
+      });
+    });
+  },
 };
