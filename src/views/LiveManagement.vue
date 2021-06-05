@@ -155,7 +155,7 @@ export default {
       this.paginate.total = this.$store.getters["live/liveManagementList"].pagination.total_page;
       this.liveManagementList = this.liveManagementList.map(live => {
         live.liveDate = this.getDateFormat(live.start_time);
-        live.liveTime = this.getTimeFormat(live.start_time);
+        live.liveTime = this.getDiffHours(live.start_time, live.end_time);
         return live;
       });
       this.$root.$refs.loading.finish();
@@ -181,6 +181,16 @@ export default {
         this.filter.id = this.filter.id.trim();
       }
     },
+    getDiffHours(startTime, endTime) {
+      if (!startTime || !endTime) return 0;
+      const start = this.$dayjs(startTime);
+      const end = this.$dayjs(endTime);
+
+      let minutes = end.diff(start, 'minute');
+      let hours = Math.floor(minutes / 60);
+      minutes = minutes - (hours * 60);
+      return `${hours}:${minutes}`;
+    }
   }
 }
 </script>
