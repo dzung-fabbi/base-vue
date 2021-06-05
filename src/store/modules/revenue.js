@@ -3,7 +3,7 @@ import service from "@/utils/axios";
 
 export const state = {
   systemRevenueList: [],
-  userRevenueList: []
+  userRevenueList: [],
 };
 
 export const getters = {
@@ -37,6 +37,58 @@ export const actions = {
       params
     }).then(response => {
       commit("setUserRevenueList", response);
+    });
+  },
+  async getUserRevenueAnalytic(_, params) {
+    return new Promise((resolve, reject) => {
+      service({
+        url: api.GET_USER_REVENUE_ANALYTIC(params.revenue_id),
+        method: "GET",
+        params
+      }).then(response => {
+        resolve(response);
+      }).catch(error => {
+        reject(error);
+      });
+    });
+  },
+  async getUserRevenueIncome(_, params) {
+    return new Promise((resolve, reject) => {
+      service({
+        url: api.GET_USER_REVENUE_INCOME(params.revenue_id),
+        method: "GET",
+        params
+      }).then(response => {
+        resolve(response);
+      }).catch(error => {
+        reject(error);
+      });
+    });
+  },
+  async getUserRevenuePurchase(_, params) {
+    return new Promise((resolve, reject) => {
+      service({
+        url: api.GET_USER_REVENUE_PURCHASE(params.revenue_id),
+        method: "GET",
+        params
+      }).then(response => {
+        resolve(response);
+      }).catch(error => {
+        reject(error);
+      });
+    });
+  },
+  async getUserRevenueDonate(_, params) {
+    return new Promise((resolve, reject) => {
+      service({
+        url: api.GET_USER_REVENUE_DONATE(params.revenue_id),
+        method: "GET",
+        params
+      }).then(response => {
+        resolve(response);
+      }).catch(error => {
+        reject(error);
+      });
     });
   },
   export() {

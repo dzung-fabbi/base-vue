@@ -1,10 +1,12 @@
 import Vue from "vue";
 import App from './App.vue'
 import { BootstrapVue, BootstrapVueIcons } from "bootstrap-vue";
+import DateRangePicker from 'vue2-daterange-picker';
 import router from "./router";
 import store from "./store";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
+import 'vue2-daterange-picker/dist/vue2-daterange-picker.css';
 import plugins from "./plugins";
 import { ValidationObserver, ValidationProvider, extend, localize } from "vee-validate";
 import * as rules from "vee-validate/dist/rules";
@@ -24,6 +26,7 @@ Vue.use(BootstrapVueIcons);
 Vue.use(plugins);
 Vue.use(Meta);
 Vue.use(money, {precision: 0});
+Vue.component('date-range-picker', DateRangePicker);
 Vue.component('default-layout', DashboardLayout);
 Vue.component('empty-layout', EmptyLayout);
 loadVeeValidateExtend();

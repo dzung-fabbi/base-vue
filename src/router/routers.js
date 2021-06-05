@@ -123,18 +123,30 @@ export default [
       {
         path: "user",
         name: "RevenueUser",
-        component: () => import("../views/Revenue/User.vue"),
+        component: {
+          render: c => c("router-view")
+        },
         meta: {
           requireLogin: true,
         },
-      },
-      {
-        path: "user/:id",
-        name: "RevenueUserDetail",
-        component: () => import("../views/Revenue/UserRevenueDetail.vue"),
-        meta: {
-          requireLogin: true,
-        },
+        children: [
+          {
+            path: "",
+            name: "RevenueUser",
+            component: () => import("../views/Revenue/User.vue"),
+            meta: {
+              requireLogin: true,
+            },
+          },
+          {
+            path: ":id",
+            name: "RevenueUserDetail",
+            component: () => import("../views/Revenue/UserRevenueDetail.vue"),
+            meta: {
+              requireLogin: true,
+            },
+          },
+        ]
       },
     ]
   },
