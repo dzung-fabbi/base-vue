@@ -59,6 +59,13 @@
             <td class="pt-3 pb-3">{{ revenue.ranking }}</td>
             <td class="pt-3 pb-3">{{ revenue.point_receive }}</td>
             <td class="pt-3 pb-3">{{ revenue.coin_use }}</td>
+            <td>
+              <router-link :to="{ name:'RevenueUserDetail', params: { id: revenue.id } }">
+                <button class="btn">
+                  <EyeIcon/>
+                </button>
+              </router-link>
+            </td>
           </tr>
           </tbody>
         </table>
@@ -79,11 +86,13 @@
 import BasePaginate from "@/components/BasePaginate";
 import { PER_PAGE_NUMBER, USER_TYPE_OPTIONS } from "@/utils/const";
 import SearchIcon from "@/components/Icon/SearchIcon";
+import EyeIcon from "@/components/Icon/EyeIcon";
 
 export default {
   name: 'RevenueUser',
   components: { 
-    SearchIcon, 
+    SearchIcon,
+    EyeIcon,
     BasePaginate
   },
   data() {

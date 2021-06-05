@@ -107,13 +107,15 @@
 import BasePaginate from "@/components/BasePaginate";
 import {PER_PAGE_NUMBER, SYSTEM_REVENUE_STATUS_OPTIONS, SETTING_DATE_RANGE_LOCALE} from "@/utils/const";
 import SearchIcon from "@/components/Icon/SearchIcon";
-import DateRangePicker from 'vue2-daterange-picker';
-import 'vue2-daterange-picker/dist/vue2-daterange-picker.css';
 import CalenderIcon from "@/components/Icon/CalenderIcon";
 
 export default {
   name: 'RevenueSystem',
-  components: {CalenderIcon, SearchIcon, BasePaginate, DateRangePicker},
+  components: {
+    CalenderIcon, 
+    SearchIcon, 
+    BasePaginate
+  },
   data() {
     return {
       systemRevenueList: [
