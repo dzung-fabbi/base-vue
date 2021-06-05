@@ -190,10 +190,6 @@ a.navbar-brand {
 .main .right-heading {
     margin-top: 18px;
 }
-.main .right-heading button {
-    min-height: 40px;
-    min-width: 90px;
-}
 
 .table-header .input-group {
     width: 300px;
