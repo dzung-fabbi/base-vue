@@ -73,7 +73,7 @@ export default [
           {
             path: ":id/detail",
             name: "UserBlockDetail",
-            component: () => import("../views/User/Block/Detail.vue"),
+            component: () => import("../views/User/Report/Detail.vue"),
             meta: {
               requireLogin: true,
             },

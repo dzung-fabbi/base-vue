@@ -166,7 +166,7 @@ export default {
     },
     getDateFormat(date) {
       if (!date) return;
-      return this.$dayjs(date).format('YYYY-MM-DD');
+      return this.$dayjs(date).format('DD.MM.YYYY');
     },
     getTimeFormat(time) {
       if (!time) return;

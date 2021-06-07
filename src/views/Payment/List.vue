@@ -8,7 +8,7 @@
         <h3>総決済金額要</h3>
       </div>
       <div class="bottom-info">
-        <span>{{ this.total }}</span>
+        <div><span class="top-currency">¥</span> {{ this.total }}</div>
       </div>
     </div>
     <div class="content">
@@ -80,8 +80,8 @@
             <td class="pt-3 pb-3">{{ payment.user_id }}</td>
             <td class="pt-3 pb-3">{{ payment.name }}</td>
             <td class="pt-3 pb-3">{{ payment.create_at }}</td>
-            <td class="pt-3 pb-3">{{ payment.money_total }}</td>
-            <td class="pt-3 pb-3">{{ payment.money_receive }}</td>
+            <td class="pt-3 pb-3"><span class="table-currency">¥</span> {{ payment.money_total }}</td>
+            <td class="pt-3 pb-3"><span class="table-currency">¥</span> {{ payment.money_receive }}</td>
             <td class="pt-3 pb-3">{{ payment.status }}</td>
             <td class="pt-3 pb-3">{{ payment.update_at }}</td>
           </tr>
@@ -166,15 +166,12 @@ export default {
       await this.$store.dispatch("payment/getPaymentManagementList", params);
       this.managementList = this.$store.getters["payment/managementList"].data.data;
       this.total = this.$store.getters["payment/managementList"].data.total;
-      this.total = this.setCoinBalance(this.total);
       this.paginate.currentPage = this.$store.getters["payment/managementList"].pagination.current_page;
       this.paginate.totalRecord = this.$store.getters["payment/managementList"].pagination.total_record;
       this.paginate.total = this.$store.getters["payment/managementList"].pagination.total_page;
       this.managementList = this.managementList.map(payment => {
         payment.create_at = this.setFormatDate(payment.create_at);
         payment.update_at = this.setFormatDate(payment.update_at);
-        payment.money_total = this.setCoinBalance(payment.money_total);
-        payment.money_receive = this.setCoinBalance(payment.money_receive);
         payment.status = this.setPaymentStatus(payment.status);
         return payment;
       });
@@ -195,11 +192,7 @@ export default {
     },
     setFormatDate(date) {
       if (!date) return;
-      return this.$dayjs(date).format('YYYY-MM-DD');
-    },
-    setCoinBalance(coinBalance) {
-      if (!coinBalance) return;
-      return `¥ ${coinBalance}`;
+      return this.$dayjs(date).format('DD.MM.YY');
     },
     setPaymentStatus(status) {
       switch (status) {

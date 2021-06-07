@@ -94,8 +94,9 @@
             <th scope="col" class="col-1">名前</th>
             <th scope="col" class="col-1">生年月日</th>
             <th scope="col" class="col-1">性別</th>
-            <th scope="col" class="col-3">ログイン方法</th>
+            <th scope="col" class="col-2">ログイン方法</th>
             <th scope="col" class="col-1">電話番号</th>
+            <th scope="col" class="col-2">所有コイン</th>
             <th scope="col" class="col-2">ユーザータイプ</th>
             <th scope="col" class="col-1">ステータス</th>
             <th scope="col" class="col-1"></th>
@@ -107,8 +108,9 @@
             <td class="pt-3">{{ user.name }}</td>
             <td class="pt-3">{{ user.birthday }}</td>
             <td class="pt-3">{{ user.gender }}</td>
-            <td class="pt-3">{{ user.loginType }}</td>
+            <td class="pt-3"><span class="type-login">{{ user.login_type }}: </span>{{ user.loginType }}</td>
             <td class="pt-3">{{ user.phone }}</td>
+            <td class="pt-3">{{ user.coin_balance }}<span class="table-currency"> コイン</span></td>
             <td class="pt-3">{{ user.userStatus }}</td>
             <td class="pt-3">{{ user.userType }}</td>
             <td>
@@ -179,6 +181,7 @@ export default {
           apple_id: null,
           line_id: null,
           gender: null,
+          coin_balance: null,
         }
       ],
       userType: USER_TYPE_OPTIONS,
@@ -261,13 +264,13 @@ export default {
     setLoginType(loginType, userName, googleId, lineId, appleId) {
       switch (loginType) {
         case 'GOOGLE':
-          return `${loginType}: ${googleId}`;
+          return `${googleId}`;
         case 'LINE':
-          return `${loginType}: ${lineId}`;
+          return `${lineId}`;
         case 'APPLE':
-          return `${loginType}: ${appleId}`;
+          return `${appleId}`;
         default:
-          return `${loginType}: ${userName}`;
+          return `${userName}`;
       }
     },
     setUserType(isDistribute) {
@@ -278,7 +281,7 @@ export default {
     },
     setBirthDay(birthDay) {
       if (!birthDay) return;
-      return this.$dayjs(birthDay).format('YYYY-MM-DD');
+      return this.$dayjs(birthDay).format('DD.MM.YYYY');
     },
     handleFilterUser() {
       this.paginate.currentPage = 1;

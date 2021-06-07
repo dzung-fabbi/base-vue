@@ -3,9 +3,9 @@
     <div class="heading text-start">
       <div class="left-heading"><h2>総売上</h2></div>
       <div class="right-heading live-management-heading">
-        <button type="button" 
+        <button type="button"
           @click="exportData"
-          class="btn btn-dark background-black float-end me-2">
+          class="btn btn-dark background-black float-end me-2 w-184">
           CSV 出力
         </button>
       </div>
@@ -90,7 +90,7 @@ import EyeIcon from "@/components/Icon/EyeIcon";
 
 export default {
   name: 'RevenueUser',
-  components: { 
+  components: {
     SearchIcon,
     EyeIcon,
     BasePaginate
@@ -152,7 +152,7 @@ export default {
     },
     setCoin(coin) {
       if (!coin) return;
-      return `${coin}コイン`;
+      return `${coin} コイン`;
     },
     changePage(page) {
       this.paginate.currentPage = page;
