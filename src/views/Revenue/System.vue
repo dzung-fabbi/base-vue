@@ -23,12 +23,12 @@
         </div>
       </div>
     </div>
-    <div class="content content-info">
+    <div class="content content-info mt-0">
       <div class="top-info">
         <h3>総売上</h3>
       </div>
       <div class="bottom-info">
-        <span>{{ this.total }}</span>
+        <div><span class="top-currency">¥</span> {{ this.total }}</div>
       </div>
     </div>
     <div class="content">
@@ -84,8 +84,8 @@
             <td class="pt-3 pb-3">{{ revenue.user_id }}</td>
             <td class="pt-3 pb-3">{{ revenue.user_name }}</td>
             <td class="pt-3 pb-3">{{ revenue.create_at }}</td>
-            <td class="pt-3 pb-3">{{ revenue.price }}</td>
-            <td class="pt-3 pb-3">{{ revenue.coin }}</td>
+            <td class="pt-3 pb-3"><span class="table-currency">¥ </span>{{ revenue.price }}</td>
+            <td class="pt-3 pb-3">{{ revenue.coin }}<span class="table-currency"> コイン</span></td>
             <td class="pt-3 pb-3">{{ revenue.status }}</td>
           </tr>
           </tbody>
@@ -112,8 +112,8 @@ import CalenderIcon from "@/components/Icon/CalenderIcon";
 export default {
   name: 'RevenueSystem',
   components: {
-    CalenderIcon, 
-    SearchIcon, 
+    CalenderIcon,
+    SearchIcon,
     BasePaginate
   },
   data() {
@@ -183,14 +183,11 @@ export default {
       await this.$store.dispatch("revenue/getSystemRevenueList", params);
       this.systemRevenueList = this.$store.getters["revenue/systemRevenueList"].data.data;
       this.total = this.$store.getters["revenue/systemRevenueList"].data.total;
-      this.total = this.setCoinBalance(this.total);
       this.paginate.currentPage = this.$store.getters["revenue/systemRevenueList"].pagination.current_page;
       this.paginate.totalRecord = this.$store.getters["revenue/systemRevenueList"].pagination.total_record;
       this.paginate.total = this.$store.getters["revenue/systemRevenueList"].pagination.total_page;
       this.systemRevenueList = this.systemRevenueList.map(revenue => {
         revenue.create_at = this.setFormatDate(revenue.create_at);
-        revenue.price = this.setCoinBalance(revenue.price);
-        revenue.coin = this.setCoin(revenue.coin);
         revenue.status = this.setStatus(revenue.status);
         return revenue;
       });
@@ -198,15 +195,7 @@ export default {
     },
     setFormatDate(date) {
       if (!date) return;
-      return this.$dayjs(date).format('YYYY-MM-DD');
-    },
-    setCoinBalance(coinBalance) {
-      if (!coinBalance) return;
-      return `¥ ${coinBalance}`;
-    },
-    setCoin(coin) {
-      if (!coin) return;
-      return `${coin}コイン`;
+      return this.$dayjs(date).format('DD.MM.YY');
     },
     setStatus(status) {
       return status ? '成功' : '失敗';

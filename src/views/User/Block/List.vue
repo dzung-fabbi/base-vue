@@ -49,11 +49,11 @@
             <td class="pt-3">{{ user.gender }}</td>
             <td class="pt-3">{{ user.block_at }}</td>
             <td>
-              <a href="user-block-detail.html">
+              <div>
                 <button class="btn" v-if="user.is_report" v-on:click="goToReportDetail(user.id)">
                   <EyeIcon/>
                 </button>
-              </a>
+              </div>
             </td>
             <td class="pt-3">
               <div class="switch-black">
@@ -168,7 +168,7 @@ export default {
       return this.$dayjs(date).format('YYYY-MM-DD');
     },
     goToReportDetail(userId) {
-      return this.$router.push({name: 'UserReportDetail', params: {id: userId}});
+      return this.$router.push({name: 'UserBlockDetail', params: {id: userId}});
     },
     handleFilter() {
       this.paginate.currentPage = 1;

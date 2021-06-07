@@ -182,7 +182,7 @@
                       >
                         <b-form-datepicker
                             id="modal-edit-user-date-picker"
-                            v-model="dataChange.birthday"
+                            v-model="dataChange.birthdayChange"
                             class="mb-2 modal-edit-user-date-picker"
                             :date-format-options="{ year: 'numeric', month: 'numeric', day: 'numeric' }"
                             placeholder="YYYY-MM-DD"
@@ -281,7 +281,8 @@ export default {
       await this.$store.dispatch('user/getUserDetail', params);
       this.userInfo = this.$store.getters['user/userDetail'];
       if (this.userInfo.birthday) {
-        this.userInfo.birthday = this.$dayjs(this.userInfo.birthday).format('YYYY-MM-DD');
+        this.userInfo.birthdayChange = this.$dayjs(this.userInfo.birthday).format('YYYY-MM-DD');
+        this.userInfo.birthday = this.$dayjs(this.userInfo.birthday).format('DD.MM.YYYY');
       }
       this.userInfo.status = this.setUserStatus(this.userInfo.is_blocked);
       this.userInfo.gender = this.setGender(this.userInfo.sex);
@@ -377,8 +378,8 @@ export default {
       if (this.dataChange.sex !== '' && this.dataChange.sex !== null) {
         body.sex = this.dataChange.sex
       }
-      if (this.dataChange.birthday) {
-        body.birthday = this.$dayjs(this.dataChange.birthday).format('YYYY-MM-DD')
+      if (this.dataChange.birthdayChange) {
+        body.birthday = this.$dayjs(this.dataChange.birthdayChange).format('YYYY-MM-DD')
       }
       return body;
     },

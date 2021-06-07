@@ -66,34 +66,34 @@
         <div class="right-content">
             <div class="tab-slider--nav">
                 <ul class="tab-slider--tabs">
-                    <li 
+                    <li
                       class="tab-slider--trigger" rel="tab1"
                       :class="currentTab === 1 ? 'active' : ''"
                       @click="currentTab = 1"
                     >
-                        <div class="tab-title">
+                        <div class="tab-title text-start">
                             <div class="top-title">総収入</div>
-                            <div class="bottom-title">{{ totalIncome }}</div>
+                            <div class="bottom-title">{{ totalIncome }}<span class="top-currency"> Pt</span></div>
                         </div>
                     </li>
-                    <li 
+                    <li
                       class="tab-slider--trigger" rel="tab2"
                       :class="currentTab === 2 ? 'active' : ''"
                       @click="currentTab = 2"
                     >
-                        <div class="tab-title">
+                        <div class="tab-title text-start">
                             <div class="top-title">総使用コイン</div>
-                            <div class="bottom-title">{{ totalDonate }}</div>
+                            <div class="bottom-title">{{ totalDonate }}<span class="top-currency"> コイン</span></div>
                         </div>
                     </li>
-                    <li 
+                    <li
                       class="tab-slider--trigger" rel="tab3"
                       :class="currentTab === 3 ? 'active' : ''"
                       @click="currentTab = 3"
                     >
-                        <div class="tab-title">
+                        <div class="tab-title text-start">
                             <div class="top-title">総チャージ額</div>
-                            <div class="bottom-title">{{ totalPurchase }}</div>
+                            <div class="bottom-title">{{ totalPurchase }}<span class="top-currency"> コイン</span></div>
                         </div>
                     </li>
                 </ul>
@@ -241,12 +241,12 @@ export default {
         };
       }
       this.$store.dispatch(
-        "revenue/getUserRevenueAnalytic", 
+        "revenue/getUserRevenueAnalytic",
         params
       ).then(response => {
-        this.totalIncome = this.setPointReceved(response.data?.point_receive);
-        this.totalDonate = this.setCoin(response.data?.coin_donate);
-        this.totalPurchase = this.setCoin(response.data?.coin_purchase);
+        this.totalIncome = response.data?.point_receive;
+        this.totalDonate = response.data?.coin_donate;
+        this.totalPurchase = response.data?.coin_purchase;
         this.$root.$refs.loading.finish();
       }).catch(() => {
         this.$root.$refs.loading.finish();
@@ -311,7 +311,7 @@ export default {
       this.$root.$refs.loading.start();
       const params = this.setParams();
       this.$store.dispatch(
-        "revenue/getUserRevenueIncome", 
+        "revenue/getUserRevenueIncome",
         params
       ).then(responseData => {
         this.paginate = {
@@ -335,7 +335,7 @@ export default {
       this.$root.$refs.loading.start();
       const params = this.setParams();
       this.$store.dispatch(
-        "revenue/getUserRevenuePurchase", 
+        "revenue/getUserRevenuePurchase",
         params
       ).then(responseData => {
         this.paginate = {
@@ -360,7 +360,7 @@ export default {
       this.$root.$refs.loading.start();
       const params = this.setParams();
       this.$store.dispatch(
-        "revenue/getUserRevenueDonate", 
+        "revenue/getUserRevenueDonate",
         params
       ).then(responseData => {
         this.paginate = {

@@ -91,6 +91,10 @@
 #sidebar .nav-item a.active {
   color: #61727b;
 }
+#sidebar .nav-item.active > a,
+#sidebar .nav-item.active > span {
+  color: #61727B;
+}
 
 .logo {
   max-height: 50px;
@@ -171,7 +175,7 @@ a.navbar-brand {
   .router-link-active:not(.navbar-brand) {
     background-color: #F6F9FA;
     border-left: 3px solid #63A4FF;
-    color: rgba(99, 164, 255, 1);
+    color: #61727B;
     font-weight: 500;
     font-size: 16px;
   }
@@ -437,8 +441,8 @@ button {
   width: 30px;
   height: 30px;
   margin: -15px 0 0;
-  background: #f7f7f7;
-  box-shadow: 0 0 1px grey;
+  background: #fff;
+  border: 1px solid #ECF1F3;
 }
 
 .checkbox-rounded label:after {
@@ -463,6 +467,12 @@ button {
 .checkbox-rounded input[type="radio"]:checked + label:after {
   transform: translate3d(0, 0, 0);
   opacity: 1;
+}
+
+
+.checkbox-rounded input[type="checkbox"]:checked + label:before,
+.checkbox-rounded input[type="radio"]:checked + label:before {
+  border: 1px solid black;
 }
 
 .tab-slider--nav {
@@ -563,6 +573,16 @@ button {
   position: relative;
 }
 
+#edit-user-modal .avatar-image {
+  margin-bottom: 20px;
+}
+#edit-user-modal .detail {
+  border-top: 1px dashed #ECF1F3!important;
+}
+#edit-user-modal .modal-content {
+  border-radius: 10px;
+}
+
 #edit-user-modal #datepicker .mx-datepicker .mx-input-wrapper input {
   margin-top: 2px;
   margin-left: 0;
@@ -657,4 +677,13 @@ button {
     top: 7px;
     color: #8B9DA5;
   }
+}
+.top-currency {
+  font-size: 16px;
+}
+.w-184 {
+  width: 184px;
+}
+.type-login {
+  font-weight: 700;
 }

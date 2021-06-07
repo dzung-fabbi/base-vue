@@ -5,7 +5,7 @@
         <li class="nav-item dropdown">
           <b-dropdown id="dropdown-right" right :text="user.user_name" class="nav-link text-body fw-bold">
             <b-dropdown-item @click="logOut">
-              <LogoutIcon />
+              <LogoutIcon/>
               <span>ログアウト</span>
             </b-dropdown-item>
           </b-dropdown>
@@ -18,96 +18,108 @@
       </router-link>
       <ul class="nav flex-column vertical-nav">
         <router-link tag="li" class="nav-item" :to="{ name: 'Home' }" exact>
-          <DashboardIcon />
+          <DashboardIcon v-if="!isExpandDashboard"/>
+          <DashboardIconBold v-if="isExpandDashboard"/>
           <span>ダッシュボード</span>
         </router-link>
         <li
-          class='nav-item sub-menu'
-          :class="isExpandUser ? 'active' : ''"
-          @click="isExpandUser = !isExpandUser"
+            class='nav-item sub-menu'
+            :class="isExpandUser ? 'active' : ''"
+            @click="isExpandUser = !isExpandUser"
         >
           <a>
-            <UserIcon />
+            <UserIcon v-if="!isExpandUser"/>
+            <UserIconBold v-if="isExpandUser"/>
             <span>ユーザー管理</span>
             <b-icon class="icon right"
-              :icon="isExpandUser ? 'chevron-down' : 'chevron-up'"
-              aria-hidden="true"
+                    :icon="isExpandUser ? 'chevron-down' : 'chevron-up'"
+                    aria-hidden="true"
             ></b-icon>
           </a>
           <ul class="child-item">
             <router-link
-              tag="li" :to="{ name:'UserList' }"
-              @click.native="onClickSub($event, 'isExpandUser')"
-              exact
-              id="li-user"
-            >ユーザー一覧</router-link>
+                tag="li" :to="{ name:'UserList' }"
+                @click.native="onClickSub($event, 'isExpandUser')"
+                exact
+                id="li-user"
+            >ユーザー一覧
+            </router-link>
             <router-link
-              tag="li" :to="{ name: 'UserReportList' }"
-              @click.native="onClickSub($event, 'isExpandUser')"
-            >ブロック一覧管理</router-link>
+                tag="li" :to="{ name: 'UserReportList' }"
+                @click.native="onClickSub($event, 'isExpandUser')"
+            >ブロック一覧管理
+            </router-link>
             <router-link
-              tag="li" :to="{ name: 'UserBlockList' }"
-              @click.native="onClickSub($event, 'isExpandUser')"
-            >ブロック一覧管理</router-link>
+                tag="li" :to="{ name: 'UserBlockList' }"
+                @click.native="onClickSub($event, 'isExpandUser')"
+            >ブロック一覧管理
+            </router-link>
           </ul>
         </li>
         <li
-          class="nav-item sub-menu"
-          :class="isExpandRevenue ? 'active' : ''"
-          @click="isExpandRevenue = !isExpandRevenue"
+            class="nav-item sub-menu"
+            :class="isExpandRevenue ? 'active' : ''"
+            @click="isExpandRevenue = !isExpandRevenue"
         >
           <a>
-            <RevenueIcon />
+            <RevenueIcon v-if="!isExpandRevenue"/>
+            <RevenueIconBold v-if="isExpandRevenue"/>
             <span>売上管理</span>
             <b-icon class="icon right"
-              :icon="isExpandRevenue ? 'chevron-down' : 'chevron-up'"
-              aria-hidden="true"
+                    :icon="isExpandRevenue ? 'chevron-down' : 'chevron-up'"
+                    aria-hidden="true"
             ></b-icon>
           </a>
           <ul class="child-item">
             <router-link
-              tag="li" :to="{ name: 'RevenueSystem' }"
-              @click.native="onClickSub($event, 'isExpandRevenue')"
-            >総売上</router-link>
+                tag="li" :to="{ name: 'RevenueSystem' }"
+                @click.native="onClickSub($event, 'isExpandRevenue')"
+            >総売上
+            </router-link>
             <router-link
-              tag="li" :to="{ name: 'RevenueUser' }"
-              @click.native="onClickSub($event, 'isExpandRevenue')"
-            >収入管理</router-link>
+                tag="li" :to="{ name: 'RevenueUser' }"
+                @click.native="onClickSub($event, 'isExpandRevenue')"
+            >収入管理
+            </router-link>
           </ul>
         </li>
         <li
-          class="nav-item sub-menu"
-          :class="isExpandPayment ? 'active' : ''"
-          @click="isExpandPayment = !isExpandPayment"
+            class="nav-item sub-menu"
+            :class="isExpandPayment ? 'active' : ''"
+            @click="isExpandPayment = !isExpandPayment"
         >
           <a>
-            <PaymentIcon />
+            <PaymentIcon v-if="!isExpandPayment"/>
+            <PaymentIconBold v-if="isExpandPayment"/>
             <span>決済管理</span>
             <b-icon class="icon right"
-              :icon="isExpandPayment ? 'chevron-down' : 'chevron-up'"
-              aria-hidden="true"
+                    :icon="isExpandPayment ? 'chevron-down' : 'chevron-up'"
+                    aria-hidden="true"
             ></b-icon>
           </a>
           <ul class="child-item">
             <router-link
-              tag="li" :to="{ name: 'PaymentList' }"
-              @click.native="onClickSub($event, 'isExpandPayment')"
-              exact
-            >決済履歴</router-link>
+                tag="li" :to="{ name: 'PaymentList' }"
+                @click.native="onClickSub($event, 'isExpandPayment')"
+                exact
+            >決済履歴
+            </router-link>
             <router-link
-              tag="li" :to="{ name: 'PaymentSetting' }"
-              @click.native="onClickSub($event, 'isExpandPayment')"
-            >設定</router-link>
+                tag="li" :to="{ name: 'PaymentSetting' }"
+                @click.native="onClickSub($event, 'isExpandPayment')"
+            >設定
+            </router-link>
           </ul>
         </li>
         <router-link tag="li" class="nav-item" :to="{ name: 'LiveManagement' }">
-          <LiveIcon />
+          <LiveIcon v-if="!isExpandLive"/>
+          <LiveIconBold v-if="isExpandLive"/>
           <span>ライブ管理</span>
         </router-link>
       </ul>
     </nav>
     <div class="main background-f6f9fa">
-      <slot />
+      <slot/>
     </div>
   </div>
 </template>
@@ -120,11 +132,21 @@ import PaymentIcon from "@/components/Icon/PaymentIcon";
 import LiveIcon from "@/components/Icon/LiveIcon";
 import LogoutIcon from "@/components/Icon/LogoutIcon";
 import Cookies from "js-cookie";
-import { mapGetters } from "vuex";
+import {mapGetters} from "vuex";
 import {MESSAGES, MODAL} from "@/utils/const";
+import UserIconBold from "@/components/Icon/UserIconBold";
+import RevenueIconBold from "@/components/Icon/RevenueIconBold";
+import PaymentIconBold from "@/components/Icon/PaymentIconBold";
+import DashboardIconBold from "@/components/Icon/DashboardIconBold";
+import LiveIconBold from "@/components/Icon/LiveIconBold";
 
 export default {
   components: {
+    LiveIconBold,
+    DashboardIconBold,
+    PaymentIconBold,
+    RevenueIconBold,
+    UserIconBold,
     DashboardIcon,
     UserIcon,
     RevenueIcon,
@@ -132,11 +154,13 @@ export default {
     LiveIcon,
     LogoutIcon
   },
-  data()  {
+  data() {
     return {
       isExpandUser: false,
       isExpandRevenue: false,
-      isExpandPayment: false
+      isExpandPayment: false,
+      isExpandDashboard: false,
+      isExpandLive: false,
     }
   },
   mounted() {
@@ -147,6 +171,10 @@ export default {
       this.isExpandRevenue = true;
     } else if (path.startsWith('/payments')) {
       this.isExpandPayment = true;
+    } else if (path.startsWith('/live-managements')) {
+      this.isExpandLive = true;
+    } else if (path.startsWith('/')) {
+      this.isExpandDashboard = true;
     }
   },
   computed: {
@@ -158,7 +186,7 @@ export default {
     logOut() {
       this.$root.$refs.loading.start();
       Cookies.remove("access_token");
-      this.$router.push({ name: "Login" });
+      this.$router.push({name: "Login"});
       this.$root.$refs.loading.finish();
       this.$toast(
           MESSAGES.LOGOUT_SUCCESS,
