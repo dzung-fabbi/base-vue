@@ -168,7 +168,7 @@ a.navbar-brand {
     color: rgba(99, 164, 255, 1);
   }
 
-  li.router-link-exact-active.router-link-active {
+  .router-link-active:not(.navbar-brand) {
     background-color: #F6F9FA;
     border-left: 3px solid #63A4FF;
     color: rgba(99, 164, 255, 1);

@@ -266,6 +266,9 @@ export default {
       USER_GENDER_OPTIONS,
     }
   },
+  mounted() {
+    document.getElementById('li-user').className = 'router-link-active';
+  },
   created() {
     this.getUserDetail();
   },
@@ -437,7 +440,11 @@ export default {
       if (!genderFilter.length) return gender;
       return genderFilter[0].text;
     },
-  }
+  },
+  beforeDestroy() {
+    if (this.$route.name !== 'UserList')
+      document.getElementById('li-user').className = '';
+  },
 }
 </script>
 
