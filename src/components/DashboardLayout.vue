@@ -13,11 +13,11 @@
       </ul>
     </div>
     <nav id="sidebar" class="col sidebar">
-      <router-link class="navbar-brand" :to="{ name: 'Home' }">
+      <router-link class="navbar-brand" :to="{ name: 'Home' }" exact>
         <img :src="require('@/assets/image/logo.png')" alt="logo" class="logo">
       </router-link>
       <ul class="nav flex-column vertical-nav">
-        <router-link tag="li" class="nav-item" :to="{ name: 'Home' }">
+        <router-link tag="li" class="nav-item" :to="{ name: 'Home' }" exact>
           <DashboardIcon />
           <span>ダッシュボード</span>
         </router-link>
@@ -38,6 +38,8 @@
             <router-link
               tag="li" :to="{ name:'UserList' }"
               @click.native="onClickSub($event, 'isExpandUser')"
+              exact
+              id="li-user"
             >ユーザー一覧</router-link>
             <router-link
               tag="li" :to="{ name: 'UserReportList' }"
@@ -90,6 +92,7 @@
             <router-link
               tag="li" :to="{ name: 'PaymentList' }"
               @click.native="onClickSub($event, 'isExpandPayment')"
+              exact
             >決済履歴</router-link>
             <router-link
               tag="li" :to="{ name: 'PaymentSetting' }"
