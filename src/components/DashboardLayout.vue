@@ -30,7 +30,7 @@
             <UserIcon />
             <span>ユーザー管理</span>
             <b-icon class="icon right"
-                    :icon="isExpandUser ? 'chevron-down' : 'chevron-up'"
+                    :icon="isExpandUser ? 'chevron-up' : 'chevron-down'"
                     aria-hidden="true"
             ></b-icon>
           </a>
@@ -63,7 +63,7 @@
             <RevenueIcon />
             <span>売上管理</span>
             <b-icon class="icon right"
-                    :icon="isExpandRevenue ? 'chevron-down' : 'chevron-up'"
+                    :icon="isExpandRevenue ? 'chevron-up' : 'chevron-down'"
                     aria-hidden="true"
             ></b-icon>
           </a>
@@ -89,7 +89,7 @@
             <PaymentIcon />
             <span>決済管理</span>
             <b-icon class="icon right"
-                    :icon="isExpandPayment ? 'chevron-down' : 'chevron-up'"
+                    :icon="isExpandPayment ? 'chevron-up' : 'chevron-down'"
                     aria-hidden="true"
             ></b-icon>
           </a>
