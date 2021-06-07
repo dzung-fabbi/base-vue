@@ -18,8 +18,7 @@
       </router-link>
       <ul class="nav flex-column vertical-nav">
         <router-link tag="li" class="nav-item" :to="{ name: 'Home' }" exact>
-          <DashboardIcon v-if="!isExpandDashboard"/>
-          <DashboardIconBold v-if="isExpandDashboard"/>
+          <DashboardIcon />
           <span>ダッシュボード</span>
         </router-link>
         <li
@@ -28,8 +27,7 @@
             @click="isExpandUser = !isExpandUser"
         >
           <a>
-            <UserIcon v-if="!isExpandUser"/>
-            <UserIconBold v-if="isExpandUser"/>
+            <UserIcon />
             <span>ユーザー管理</span>
             <b-icon class="icon right"
                     :icon="isExpandUser ? 'chevron-down' : 'chevron-up'"
@@ -62,8 +60,7 @@
             @click="isExpandRevenue = !isExpandRevenue"
         >
           <a>
-            <RevenueIcon v-if="!isExpandRevenue"/>
-            <RevenueIconBold v-if="isExpandRevenue"/>
+            <RevenueIcon />
             <span>売上管理</span>
             <b-icon class="icon right"
                     :icon="isExpandRevenue ? 'chevron-down' : 'chevron-up'"
@@ -89,8 +86,7 @@
             @click="isExpandPayment = !isExpandPayment"
         >
           <a>
-            <PaymentIcon v-if="!isExpandPayment"/>
-            <PaymentIconBold v-if="isExpandPayment"/>
+            <PaymentIcon />
             <span>決済管理</span>
             <b-icon class="icon right"
                     :icon="isExpandPayment ? 'chevron-down' : 'chevron-up'"
@@ -112,8 +108,7 @@
           </ul>
         </li>
         <router-link tag="li" class="nav-item" :to="{ name: 'LiveManagement' }">
-          <LiveIcon v-if="!isExpandLive"/>
-          <LiveIconBold v-if="isExpandLive"/>
+          <LiveIcon />
           <span>ライブ管理</span>
         </router-link>
       </ul>
@@ -134,19 +129,9 @@ import LogoutIcon from "@/components/Icon/LogoutIcon";
 import Cookies from "js-cookie";
 import {mapGetters} from "vuex";
 import {MESSAGES, MODAL} from "@/utils/const";
-import UserIconBold from "@/components/Icon/UserIconBold";
-import RevenueIconBold from "@/components/Icon/RevenueIconBold";
-import PaymentIconBold from "@/components/Icon/PaymentIconBold";
-import DashboardIconBold from "@/components/Icon/DashboardIconBold";
-import LiveIconBold from "@/components/Icon/LiveIconBold";
 
 export default {
   components: {
-    LiveIconBold,
-    DashboardIconBold,
-    PaymentIconBold,
-    RevenueIconBold,
-    UserIconBold,
     DashboardIcon,
     UserIcon,
     RevenueIcon,
@@ -171,10 +156,6 @@ export default {
       this.isExpandRevenue = true;
     } else if (path.startsWith('/payments')) {
       this.isExpandPayment = true;
-    } else if (path.startsWith('/live-managements')) {
-      this.isExpandLive = true;
-    } else if (path.startsWith('/')) {
-      this.isExpandDashboard = true;
     }
   },
   computed: {
