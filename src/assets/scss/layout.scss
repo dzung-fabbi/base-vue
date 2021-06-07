@@ -175,7 +175,7 @@ a.navbar-brand {
   .router-link-active:not(.navbar-brand) {
     background-color: #F6F9FA;
     border-left: 3px solid #63A4FF;
-    color: #61727B;
+    color: #61727B!important;
     font-weight: 500;
     font-size: 16px;
   }
