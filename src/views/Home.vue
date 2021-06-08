@@ -24,34 +24,34 @@
     </div>
     <div class="tab-slider--nav index-tab">
         <ul class="tab-slider--tabs group-info">
-            <li 
+            <li
               class="tab-slider--trigger info-item" rel="tab1"
               :class="currentTab === 1 ? 'active' : ''"
               @click="currentTab = 1"
             >
                 <div class="tab-title">
                     <div class="top-info">配信者数/月</div>
-                    <div class="bottom-info">{{ totalDistributor }}</div>
+                    <div class="bottom-info">{{ totalDistributor }}<span class="top-currency"> 人</span></div>
                 </div>
             </li>
-            <li 
+            <li
               class="tab-slider--trigger info-item" rel="tab2"
               :class="currentTab === 2 ? 'active' : ''"
               @click="currentTab = 2"
             >
                 <div class="tab-title">
                     <div class="top-info">月商</div>
-                    <div class="bottom-info">{{ totalIncome }}</div>
+                    <div class="bottom-info"><span class="top-currency">¥ </span>{{ totalIncome }}</div>
                 </div>
             </li>
-            <li 
+            <li
               class="tab-slider--trigger info-item" rel="tab3"
               :class="currentTab === 3 ? 'active' : ''"
               @click="currentTab = 3"
             >
                 <div class="tab-title">
                     <div class="top-info">新規利用者数</div>
-                    <div class="bottom-info">{{ totalRegister }}</div>
+                    <div class="bottom-info">{{ totalRegister }}<span class="top-currency"> 人</span></div>
                 </div>
             </li>
         </ul>
@@ -138,12 +138,12 @@ export default {
         };
       }
       this.$store.dispatch(
-        "dashboard/getDashboardAnalytic", 
+        "dashboard/getDashboardAnalytic",
         params
       ).then(response => {
-        this.totalDistributor = this.setUser(response.data?.user_live);
-        this.totalIncome = this.setPrice(response.data?.price);
-        this.totalRegister = this.setUser(response.data?.user_new);
+        this.totalDistributor = response.data?.user_live;
+        this.totalIncome = response.data?.price;
+        this.totalRegister = response.data?.user_new;
         this.$root.$refs.loading.finish();
       }).catch(() => {
         this.$root.$refs.loading.finish();
@@ -159,7 +159,7 @@ export default {
         };
       }
       this.$store.dispatch(
-        "dashboard/getDashboardDistributor", 
+        "dashboard/getDashboardDistributor",
         params
       ).then(response => {
         this.dataList = JSON.parse(JSON.stringify(response.data));
@@ -178,7 +178,7 @@ export default {
         };
       }
       this.$store.dispatch(
-        "dashboard/getDashboardIncome", 
+        "dashboard/getDashboardIncome",
         params
       ).then(response => {
         this.dataList = JSON.parse(JSON.stringify(response.data));
@@ -197,7 +197,7 @@ export default {
         };
       }
       this.$store.dispatch(
-        "dashboard/getDashboardRegister", 
+        "dashboard/getDashboardRegister",
         params
       ).then(response => {
         this.dataList = JSON.parse(JSON.stringify(response.data));
