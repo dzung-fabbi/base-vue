@@ -23,7 +23,7 @@
         </div>
       </div>
     </div>
-    <div class="content content-info mt-0">
+    <div class="content content-info">
       <div class="top-info">
         <h3>総売上</h3>
       </div>
