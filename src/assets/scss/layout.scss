@@ -66,6 +66,9 @@
   border-right: 1px solid #f6f9fa;
   height: 100%;
   background-color: #fff;
+  .span-icon {
+    padding-left: 10px;
+  }
 }
 
 #sidebar .nav-item {
@@ -82,10 +85,6 @@
 #sidebar .nav-item a:hover {
   background-color: transparent;
   color: rgba(99, 164, 255, 1) !important;
-}
-
-#sidebar .nav-item a svg {
-  width: 30px;
 }
 
 #sidebar .nav-item a.active {
@@ -151,6 +150,9 @@ a.navbar-brand {
 }
 
 #sidebar {
+  li svg {
+    margin-bottom: 3px;
+  }
   li.nav-item {
     cursor: pointer;
   }
@@ -178,6 +180,10 @@ a.navbar-brand {
     color: #61727B!important;
     font-weight: 500;
     font-size: 16px;
+  }
+
+  .child-item .router-link-active {
+    color: #63A4FF !important;
   }
 
   .child-item li {
