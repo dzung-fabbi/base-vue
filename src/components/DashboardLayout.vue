@@ -30,7 +30,7 @@
             <UserIcon />
             <span class="span-icon">ユーザー管理</span>
             <b-icon class="icon right"
-                    :icon="isExpandUser ? 'chevron-down' : 'chevron-up'"
+                    :icon="isExpandUser ? 'chevron-up' : 'chevron-down'"
                     aria-hidden="true"
             ></b-icon>
           </a>
@@ -45,7 +45,7 @@
             <router-link
                 tag="li" :to="{ name: 'UserReportList' }"
                 @click.native="onClickSub($event, 'isExpandUser')"
-            >ブロック一覧管理
+            >報告一覧管理
             </router-link>
             <router-link
                 tag="li" :to="{ name: 'UserBlockList' }"
@@ -63,7 +63,7 @@
             <RevenueIcon />
             <span class="span-icon">売上管理</span>
             <b-icon class="icon right"
-                    :icon="isExpandRevenue ? 'chevron-down' : 'chevron-up'"
+                    :icon="isExpandRevenue ? 'chevron-up' : 'chevron-down'"
                     aria-hidden="true"
             ></b-icon>
           </a>
@@ -89,7 +89,7 @@
             <PaymentIcon />
             <span class="span-icon">決済管理</span>
             <b-icon class="icon right"
-                    :icon="isExpandPayment ? 'chevron-down' : 'chevron-up'"
+                    :icon="isExpandPayment ? 'chevron-up' : 'chevron-down'"
                     aria-hidden="true"
             ></b-icon>
           </a>
