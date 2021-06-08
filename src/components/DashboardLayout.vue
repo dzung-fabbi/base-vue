@@ -28,9 +28,9 @@
         >
           <a>
             <UserIcon />
-            <span>ユーザー管理</span>
+            <span class="span-icon">ユーザー管理</span>
             <b-icon class="icon right"
-                    :icon="isExpandUser ? 'chevron-up' : 'chevron-down'"
+                    :icon="isExpandUser ? 'chevron-down' : 'chevron-up'"
                     aria-hidden="true"
             ></b-icon>
           </a>
@@ -61,9 +61,9 @@
         >
           <a>
             <RevenueIcon />
-            <span>売上管理</span>
+            <span class="span-icon">売上管理</span>
             <b-icon class="icon right"
-                    :icon="isExpandRevenue ? 'chevron-up' : 'chevron-down'"
+                    :icon="isExpandRevenue ? 'chevron-down' : 'chevron-up'"
                     aria-hidden="true"
             ></b-icon>
           </a>
@@ -87,9 +87,9 @@
         >
           <a>
             <PaymentIcon />
-            <span>決済管理</span>
+            <span class="span-icon">決済管理</span>
             <b-icon class="icon right"
-                    :icon="isExpandPayment ? 'chevron-up' : 'chevron-down'"
+                    :icon="isExpandPayment ? 'chevron-down' : 'chevron-up'"
                     aria-hidden="true"
             ></b-icon>
           </a>
@@ -109,7 +109,7 @@
         </li>
         <router-link tag="li" class="nav-item" :to="{ name: 'LiveManagement' }">
           <LiveIcon />
-          <span>ライブ管理</span>
+          <span class="span-icon">ライブ管理</span>
         </router-link>
       </ul>
     </nav>
