@@ -96,8 +96,8 @@
             <th scope="col" class="col-1">性別</th>
             <th scope="col" class="col-2">ログイン方法</th>
             <th scope="col" class="col-1">電話番号</th>
-            <th scope="col" class="col-2">所有コイン</th>
-            <th scope="col" class="col-2">ユーザータイプ</th>
+            <th scope="col" class="col-1">所有コイン</th>
+            <th scope="col" class="col-1">ユーザータイプ</th>
             <th scope="col" class="col-1">ステータス</th>
             <th scope="col" class="col-1"></th>
           </tr>
