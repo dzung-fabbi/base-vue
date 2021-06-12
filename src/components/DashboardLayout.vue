@@ -29,10 +29,8 @@
           <a>
             <UserIcon />
             <span class="span-icon">ユーザー管理</span>
-            <b-icon class="icon right"
-                    :icon="isExpandUser ? 'chevron-up' : 'chevron-down'"
-                    aria-hidden="true"
-            ></b-icon>
+            <ArrowDownBold class="icon right arrow-icon" v-if="!isExpandUser"/>
+            <ArrowUpBold class="icon right arrow-icon" v-if="isExpandUser" />
           </a>
           <ul class="child-item">
             <router-link
@@ -62,10 +60,8 @@
           <a>
             <RevenueIcon />
             <span class="span-icon">売上管理</span>
-            <b-icon class="icon right"
-                    :icon="isExpandRevenue ? 'chevron-up' : 'chevron-down'"
-                    aria-hidden="true"
-            ></b-icon>
+            <ArrowDownBold class="icon right arrow-icon" v-if="!isExpandRevenue"/>
+            <ArrowUpBold class="icon right arrow-icon" v-if="isExpandRevenue" />
           </a>
           <ul class="child-item">
             <router-link
@@ -88,10 +84,8 @@
           <a>
             <PaymentIcon />
             <span class="span-icon">決済管理</span>
-            <b-icon class="icon right"
-                    :icon="isExpandPayment ? 'chevron-up' : 'chevron-down'"
-                    aria-hidden="true"
-            ></b-icon>
+            <ArrowDownBold class="icon right arrow-icon" v-if="!isExpandPayment"/>
+            <ArrowUpBold class="icon right arrow-icon" v-if="isExpandPayment" />
           </a>
           <ul class="child-item">
             <router-link
@@ -129,9 +123,13 @@ import LogoutIcon from "@/components/Icon/LogoutIcon";
 import Cookies from "js-cookie";
 import {mapGetters} from "vuex";
 import {MESSAGES, MODAL} from "@/utils/const";
+import ArrowDownBold from "@/components/Icon/ArrowDownBold";
+import ArrowUpBold from "@/components/Icon/ArrowUpBold";
 
 export default {
   components: {
+    ArrowUpBold,
+    ArrowDownBold,
     DashboardIcon,
     UserIcon,
     RevenueIcon,

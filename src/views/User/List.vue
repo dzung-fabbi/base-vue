@@ -111,8 +111,8 @@
             <td class="pt-3"><span class="type-login">{{ user.login_type }}: </span>{{ user.loginType }}</td>
             <td class="pt-3">{{ user.phone }}</td>
             <td class="pt-3">{{ user.coin_balance }}<span class="table-currency"> コイン</span></td>
-            <td class="pt-3">{{ user.userStatus }}</td>
             <td class="pt-3">{{ user.userType }}</td>
+            <td class="pt-3">{{ user.userStatus }}</td>
             <td>
               <router-link :to="{ name:'UserDetail', params: { id: user.id } }">
                 <button class="btn">
