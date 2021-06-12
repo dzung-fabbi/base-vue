@@ -104,15 +104,15 @@
           </thead>
           <tbody>
           <tr v-for="(user, index) in listUsers" :key="index">
-            <td class="pt-3">{{ user.id }}</td>
+            <td class="pt-3">{{ user.user_name_display }}</td>
             <td class="pt-3">{{ user.name }}</td>
             <td class="pt-3">{{ user.birthday }}</td>
             <td class="pt-3">{{ user.gender }}</td>
             <td class="pt-3"><span class="type-login">{{ user.login_type }}: </span>{{ user.loginType }}</td>
             <td class="pt-3">{{ user.phone }}</td>
             <td class="pt-3">{{ user.coin_balance }}<span class="table-currency"> コイン</span></td>
-            <td class="pt-3">{{ user.userStatus }}</td>
             <td class="pt-3">{{ user.userType }}</td>
+            <td class="pt-3">{{ user.userStatus }}</td>
             <td>
               <router-link :to="{ name:'UserDetail', params: { id: user.id } }">
                 <button class="btn">
