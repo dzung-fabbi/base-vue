@@ -8,7 +8,7 @@ export const MESSAGES = {
   INTERVAL_ERROR: "エラーが発生しました。",
   CONFIRM_BLOCK_USER: 'Are You Sure Block This User?',
   LOGIN_SUCCESS: 'You have successfully logged in',
-  LOGIN_FAIL: 'Incorrect account or password',
+  LOGIN_FAIL: 'ログイン情報が正しくありません。',
   UPDATE_USER_SUCCESS: 'Update user success',
   UPDATE_USER_FAIL: 'Update user failed',
   BLOCK_USER_SUCCESS: 'Block user success',
