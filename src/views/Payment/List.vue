@@ -95,6 +95,7 @@
         :per-page.sync="paginate.perPage"
         :total-record.sync="paginate.totalRecord"
         @onPageChanged="changePage"
+        v-if="paginate.total > 0"
     />
   </div>
 </template>
