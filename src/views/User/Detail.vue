@@ -4,7 +4,7 @@
       <div class="heading">
         <div class="left-heading text-start"><h2>ユーザー情報詳細</h2></div>
         <div class="right-heading">
-          <b-button @click="blockUser" class="btn btn-dark background-black float-end">ブロック</b-button>
+          <b-button @click="blockUser" :disabled="userInfo.is_blocked" class="btn btn-dark background-black float-end">ブロック</b-button>
           <b-button type="button" class="btn btn-dark background-black float-end me-2" v-on:click="showModal">情報編集
           </b-button>
         </div>
@@ -291,6 +291,7 @@ export default {
     },
     showModal() {
       this.isShowModal = !this.isShowModal;
+      this.dataChange = {...this.userInfo};
     },
     handleBlur() {
       if (this.dataChange.name) {
