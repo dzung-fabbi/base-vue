@@ -4,10 +4,13 @@
     width: 654px;
     min-height: 425px;
     height: auto;
-    margin: 18% auto 0 auto;
+    margin: 14% auto 0 auto;
 }
 .login-content {
     padding: 50px 155px;
+}
+.login-content .login-top {
+    transform: scale(1.2);
 }
 .login-content .login-top img {
     align-self: center;
@@ -52,4 +55,14 @@
 }
 .login-content .password-group input {
     padding-right: 55px;
+}
+@media screen and (max-width: 1440px){
+    .login-main {
+        margin: 16% auto 0 auto;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .login-main {
+        margin: 22% auto 0 auto;
+    }
 }
