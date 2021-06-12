@@ -42,13 +42,24 @@
                       placeholder='パスワード'
                       @keyup="onKeyup"
                   >
-                  <button class='btn btn-toggle-password' :class="{'hidden': passwordFieldType === 'text' }" type='button'
-                          id='show-password' @click='switchVisibility'>
+                  <button
+                      class='btn btn-toggle-password'
+                      :class="{'hidden': passwordFieldType === 'text' }"
+                      type='button'
+                      id='show-password'
+                      @click='switchVisibility'
+                      :disabled="isDisableShowPassword"
+                  >
                     <HiddenPasswordIcon />
                   </button>
-                  <button class='btn btn-toggle-password' type='button'
-                          :class="{'hidden': passwordFieldType === 'password' }" id='hide-password'
-                          @click='switchVisibility'>
+                  <button
+                      class='btn btn-toggle-password'
+                      type='button'
+                      :class="{'hidden': passwordFieldType === 'password' }"
+                      id='hide-password'
+                      @click='switchVisibility'
+                      :disabled="isDisableShowPassword"
+                  >
                     <EyeIcon />
                   </button>
                 </div>
@@ -80,12 +91,22 @@ export default {
       },
       loading: false,
       passwordFieldType: 'password',
+      isDisableShowPassword: true,
     };
   },
 
   computed: {
     loggedIn() {
       return this.$store.getters["auth/token"];
+    },
+  },
+
+  watch: {
+    user: {
+      handler: function () {
+        this.isDisableShowPassword = this.user.password === '';
+      },
+      deep: true
     }
   },
 
