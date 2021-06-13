@@ -41,7 +41,7 @@
             >
                 <div class="tab-title">
                     <div class="top-info">月商</div>
-                    <div class="bottom-info"><span class="top-currency">¥ </span>{{ totalIncome }}</div>
+                    <div class="bottom-info"><span class="top-currency">¥ </span>{{ formatMoney(totalIncome) }}</div>
                 </div>
             </li>
             <li
@@ -73,6 +73,7 @@ import {
 import CalenderIcon from "@/components/Icon/CalenderIcon";
 import LineChart from '@/components/LineChart';
 import * as _ from "lodash";
+import {numberWithCommas} from "@/utils/convert";
 
 export default {
   name: 'Home',
@@ -212,7 +213,10 @@ export default {
     },
     setPrice(price) {
       if (!price) return;
-      return `¥ ${price}`;
+      return `¥ ${this.formatMoney(price)}`;
+    },
+    formatMoney(input) {
+      return numberWithCommas(input, '.')
     },
   }
 }
