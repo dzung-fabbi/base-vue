@@ -108,7 +108,7 @@
             <td class="pt-3">{{ user.name }}</td>
             <td class="pt-3">{{ user.birthday }}</td>
             <td class="pt-3">{{ user.gender }}</td>
-            <td class="pt-3"><span class="type-login">{{ user.login_type }}: </span>{{ user.loginType }}</td>
+            <td class="pt-3"><span class="type-login">{{ setLoginTypeText(user.login_type) }}: </span>{{ user.loginType }}</td>
             <td class="pt-3">{{ user.phone }}</td>
             <td class="pt-3">{{ formatMoney(user.coin_balance) }}<span class="table-currency"> コイン</span></td>
             <td class="pt-3">{{ user.userType }}</td>
@@ -265,6 +265,9 @@ export default {
       if (this.filter.id) {
         this.filter.id = this.filter.id.trim();
       }
+    },
+    setLoginTypeText(loginType) {
+      return loginType.replace('_', ' ')
     },
     setLoginType(loginType, userName, googleId, lineId, appleId) {
       switch (loginType) {
