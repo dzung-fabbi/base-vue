@@ -12,11 +12,11 @@
       <div class="content text-start">
         <div class="cover-image d-flex flex-column">
           <span class="color-8B9DA5">カーバ</span>
-          <img :src="userInfo.image_cover_path ? userInfo.image_cover_path : null " class="img-fluid mt-2" alt="">
+          <img :src="userInfo.image_cover_path ? userInfo.image_cover_path : null " class="img-fluid mt-2 img-background" alt="">
         </div>
         <div class="avatar-image d-flex flex-column">
           <span class="color-8B9DA5">アバター</span>
-          <img :src="userInfo.image_avatar_path ? userInfo.image_avatar_path : null " class="" alt="">
+          <img :src="userInfo.image_avatar_path ? userInfo.image_avatar_path : null " class="img-background" alt="">
         </div>
         <div class="detail color-8B9DA5">
           <div class="row mb-5">
@@ -76,7 +76,7 @@
                   <span class="color-8B9DA5 mb-2">カーバ</span>
                   <img
                       :src="dataChange.image_cover_path ? dataChange.image_cover_path : null "
-                      class="img-fluid mt-2"
+                      class="img-fluid mt-2 img-background"
                       alt=""
                       v-on:click="uploadFile('cover-image-upload')"
                   >
@@ -91,7 +91,7 @@
                   <span class="color-8B9DA5 mb-2">アバーテ</span>
                   <img
                       :src="dataChange.image_avatar_path ? dataChange.image_avatar_path : null "
-                      class=""
+                      class="img-background"
                       alt=""
                       v-on:click="uploadFile('avatar-image-upload')"
                   >
