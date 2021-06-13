@@ -6,6 +6,10 @@
   background-color: #c4c4c4;
   border-color: #C4C4C4;
   color: #fff;
+
+  &:hover {
+    color: #fff!important;
+  }
 }
 
 .background-black {
@@ -66,6 +70,7 @@
   border-right: 1px solid #f6f9fa;
   height: 100%;
   background-color: #fff;
+
   .span-icon {
     padding-left: 10px;
   }
@@ -90,6 +95,7 @@
 #sidebar .nav-item a.active {
   color: #61727b;
 }
+
 #sidebar .nav-item.active > a,
 #sidebar .nav-item.active > span {
   color: #61727B;
@@ -153,6 +159,7 @@ a.navbar-brand {
   li svg {
     margin-bottom: 3px;
   }
+
   li.nav-item {
     cursor: pointer;
   }
@@ -177,7 +184,7 @@ a.navbar-brand {
   .router-link-active:not(.navbar-brand) {
     background-color: #F6F9FA;
     border-left: 3px solid #63A4FF;
-    color: #61727B!important;
+    color: #61727B !important;
     font-weight: 500;
     font-size: 16px;
   }
@@ -583,9 +590,11 @@ button {
 #edit-user-modal .avatar-image {
   margin-bottom: 20px;
 }
+
 #edit-user-modal .detail {
-  border-top: 1px dashed #ECF1F3!important;
+  border-top: 1px dashed #ECF1F3 !important;
 }
+
 #edit-user-modal .modal-content {
   border-radius: 10px;
 }
@@ -667,6 +676,7 @@ button {
       padding-left: 30px;
       border: none;
       margin-top: 3px;
+
       span {
         color: #8B9DA5;
       }
@@ -678,6 +688,7 @@ button {
     top: 11px;
     left: 10px;
   }
+
   .date-range-picker-label {
     position: absolute;
     left: 36px;
@@ -685,15 +696,20 @@ button {
     color: #8B9DA5;
   }
 }
+
 .top-currency {
   font-size: 16px;
 }
+
 .w-184 {
   width: 184px;
 }
+
 .type-login {
   font-weight: 700;
 }
+
 #sidebar .icon.arrow-icon {
   margin-top: 9px;
 }
+
