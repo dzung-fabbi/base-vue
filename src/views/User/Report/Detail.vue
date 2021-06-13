@@ -42,7 +42,7 @@
           </div>
           <div class="row mb-4">
             <div class="col-5 text-start">イイコ</div>
-            <div class="col-7 text-end">{{ userInfo.coin_balance }}</div>
+            <div class="col-7 text-end">{{ userInfo.like_count }}</div>
           </div>
         </div>
       </div>
@@ -86,7 +86,7 @@
               <th scope="col" class="col-1">ワンコインID</th>
               <th scope="col" class="col-1">報告・ブロック者</th>
               <th scope="col" class="col-1">日付</th>
-              <th scope="col" class="col-1">Tステー</th>
+              <th scope="col" class="col-1">ステータス</th>
               <th scope="col" class="col-2">理由</th>
             </tr>
             </thead>
