@@ -53,7 +53,7 @@
           </thead>
           <tbody>
           <tr v-for="(revenue, index) in userRevenueList" :key="index">
-            <td class="pt-3 pb-3">{{ revenue.id }}</td>
+            <td class="pt-3 pb-3">{{ revenue.user_name }}</td>
             <td class="pt-3 pb-3">{{ revenue.name }}</td>
             <td class="pt-3 pb-3">{{ revenue.user_type }}</td>
             <td class="pt-3 pb-3">{{ revenue.ranking }}</td>

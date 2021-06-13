@@ -77,7 +77,7 @@
           </thead>
           <tbody>
           <tr v-for="(payment, index) in managementList" :key="index">
-            <td class="pt-3 pb-3">{{ payment.user_id }}</td>
+            <td class="pt-3 pb-3">{{ payment.user_name }}</td>
             <td class="pt-3 pb-3">{{ payment.name }}</td>
             <td class="pt-3 pb-3">{{ payment.create_at }}</td>
             <td class="pt-3 pb-3"><span class="table-currency">¥</span> {{ payment.money_total }}</td>
@@ -114,7 +114,7 @@ export default {
     return {
       managementList: [
         {
-          is: null,
+          id: null,
           name: null,
           user_id: null,
           create_at: null,

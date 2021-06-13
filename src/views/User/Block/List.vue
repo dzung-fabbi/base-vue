@@ -44,7 +44,7 @@
           </thead>
           <tbody>
           <tr v-for="(user, index) in listUsers" :key="index">
-            <td class="pt-3">{{ user.id }}</td>
+            <td class="pt-3">{{ user.user_name }}</td>
             <td class="pt-3">{{ user.name }}</td>
             <td class="pt-3">{{ user.gender }}</td>
             <td class="pt-3">{{ user.block_at }}</td>

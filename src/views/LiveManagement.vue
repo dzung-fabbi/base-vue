@@ -65,7 +65,7 @@
           </thead>
           <tbody>
           <tr v-for="(live, index) in liveManagementList" :key="index">
-            <td class="pt-3 pb-3">{{ live.live_id }}</td>
+            <td class="pt-3 pb-3">{{ live.user_name }}</td>
             <td class="pt-3 pb-3">{{ live.name }}</td>
             <td class="pt-3 pb-3">{{ live.liveDate }}</td>
             <td class="pt-3 pb-3">{{ live.liveTime }}</td>
