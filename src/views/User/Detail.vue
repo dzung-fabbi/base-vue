@@ -379,7 +379,11 @@ export default {
       if (this.dataChange.sex !== '' && this.dataChange.sex !== null) {
         body.sex = this.dataChange.sex
       }
-      body.birthday = this.$dayjs(this.dataChange.birthdayChange).format('YYYY-MM-DD')
+      if (this.dataChange.birthdayChange) {
+        body.birthday = this.$dayjs(this.dataChange.birthdayChange).format('YYYY-MM-DD')
+      } else {
+        body.birthday = '';
+      }
       return body;
     },
     blockUser() {
