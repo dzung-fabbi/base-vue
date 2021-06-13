@@ -54,7 +54,7 @@
                 id="filter-user-date-picker"
                 v-model="filter.date"
                 class="mb-2 filter-user-date-picker"
-                :date-format-options="{ year: 'numeric', month: 'numeric', day: 'numeric' }"
+                :date-format-options="{ year: 'numeric', month: '2-digit', day: '2-digit' }"
                 placeholder="YYYY-MM-DD"
                 locale="ja"
                 :hide-header="true"
@@ -206,7 +206,7 @@ export default {
   },
   methods: {
     formatMoney(input) {
-      return numberWithCommas(input)
+      return numberWithCommas(input, '.')
     },
     async getUserList() {
       this.$root.$refs.loading.start();
@@ -267,6 +267,7 @@ export default {
       }
     },
     setLoginTypeText(loginType) {
+      if (!loginType) return loginType;
       return loginType.replace('_', ' ')
     },
     setLoginType(loginType, userName, googleId, lineId, appleId) {
@@ -289,7 +290,7 @@ export default {
     },
     setBirthDay(birthDay) {
       if (!birthDay) return;
-      return this.$dayjs(birthDay).format('DD.MM.YYYY');
+      return this.$dayjs(birthDay).format('YYYY-MM-DD');
     },
     handleFilterUser() {
       this.paginate.currentPage = 1;

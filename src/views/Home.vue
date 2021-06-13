@@ -8,7 +8,7 @@
             id="filter-user-date-picker"
             v-model="filter.date"
             class="input-group-text"
-            :date-format-options="{ year: 'numeric', month: 'numeric', day: 'numeric' }"
+            :date-format-options="{ year: 'numeric', month: '2-digit', day: '2-digit' }"
             placeholder="YYYY-MM-DD"
             locale="ja"
             :hide-header="true"

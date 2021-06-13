@@ -323,7 +323,7 @@ export default {
           return {
             ...revenue,
             point: this.setPointReceved(revenue.point),
-            created_at: this.$dayjs(revenue.created_at).format('DD.MM.YYYY')
+            created_at: this.$dayjs(revenue.created_at).format('YYYY-MM-DD')
           }
         });
         this.$root.$refs.loading.finish();
@@ -348,7 +348,7 @@ export default {
             ...revenue,
             coin: this.setCoin(revenue.coin),
             price: this.setPrice(revenue.price),
-            created_at: this.$dayjs(revenue.created_at).format('DD.MM.YYYY')
+            created_at: this.$dayjs(revenue.created_at).format('YYYY-MM-DD')
           }
         });
         this.$root.$refs.loading.finish();
@@ -372,7 +372,7 @@ export default {
           return {
             ...revenue,
             coin: this.setCoin(revenue.coin),
-            created_at: this.$dayjs(revenue.created_at).format('DD.MM.YYYY')
+            created_at: this.$dayjs(revenue.created_at).format('YYYY-MM-DD')
           }
         });
         this.$root.$refs.loading.finish();

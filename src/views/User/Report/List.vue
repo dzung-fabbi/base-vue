@@ -183,6 +183,7 @@ export default {
                         MODAL.MODAL_NOTICE,
                         MODAL.MODAL_TYPE_SUCCESS,
                     );
+                    this.paginate.currentPage = 1;
                     await this.getBlockUserList();
                     this.$root.$refs.loading.finish();
                   })
