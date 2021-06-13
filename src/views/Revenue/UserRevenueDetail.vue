@@ -26,7 +26,7 @@
     <div class="content-group">
         <div class="left-content">
             <div class="avatar-image d-flex flex-column">
-                <img :src="userInfo.image_cover_path || null" class="img-fluid mt-2" alt="">
+                <img :src="userInfo.image_avatar_path || null" class="img-fluid mt-2" alt="">
             </div>
             <div class="detail color-8B9DA5">
                 <div class="row mb-5">
