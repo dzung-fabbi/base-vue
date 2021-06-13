@@ -26,7 +26,7 @@
     <div class="content-group">
         <div class="left-content">
             <div class="avatar-image d-flex flex-column">
-                <img :src="userInfo.image_avatar_path || null" class="img-fluid mt-2" alt="">
+                <img :src="userInfo.image_avatar_path || null" class="img-fluid mt-2 img-background" alt="">
             </div>
             <div class="detail color-8B9DA5">
                 <div class="row mb-5">
@@ -112,7 +112,7 @@
                   </thead>
                   <tbody>
                   <tr v-for="(user, index) in tableData" :key="index">
-                    <td class="pt-3">{{ user.id }}</td>
+                    <td class="pt-3">{{ user.user_name }}</td>
                     <td class="pt-3">{{ user.name }}</td>
                     <td class="pt-3">{{ user.created_at }}</td>
                     <td class="pt-3">{{ user.point }}</td>
@@ -130,7 +130,7 @@
                   </thead>
                   <tbody>
                   <tr v-for="(user, index) in tableData" :key="index">
-                    <td class="pt-3">{{ user.id }}</td>
+                    <td class="pt-3">{{ user.user_name }}</td>
                     <td class="pt-3">{{ user.name }}</td>
                     <td class="pt-3">{{ user.created_at }}</td>
                     <td class="pt-3">{{ user.coin }}</td>
@@ -158,6 +158,7 @@
         </div>
     </div>
     <BasePaginate
+        v-if="tableData.length > 0"
         :current-page.sync="paginate.currentPage"
         :total-page.sync="paginate.total"
         :per-page.sync="paginate.perPage"
