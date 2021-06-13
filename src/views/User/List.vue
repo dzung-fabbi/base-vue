@@ -110,7 +110,7 @@
             <td class="pt-3">{{ user.gender }}</td>
             <td class="pt-3"><span class="type-login">{{ user.login_type }}: </span>{{ user.loginType }}</td>
             <td class="pt-3">{{ user.phone }}</td>
-            <td class="pt-3">{{ user.coin_balance }}<span class="table-currency"> コイン</span></td>
+            <td class="pt-3">{{ formatMoney(user.coin_balance) }}<span class="table-currency"> コイン</span></td>
             <td class="pt-3">{{ user.userType }}</td>
             <td class="pt-3">{{ user.userStatus }}</td>
             <td>
@@ -147,6 +147,7 @@ import {
   USER_TYPE_OPTIONS,
 } from "@/utils/const";
 import BasePaginate from "@/components/BasePaginate";
+import {numberWithCommas} from "../../utils/convert";
 
 export default {
   name: 'UserList',
@@ -204,6 +205,9 @@ export default {
     this.getStatisticalUser();
   },
   methods: {
+    formatMoney(input) {
+      return numberWithCommas(input)
+    },
     async getUserList() {
       this.$root.$refs.loading.start();
       const params = {};
