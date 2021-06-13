@@ -1,4 +1,4 @@
-export function numberWithCommas(x) {
+export function numberWithCommas(x, commas) {
   if (typeof x !== "number" || x.toString().length < 4) return x;
   if (
     x
@@ -7,5 +7,5 @@ export function numberWithCommas(x) {
       .includes(".00")
   )
     x = Math.floor(x);
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, commas);
 }

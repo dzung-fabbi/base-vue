@@ -134,7 +134,7 @@
                     <div class="col-12 input-group">
                       <ValidationProvider
                           name="電話番号"
-                          rules="max:20"
+                          rules="digits:20"
                           v-slot="{ errors }"
                           class="w-100"
                       >
@@ -173,7 +173,7 @@
                   </div>
                   <div class="row mb-4">
                     <div class="col-6 mb-2">生年月日</div>
-                    <div class="input-group date" id="datepicker" data-date-format="DD.MM.YYYY">
+                    <div class="input-group date" id="datepicker" data-date-format="YYYY-MM-DD">
                       <ValidationProvider
                           name="生年月日"
                           rules=""
@@ -184,7 +184,7 @@
                             id="modal-edit-user-date-picker"
                             v-model="dataChange.birthdayChange"
                             class="mb-2 modal-edit-user-date-picker"
-                            :date-format-options="{ year: 'numeric', month: 'numeric', day: 'numeric' }"
+                            :date-format-options="{ year: 'numeric', month: '2-digit', day: '2-digit' }"
                             placeholder="YYYY-MM-DD"
                             locale="ja"
                             :hide-header="true"
@@ -240,6 +240,7 @@ export default {
         like_count: 0,
         coin_balance: 0,
         status: '',
+        birthdayChange: '',
         gender: '',
         is_blocked: false,
       },
@@ -261,6 +262,7 @@ export default {
         is_blocked: false,
         url_upload_cover: '',
         url_upload_avatar: '',
+        birthdayChange: '',
       },
       isShowModal: false,
       USER_GENDER_OPTIONS,
@@ -282,7 +284,9 @@ export default {
       this.userInfo = this.$store.getters['user/userDetail'];
       if (this.userInfo.birthday) {
         this.userInfo.birthdayChange = this.$dayjs(this.userInfo.birthday).format('YYYY-MM-DD');
-        this.userInfo.birthday = this.$dayjs(this.userInfo.birthday).format('DD.MM.YYYY');
+        this.userInfo.birthday = this.$dayjs(this.userInfo.birthday).format('YYYY-MM-DD');
+      } else {
+        this.userInfo.birthdayChange = '';
       }
       this.userInfo.status = this.setUserStatus(this.userInfo.is_blocked);
       this.userInfo.gender = this.setGender(this.userInfo.sex);
@@ -370,18 +374,12 @@ export default {
       if (this.dataChange.url_upload_avatar) {
         body.image_avatar_path = this.dataChange.url_upload_avatar
       }
-      if (this.dataChange.name) {
-        body.name = this.dataChange.name
-      }
-      if (this.dataChange.phone) {
-        body.phone = this.dataChange.phone
-      }
+      body.name = this.dataChange.name
+      body.phone = this.dataChange.phone
       if (this.dataChange.sex !== '' && this.dataChange.sex !== null) {
         body.sex = this.dataChange.sex
       }
-      if (this.dataChange.birthdayChange) {
-        body.birthday = this.$dayjs(this.dataChange.birthdayChange).format('YYYY-MM-DD')
-      }
+      body.birthday = this.$dayjs(this.dataChange.birthdayChange).format('YYYY-MM-DD')
       return body;
     },
     blockUser() {
