@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="heading text-start">
-      <h2>報告一覧: 200者数</h2>
+      <h2>報告一覧: {{ paginate.totalRecord }}者数</h2>
     </div>
     <div class="content">
       <ValidationObserver v-slot="{ handleSubmit }">
@@ -45,7 +45,7 @@
           </thead>
           <tbody>
           <tr v-for="(user, index) in listUsers" :key="index">
-            <td class="pt-3">{{ user.id }}</td>
+            <td class="pt-3">{{ user.user_name }}</td>
             <td class="pt-3">{{ user.name }}</td>
             <td class="pt-3">{{ user.gender }}</td>
             <td class="pt-3">{{ user.report_count }}</td>
@@ -99,6 +99,7 @@ export default {
         {
           id: '',
           name: '',
+          user_name: '',
           gender: '',
           sex: '',
           userStatus: '',
@@ -110,7 +111,7 @@ export default {
       paginate: {
         currentPage: 1,
         total: 12,
-        totalRecord: 12,
+        totalRecord: 0,
       },
       filter: {
         id: null,
