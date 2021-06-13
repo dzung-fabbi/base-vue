@@ -83,7 +83,7 @@
                     >
                         <div class="tab-title text-start">
                             <div class="top-title">総使用コイン</div>
-                            <div class="bottom-title">{{ totalDonate }}<span class="top-currency"> コイン</span></div>
+                            <div class="bottom-title">{{ formatMoney(totalDonate) }}<span class="top-currency"> コイン</span></div>
                         </div>
                     </li>
                     <li
@@ -93,7 +93,7 @@
                     >
                         <div class="tab-title text-start">
                             <div class="top-title">総チャージ額</div>
-                            <div class="bottom-title">{{ totalPurchase }}<span class="top-currency"> コイン</span></div>
+                            <div class="bottom-title">{{ formatMoney(totalPurchase) }}<span class="top-currency"> コイン</span></div>
                         </div>
                     </li>
                 </ul>
@@ -177,6 +177,7 @@ import {
 } from "@/utils/const";
 import BasePaginate from "@/components/BasePaginate";
 import CalenderIcon from "@/components/Icon/CalenderIcon";
+import {numberWithCommas} from "@/utils/convert";
 
 export default {
   name: 'UserRevenueDetail',
@@ -392,11 +393,11 @@ export default {
     },
     setCoin(coin) {
       if (!coin) return;
-      return `${coin} コイン`;
+      return `${this.formatMoney(coin)} コイン`;
     },
     setPrice(price) {
       if (!price) return;
-      return `¥ ${price}`;
+      return `¥ ${this.formatMoney(price)}`;
     },
     changePage(page) {
       this.paginate.currentPage = page;
@@ -410,6 +411,9 @@ export default {
       if (this.filter.id) {
         this.filter.id = this.filter.id.trim();
       }
+    },
+    formatMoney(input) {
+      return numberWithCommas(input, '.')
     },
   }
 }

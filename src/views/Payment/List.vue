@@ -8,7 +8,7 @@
         <h3>総決済金額要</h3>
       </div>
       <div class="bottom-info">
-        <div><span class="top-currency">¥</span> {{ this.total }}</div>
+        <div><span class="top-currency">¥</span> {{ formatMoney(this.total) }}</div>
       </div>
     </div>
     <div class="content">
@@ -80,8 +80,8 @@
             <td class="pt-3 pb-3">{{ payment.user_name }}</td>
             <td class="pt-3 pb-3">{{ payment.name }}</td>
             <td class="pt-3 pb-3">{{ payment.create_at }}</td>
-            <td class="pt-3 pb-3"><span class="table-currency">¥</span> {{ payment.money_total }}</td>
-            <td class="pt-3 pb-3"><span class="table-currency">¥</span> {{ payment.money_receive }}</td>
+            <td class="pt-3 pb-3"><span class="table-currency">¥</span> {{ formatMoney(payment.money_total) }}</td>
+            <td class="pt-3 pb-3"><span class="table-currency">¥</span> {{ formatMoney(payment.money_receive) }}</td>
             <td class="pt-3 pb-3">{{ payment.status }}</td>
             <td class="pt-3 pb-3">{{ payment.update_at }}</td>
           </tr>
@@ -106,6 +106,7 @@ import BasePaginate from "@/components/BasePaginate";
 import {PAYMENT_MANAGEMENT_STATUS_OPTIONS, PER_PAGE_NUMBER} from "@/utils/const";
 import SearchIcon from "@/components/Icon/SearchIcon";
 import CalenderIcon from "@/components/Icon/CalenderIcon";
+import {numberWithCommas} from "@/utils/convert";
 
 export default {
   name: 'PaymentList',
@@ -201,6 +202,9 @@ export default {
         case 2: return '失敗';
         default: return '進行中';
       }
+    },
+    formatMoney(input) {
+      return numberWithCommas(input, '.')
     },
   }
 }

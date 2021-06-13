@@ -28,7 +28,7 @@
         <h3>総売上</h3>
       </div>
       <div class="bottom-info">
-        <div><span class="top-currency">¥</span> {{ this.total }}</div>
+        <div><span class="top-currency">¥</span> {{ formatMoney(this.total) }}</div>
       </div>
     </div>
     <div class="content">
@@ -84,8 +84,8 @@
             <td class="pt-3 pb-3">{{ revenue.user_name }}</td>
             <td class="pt-3 pb-3">{{ revenue.user_name }}</td>
             <td class="pt-3 pb-3">{{ revenue.create_at }}</td>
-            <td class="pt-3 pb-3"><span class="table-currency">¥ </span>{{ revenue.price }}</td>
-            <td class="pt-3 pb-3">{{ revenue.coin }}<span class="table-currency"> コイン</span></td>
+            <td class="pt-3 pb-3"><span class="table-currency">¥ </span>{{ formatMoney(revenue.price) }}</td>
+            <td class="pt-3 pb-3">{{ formatMoney(revenue.coin) }}<span class="table-currency"> コイン</span></td>
             <td class="pt-3 pb-3">{{ revenue.status }}</td>
           </tr>
           </tbody>
@@ -109,6 +109,7 @@ import BasePaginate from "@/components/BasePaginate";
 import {PER_PAGE_NUMBER, SYSTEM_REVENUE_STATUS_OPTIONS, SETTING_DATE_RANGE_LOCALE} from "@/utils/const";
 import SearchIcon from "@/components/Icon/SearchIcon";
 import CalenderIcon from "@/components/Icon/CalenderIcon";
+import {numberWithCommas} from "@/utils/convert";
 
 export default {
   name: 'RevenueSystem',
@@ -213,6 +214,9 @@ export default {
       if (this.filter.id) {
         this.filter.id = this.filter.id.trim();
       }
+    },
+    formatMoney(input) {
+      return numberWithCommas(input, '.')
     },
   }
 }
