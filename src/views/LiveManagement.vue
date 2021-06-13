@@ -70,7 +70,7 @@
             <td class="pt-3 pb-3">{{ live.liveDate }}</td>
             <td class="pt-3 pb-3">{{ live.liveTime }}</td>
             <td class="pt-3 pb-3">{{ live.new_follow_count }}</td>
-            <td class="pt-3 pb-3">{{ live.point }}</td>
+            <td class="pt-3 pb-3">{{ live.point }} Pt</td>
             <td class="pt-3 pb-3">{{ live.like_count }}</td>
             <td class="pt-3 pb-3">{{ live.view_count }}</td>
           </tr>
@@ -190,6 +190,22 @@ export default {
       let minutes = end.diff(start, 'minute');
       let hours = Math.floor(minutes / 60);
       minutes = minutes - (hours * 60);
+      let days = Math.floor(hours / 24);
+      hours = hours - (days * 24);
+      if (days > 0) {
+        if (days < 10) {
+          days = `0${days}`;
+        }
+      }
+      if (hours < 10) {
+        hours = `0${hours}`;
+      }
+      if (minutes < 10) {
+        minutes = `0${minutes}`;
+      }
+      if (days > 0) {
+        return `${days}:${hours}:${minutes}`;
+      }
       return `${hours}:${minutes}`;
     }
   }
