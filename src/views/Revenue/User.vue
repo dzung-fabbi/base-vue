@@ -88,6 +88,7 @@ import BasePaginate from "@/components/BasePaginate";
 import { PER_PAGE_NUMBER, USER_TYPE_OPTIONS } from "@/utils/const";
 import SearchIcon from "@/components/Icon/SearchIcon";
 import EyeIcon from "@/components/Icon/EyeIcon";
+import {numberWithCommas} from "@/utils/convert";
 
 export default {
   name: 'RevenueUser',
@@ -153,7 +154,7 @@ export default {
     },
     setCoin(coin) {
       if (!coin) return;
-      return `${coin} コイン`;
+      return `${this.formatMoney(coin)} コイン`;
     },
     changePage(page) {
       this.paginate.currentPage = page;
@@ -181,7 +182,10 @@ export default {
       }).catch(() => {
         this.$root.$refs.loading.finish();
       });
-    }
+    },
+    formatMoney(input) {
+      return numberWithCommas(input, '.')
+    },
   }
 }
 </script>
