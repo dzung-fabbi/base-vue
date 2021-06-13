@@ -92,7 +92,7 @@
             </thead>
             <tbody>
             <tr v-for="(user, index) in reporterList" :key="index">
-              <td class="pt-3 pb-3">{{ user.id }}</td>
+              <td class="pt-3 pb-3">{{ user.user_name }}</td>
               <td class="pt-3 pb-3">{{ user.name }}</td>
               <td class="pt-3 pb-3">{{ user.date }}</td>
               <td class="pt-3 pb-3">{{ user.userStatus }}</td>
@@ -214,7 +214,7 @@ export default {
       this.paginate.totalRecord = this.$store.getters["user/reporterList"].pagination.total_record;
       this.paginate.total = this.$store.getters["user/reporterList"].pagination.total_page;
       this.reporterList = this.reporterList.map(user => {
-        user.userStatus = this.setReporterStatus(user.is_blocked, user.is_report);
+        user.userStatus = this.setReporterStatus(user.is_block, user.is_report);
         user.gender = this.setGender(user.sex);
         user.date = this.setFormatDate(user.date);
         return user;
