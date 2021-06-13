@@ -193,7 +193,7 @@ export default {
     },
     setFormatDate(date) {
       if (!date) return;
-      return this.$dayjs(date).format('DD.MM.YY');
+      return this.$dayjs(date).format('YYYY-MM-DD');
     },
     setPaymentStatus(status) {
       switch (status) {

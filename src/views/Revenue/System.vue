@@ -196,7 +196,7 @@ export default {
     },
     setFormatDate(date) {
       if (!date) return;
-      return this.$dayjs(date).format('DD.MM.YY');
+      return this.$dayjs(date).format('YYYY-MM-DD');
     },
     setStatus(status) {
       return status ? '成功' : '失敗';
