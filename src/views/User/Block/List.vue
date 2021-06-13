@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="heading text-start">
-      <h2>ブロック一覧: 200者数</h2>
+      <h2>ブロック一覧: {{ paginate.totalRecord }}者数</h2>
     </div>
     <div class="content">
       <ValidationObserver v-slot="{ handleSubmit }">
@@ -115,7 +115,7 @@ export default {
       paginate: {
         currentPage: 1,
         total: 12,
-        totalRecord: 12,
+        totalRecord: 0,
       },
     }
   },
