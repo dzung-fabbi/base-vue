@@ -17,6 +17,7 @@
     font-weight: 500;
     text-align: left;
   }
+
   .left-heading, .right-heading {
     width: 50%;
   }
@@ -24,17 +25,20 @@
   .right-heading {
     float: right;
     padding-right: 20px;
+
     .input-group {
       width: 300px;
       float: right;
       border: 1px solid #ECF1F3;
       border-radius: 5px;
     }
+
     input, .date .input-group-text {
       background-color: #f6f9fa;
       padding: 0 0.8rem;
       border: none;
     }
+
     input:focus {
       background-color: #f6f9fa;
     }
@@ -44,53 +48,67 @@
     display: flex;
     flex-direction: row;
     width: 100%;
+
     .left-content,
     .right-content {
       margin-top: 20px;
       padding: 20px;
       border-radius: 10px;
     }
+
     .left-content {
       background-color: #fff;
       width: 400px;
       margin-right: 20px;
     }
+
     .left-content .detail {
       border: none;
     }
+
     .left-content .avatar-image img {
       align-self: center;
     }
+
     .right-content {
       width: calc(100% - 420px);
       padding-top: 0;
     }
 
     .right-content .table-content {
-        background-color: #fff;
-        padding: 0;
-        border-radius: 10px;
-        border-top: none;
-        min-height: 645px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      border-top: none;
+
+      table {
+        border-top: 1px solid #dee2e6;
+      }
     }
+
     .right-content .table-content tbody tr {
-        border-bottom: 1px solid #dee2e6;
+      border-bottom: 1px solid #dee2e6;
     }
+
     .right-content .table-content tbody tr td {
-        border-bottom-width: 0;
+      border-bottom-width: 0;
     }
+
     .right-content .table-content thead tr th:first-child,
     .right-content .table-content tbody tr td:first-child {
-        padding-left: 22px;
+      padding-left: 22px;
     }
+
     .left-content {
-        height: max-content;
+      height: max-content;
     }
+
     .left-content .detail {
-        padding-bottom: 0;
+      padding-bottom: 0;
     }
+
     .left-content .avatar-image {
-        margin-top: 10px;
+      margin-top: 10px;
     }
   }
 }
