@@ -134,7 +134,7 @@
                     <div class="col-12 input-group">
                       <ValidationProvider
                           name="電話番号"
-                          rules="digits:20"
+                          :rules="{ max:20, regex: /^[0-9+]*$/ }"
                           v-slot="{ errors }"
                           class="w-100"
                       >

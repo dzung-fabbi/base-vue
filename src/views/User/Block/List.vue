@@ -150,7 +150,7 @@ export default {
     },
     changePage(page) {
       this.paginate.currentPage = page;
-      this.getUserList();
+      this.getBlockList();
     },
     handleBlur() {
       if (this.filter.id) {
