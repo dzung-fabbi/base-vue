@@ -628,12 +628,8 @@ button {
 .modal-edit-user-date-picker label,
 .modal-edit-user-date-picker button {
   color: #8B9DA5;
-  text-align: left;
 }
 
-.filter-user-date-picker button {
-  margin-top: 2px;
-}
 
 .modal-edit-user-date-picker {
   border: 1px solid #ced4da;
@@ -713,3 +709,6 @@ button {
   margin-top: 9px;
 }
 
+.b-calendar-header {
+  display: none !important;
+}
