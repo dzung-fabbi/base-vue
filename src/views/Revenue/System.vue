@@ -17,6 +17,7 @@
               @update="getSystemRevenueList"
               :opens="'left'"
               :class="{'no-value': filterDateNull }"
+              :ranges="false"
           >
           </date-range-picker>
           <CalenderIcon class="date-range-picker-icon"/>

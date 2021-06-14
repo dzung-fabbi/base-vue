@@ -1,3 +1,5 @@
+import moment from "moment";
+
 export const MESSAGES = {
   NOTICE: "通知",
   REQUIRED: "は必須です。",
@@ -80,11 +82,11 @@ export const SETTING_DATE_RANGE_LOCALE = {
   direction: 'ltr',
   format: 'yyyy-mm-dd',
   separator: ' ~ ',
-  applyLabel: 'Apply',
-  cancelLabel: 'Cancel',
+  applyLabel: '確定する',
+  cancelLabel: 'キャンセル',
   weekLabel: 'W',
   customRangeLabel: 'Custom Range',
-  daysOfWeek: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-  monthNames: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+  daysOfWeek: ['日', '月', '火', '水', '木', '金', '土'],
+  monthNames:  moment.localeData('ja').monthsShort(),
   firstDay: 0
 };

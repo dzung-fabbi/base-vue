@@ -17,6 +17,7 @@
                 @update="changeDate"
                 :opens="'left'"
                 :class="{'no-value': filterDateNull }"
+                :ranges="false"
               />
               <CalenderIcon class="date-range-picker-icon"/>
             </div>
