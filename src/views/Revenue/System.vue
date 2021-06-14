@@ -82,7 +82,7 @@
           <tbody>
           <tr v-for="(revenue, index) in systemRevenueList" :key="index">
             <td class="pt-3 pb-3">{{ revenue.user_name }}</td>
-            <td class="pt-3 pb-3">{{ revenue.user_name }}</td>
+            <td class="pt-3 pb-3">{{ revenue.name }}</td>
             <td class="pt-3 pb-3">{{ revenue.create_at }}</td>
             <td class="pt-3 pb-3"><span class="table-currency">¥ </span>{{ formatMoney(revenue.price) }}</td>
             <td class="pt-3 pb-3">{{ formatMoney(revenue.coin) }}<span class="table-currency"> コイン</span></td>
