@@ -21,7 +21,15 @@ Object.keys(rules).forEach(rule => {
 });
 
 localize("ja", ja);
-Vue.use(BootstrapVue);
+Vue.use(BootstrapVue, {
+  BFormDatepicker: {
+    labelHelp: '',
+    labelNoDateSelected: '',
+    labelResetButton: 'リセット',
+    max: new Date(),
+    hideHeader: true
+  }
+});
 Vue.use(BootstrapVueIcons);
 Vue.use(plugins);
 Vue.use(Meta);
