@@ -80,6 +80,10 @@
     input, textarea {
       color: #8B9DA5;
       border: 1px solid #ECF1F3;
+      border-radius: 8px;
+    }
+    textarea {
+      resize: none;
     }
     .detail {
       border: none;
