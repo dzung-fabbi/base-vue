@@ -1,7 +1,7 @@
 <template>
   <div id="revenue-user">
     <div class="heading text-start">
-      <div class="left-heading"><h2>総売上</h2></div>
+      <div class="left-heading"><h2>収入管理</h2></div>
       <div class="right-heading live-management-heading">
         <button type="button"
           @click="exportData"

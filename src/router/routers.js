@@ -182,4 +182,28 @@ export default [
       requireLogin: true,
     },
   },
+  {
+    path: "/announcement",
+    component: {
+      render: c => c("router-view")
+    },
+    children: [
+      {
+        path: "",
+        name: "AnnouncementList",
+        component: () => import("../views/Announcement/List.vue"),
+        meta: {
+          requireLogin: true,
+        },
+      },
+      {
+        path: ":id",
+        name: "AnnouncementDetail",
+        component: () => import("../views/Announcement/Detail.vue"),
+        meta: {
+          requireLogin: true,
+        },
+      },
+    ]
+  },
 ];

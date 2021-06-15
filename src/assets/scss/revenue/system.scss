@@ -5,7 +5,8 @@
 
 .left-heading h2 {
   font-size: 22px;
-  font-weight: 500;
+  font-weight: 700;
+  color: #333333;
 }
 .left-heading, .right-heading {
   width: 50%;
@@ -44,4 +45,63 @@
 .content-info .bottom-info {
   font-size: 22px;
   font-weight: bold;
+}
+#announcement-detail {
+  .announcement-content {
+    width: 429px;
+    margin-top: 24px;
+    margin-left: auto;
+    margin-right: auto;
+    .main-content {
+      padding: 14px 15px;
+      word-break: break-all;
+      .announcement-text {
+        margin-top: 13px;
+        background-color: #F6F9FA;
+        border-radius: 8px;
+        padding: 14px 15px;
+      }
+    }
+  }
+  #edit-announcement-modal {
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 10;
+    &.show {
+      display: block;
+      padding-left: 0;
+      transition: all .2s;
+    }
+    .modal-body {
+      padding: 20px;
+    }
+    .dialog-edit-user {
+      width: 400px;
+    }
+    input, textarea {
+      color: #8B9DA5;
+      border: 1px solid #ECF1F3;
+    }
+    .detail {
+      border: none;
+      margin-top: 0;
+    }
+    .button-group button {
+      width: 165px;
+    }
+    .input-group-text {
+      background-color: #fff;
+    }
+    input[type="text"]:not(:last-child) {
+      margin-top: 5px;
+    }
+    .modal-title {
+      text-align: center;
+      margin-top: 25px;
+      font-weight: 500;
+      font-size: 18px;
+    }
+    .modal-content {
+      border-radius: 10px;
+    }
+  }
 }

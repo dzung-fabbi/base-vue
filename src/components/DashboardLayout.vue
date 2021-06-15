@@ -105,6 +105,14 @@
           <LiveIcon />
           <span class="span-icon">ライブ管理</span>
         </router-link>
+        <router-link
+            tag="li"
+            class="nav-item"
+            :to="{ name: 'AnnouncementList' }"
+        >
+          <AnnouncementIcon />
+          <span class="span-icon">アナウンス管理</span>
+        </router-link>
       </ul>
     </nav>
     <div class="main background-f6f9fa">
@@ -125,9 +133,11 @@ import {mapGetters} from "vuex";
 import {MESSAGES, MODAL} from "@/utils/const";
 import ArrowDownBold from "@/components/Icon/ArrowDownBold";
 import ArrowUpBold from "@/components/Icon/ArrowUpBold";
+import AnnouncementIcon from "@/components/Icon/AnnouncementIcon";
 
 export default {
   components: {
+    AnnouncementIcon,
     ArrowUpBold,
     ArrowDownBold,
     DashboardIcon,
