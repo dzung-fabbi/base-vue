@@ -25,6 +25,9 @@ export const MESSAGES = {
   ERROR_PAYMENT_SETTING_2: 'RangerFrom of next setting must be greater than RangerTo of previous setting',
   LOGOUT_SUCCESS: 'You have successfully logout',
   CANNOT_GET_DATA: 'OOP! Something went wrong!',
+  CONFIRM_DELETE_ANNOUNCEMENT: 'Are You Sure Delete This Announcement?',
+  DELETE_ANNOUNCEMENT_SUCCESS: 'Delete announcement successful',
+  DELETE_ANNOUNCEMENT_FAIL: 'Delete announcement fail',
 };
 
 
@@ -37,6 +40,7 @@ export const MODAL = {
   LABEL_CANCEL: 'Cancel',
   CONFIRM_DELETE_USER_TITLE: 'Please Confirm',
   CONFIRM_UNBLOCK_USER_TITLE: 'Please Confirm',
+  CONFIRM_DELETE_ANNOUNCEMENT_TITLE: 'Please Confirm',
 };
 
 export const USER_TYPE_OPTIONS = [

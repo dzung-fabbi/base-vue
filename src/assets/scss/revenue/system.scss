@@ -56,10 +56,18 @@
       padding: 14px 15px;
       word-break: break-all;
       .announcement-text {
+        white-space: pre;
         margin-top: 13px;
         background-color: #F6F9FA;
         border-radius: 8px;
         padding: 14px 15px;
+        div {
+          white-space:pre-wrap;
+          white-space:-moz-pre-wrap;
+          white-space:-pre-wrap;
+          white-space:-o-pre-wrap;
+          word-wrap:break-word;
+        }
       }
     }
   }
