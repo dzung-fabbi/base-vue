@@ -3,8 +3,11 @@
     <div class="heading text-start">
       <div class="left-heading"><h2>アナウンス詳細</h2></div>
       <div class="right-heading live-management-heading">
-        <button type="button"
-                class="btn btn-dark background-black float-end me-2 w-128">
+        <button
+            type="button"
+            class="btn btn-dark background-black float-end me-2 w-128"
+            v-on:click="DeleteAnnouncement"
+        >
           削除
         </button>
         <button
@@ -20,22 +23,20 @@
       <div class="main-content">
         <div class="row mb-5">
           <div class="col-5 text-start"><span>タイトル</span></div>
-          <div class="col-7 text-end"><span>7批クオツ命雑レム</span></div>
+          <div class="col-7 text-end"><span>{{ announcement.title }}</span></div>
         </div>
         <div class="row mb-5">
           <div class="col-5 text-start"><span>作成日</span></div>
-          <div class="col-7 text-end"><span>2020-08-20</span></div>
+          <div class="col-7 text-end"><span>{{ announcement.create_at }}</span></div>
         </div>
         <div class="row mb-5">
           <div class="col-5 text-start"><span>アナウンスタイプ</span></div>
-          <div class="col-7 text-end"><span>Maintain</span></div>
+          <div class="col-7 text-end"><span>{{ announcement.type }}</span></div>
         </div>
         <div class="row">
           <div class="col-12 text-start"><span>内容</span></div>
           <div class="col-12 announcement-text text-start">
-          <span>
-            クフミ多静もかくド継64情ヱ歓チ朝証イ育回すろ作近ど一支りじス告大や長表注帰多数期づぱぽた。能ご紙表セチミ種体ぼ獣2税リかげれ無洋ゃ価済ネソコ旧格ろる全稿ヱ子上聞モヤヒク築演げ役止全ヱナ本立イスたく真子切3形づラつ問構満さずゃ
-          </span>
+            <div v-html="announcement.content"></div>
           </div>
         </div>
       </div>
@@ -54,15 +55,16 @@
                     <div class="col-12 input-group">
                       <ValidationProvider
                           name="タイトル"
-                          rules="max:255"
+                          rules="required|max:255"
                           v-slot="{ errors }"
                           class="w-100"
                       >
                         <input
                             class="form-control"
                             type="text"
-                            v-model="announcementChange.name"
+                            v-model="announcementChange.title"
                             placeholder="タイトル"
+                            @blur="handleBlur"
                         >
                         <span class="error text-left f-w3">{{ errors[0] }}</span>
                       </ValidationProvider>
@@ -83,13 +85,14 @@
                             placeholder="内容"
                             rows="5"
                             v-model="announcementChange.content"
+                            @blur="handleBlur"
                         ></textarea>
                         <span class="error text-left f-w3">{{ errors[0] }}</span>
                       </ValidationProvider>
                     </div>
                   </div>
                   <div class="button-group">
-                    <button type="button" class="btn background-C4C4C4 me-2" v-on:click="showModal">キャンセル
+                    <button type="button" class="btn background-C4C4C4 me-2" v-on:click="closeModal">キャンセル
                     </button>
                     <button type="button" class="btn btn-dark background-black float-end"
                             v-on:click="handleSubmit(updateAnnouncement)">保存
@@ -105,32 +108,122 @@
   </div>
 </template>
 <script>
+import {MESSAGES, MODAL} from "@/utils/const";
+
 export default {
   data() {
-    return  {
+    return {
       isShowModal: false,
       announcement: {
-        name: '',
-        created_at: '',
+        id: '',
+        title: '',
+        create_at: '',
         type: '',
         content: '',
       },
       announcementChange: {
-        name: '',
+        id: '',
+        title: '',
         content: '',
       }
     }
+  },
+  created() {
+    this.getAnnouncementDetail();
   },
   methods: {
     showModal() {
       this.isShowModal = !this.isShowModal;
     },
-    updateAnnouncement() {
-
+    closeModal() {
+      this.isShowModal = false;
+      this.announcementChange = {...this.announcement};
+    },
+    async getAnnouncementDetail() {
+      this.$root.$refs.loading.start();
+      const params = {
+        id: this.$route.params.id
+      };
+      await this.$store.dispatch('announcement/getAnnouncementDetail', params);
+      this.announcement = this.$store.getters['announcement/announcement'];
+      this.announcement.create_at = this.formatDate(this.announcement.create_at);
+      this.announcementChange = {...this.announcement};
+      this.$root.$refs.loading.finish();
+    },
+    async updateAnnouncement() {
+      this.$root.$refs.loading.start();
+      const body = {
+        id: this.$route.params.id,
+        title: this.announcementChange.title,
+        content: this.announcementChange.content,
+      };
+      await this.$store.dispatch('announcement/updateAnnouncement', body);
+      this.isShowModal = false;
+      await this.getAnnouncementDetail();
+      this.$root.$refs.loading.finish();
+    },
+    formatDate(date) {
+      if (!date) return;
+      return this.$dayjs(date).format('YYYY-MM-DD');
+    },
+    handleBlur() {
+      if (this.announcementChange.title) {
+        this.announcementChange.title = this.announcementChange.title.trim();
+      }
+      if (this.announcementChange.content) {
+        this.announcementChange.content = this.announcementChange.content.trim();
+      }
+    },
+    async DeleteAnnouncement() {
+      let isBlock = false;
+      this.$bvModal.msgBoxConfirm(MESSAGES.CONFIRM_DELETE_ANNOUNCEMENT, {
+        title: MODAL.CONFIRM_DELETE_ANNOUNCEMENT_TITLE,
+        size: 'sm',
+        buttonSize: 'sm',
+        okVariant: 'danger',
+        okTitle: MODAL.LABEL_OK,
+        cancelTitle: MODAL.LABEL_CANCEL,
+        footerClass: 'p-2',
+        hideHeaderClose: false,
+        centered: true,
+        headerClass: 'confirm-modal',
+      })
+          .then(async value => {
+            isBlock = value;
+            if (isBlock) {
+              this.$root.$refs.loading.start();
+              const body = {
+                id: this.announcement.id,
+              }
+              await this.$store.dispatch('announcement/deleteAnnouncementDetail', body)
+                  .then(async () => {
+                    this.$toast(
+                        MESSAGES.DELETE_ANNOUNCEMENT_SUCCESS,
+                        MODAL.MODAL_NOTICE,
+                        MODAL.MODAL_TYPE_SUCCESS,
+                    );
+                    this.$router.push({name: 'AnnouncementList'});
+                    this.$root.$refs.loading.finish();
+                  })
+                  .catch(error => {
+                    console.log(error)
+                    this.$root.$refs.loading.finish();
+                    this.$toast(
+                        MESSAGES.DELETE_ANNOUNCEMENT_FAIL,
+                        MODAL.MODAL_NOTICE,
+                        MODAL.MODAL_TYPE_DANGER,
+                    );
+                  });
+            }
+          })
+          .catch(err => {
+            // An error occurred
+            console.log(err)
+          })
     }
   }
 }
 </script>
 <style scoped lang="scss">
-  @import '@/assets/scss/revenue/system.scss';
+@import '@/assets/scss/revenue/system.scss';
 </style>

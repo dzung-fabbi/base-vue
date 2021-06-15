@@ -1,6 +1,6 @@
 <template>
   <div>list
-    <router-link :to="{ name:'AnnouncementDetail', params: { id: 1 } }">
+    <router-link :to="{ name:'AnnouncementDetail', params: { id: 2 } }">
       <button class="btn">
         <EyeIcon/>
       </button>
