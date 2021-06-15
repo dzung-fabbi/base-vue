@@ -18,7 +18,14 @@
               :opens="'left'"
               :class="{'no-value': filterDateNull }"
               :ranges="false"
+              :maxDate="new Date()"
           >
+            <template #input="picker" style="min-width: 350px;">
+              <span>
+                {{ picker.startDate && $dayjs(picker.startDate).format('YYYY-MM-DD') || 'YYYY-MM-DD' }} ~ 
+                {{ picker.endDate && $dayjs(picker.endDate).format('YYYY-MM-DD') || 'YYYY-MM-DD' }}
+              </span>
+            </template>
           </date-range-picker>
           <CalenderIcon class="date-range-picker-icon"/>
         </div>
