@@ -285,7 +285,9 @@ a.navbar-brand {
 
 button,
 input,
+textarea,
 a,
+textarea:focus,
 input:focus,
 button:focus,
 select,
@@ -714,4 +716,7 @@ button {
 
 .b-calendar .b-calendar-grid {
   padding: 0 10px;
+}
+.w-128 {
+  width: 128px;
 }
